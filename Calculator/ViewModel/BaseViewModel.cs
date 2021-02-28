@@ -5,7 +5,7 @@ using System.Windows.Input;
 
 namespace Calculator.ViewModel
 {
-    public class BaseViewModel: INotifyPropertyChanged
+    public class BaseViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
