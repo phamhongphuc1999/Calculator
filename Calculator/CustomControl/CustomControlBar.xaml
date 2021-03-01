@@ -21,7 +21,13 @@
                                    CommandParameter="{Binding ElementName=customControlBar}"/>
         </i:EventTrigger>
     </i:Interaction.Triggers>
-    <materialDesign:ColorZone Mode="PrimaryMid">
+    <materialDesign:ColorZone>
+        <materialDesign:ColorZone.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                <GradientStop Color="#8c8b87" Offset="0"/>
+                <GradientStop Color="#ffff" Offset="1"/>
+            </LinearGradientBrush>
+        </materialDesign:ColorZone.Background>
         <DockPanel>
             <StackPanel DockPanel.Dock="Right" Background="Transparent" Orientation="Horizontal">
                 <Button ToolTip="Minimize" ToolBar.OverflowMode="AsNeeded" Style="{StaticResource transparentBut}"
@@ -34,7 +40,7 @@
                             CommandParameter="{Binding ElementName=customControlBar}">
                     <materialDesign:PackIcon Kind="{Binding MaximizeIcon}" />
                 </Button>
-                <Button ToolTip="Close" ToolBar.OverflowMode="AsNeeded" Style="{StaticResource transparentBut}"
+                <Button ToolTip="Close" ToolBar.OverflowMode="AsNeeded" Style="{StaticResource transparentRedBut}"
                             Command="{Binding CloseWindowCommand}"
                             CommandParameter="{Binding ElementName=customControlBar}">
                     <materialDesign:PackIcon Kind="Close" />

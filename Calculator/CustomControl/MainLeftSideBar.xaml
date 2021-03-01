@@ -1,0 +1,138 @@
+﻿<UserControl x:Class="Calculator.CustomControl.MainLeftSideBar"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+             TextElement.FontWeight="Regular"
+             TextElement.FontSize="13"
+             TextOptions.TextFormattingMode="Ideal"
+             TextOptions.TextRenderingMode="Auto"
+             Background="{DynamicResource MaterialDesignPaper}"
+             FontFamily="{DynamicResource MaterialDesignFont}"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Calculator.CustomControl"
+             mc:Ignorable="d" Name="mainLeftSideBar"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <StackPanel>
+        <ToggleButton VerticalAlignment="Center" HorizontalAlignment="Left" Width="40" Height="40"
+                      BorderThickness="0">
+            <ToggleButton.Background>
+                <ImageBrush ImageSource="../Images/tgBtn_default.png" Stretch="None"/>
+            </ToggleButton.Background>
+        </ToggleButton>
+        <ListView x:Name="mainListView" Background="Transparent"
+                BorderBrush="Transparent">
+            <TextBlock>Calculator</TextBlock>
+            <ListViewItem HorizontalAlignment="Left" Margin="0">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="Calculator" />
+                    <TextBlock Text="Standard"/>
+                </StackPanel>
+            </ListViewItem>
+            <ListViewItem HorizontalAlignment="Left" Margin="0">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="Atom" />
+                    <TextBlock Text="Scientific"/>
+                </StackPanel>
+            </ListViewItem>
+            <ListViewItem HorizontalAlignment="Left" Margin="0">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="Graphql" />
+                    <TextBlock Text="Graphing"/>
+                </StackPanel>
+            </ListViewItem>
+            <ListViewItem HorizontalAlignment="Left" Margin="0">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="Xml" />
+                    <TextBlock Text="Programmer"/>
+                </StackPanel>
+            </ListViewItem>
+            <ListViewItem HorizontalAlignment="Left" Margin="0">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="CalendarRange" />
+                    <TextBlock Text="Date Calculation"/>
+                </StackPanel>
+            </ListViewItem>
+            <TextBlock>Converter</TextBlock>
+            <ListViewItem HorizontalAlignment="Left" Margin="0">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="Cash" />
+                    <TextBlock Text="Currency"/>
+                </StackPanel>
+            </ListViewItem>
+            <ListViewItem HorizontalAlignment="Left" Margin="0">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="Cube" />
+                    <TextBlock Text="Volume"/>
+                </StackPanel>
+            </ListViewItem>
+            <ListViewItem HorizontalAlignment="Left" Margin="0">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="Ruler" />
+                    <TextBlock Text="Length"/>
+                </StackPanel>
+            </ListViewItem>
+            <ListViewItem HorizontalAlignment="Left" Margin="0">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="Weight" />
+                    <TextBlock Text="Weight and Mass"/>
+                </StackPanel>
+            </ListViewItem>
+            <ListViewItem HorizontalAlignment="Left" Margin="0">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="CoolantTemperature" />
+                    <TextBlock Text="Temperature"/>
+                </StackPanel>
+            </ListViewItem>
+            <ListViewItem HorizontalAlignment="Left" Margin="0">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="Fire" />
+                    <TextBlock Text="Energy"/>
+                </StackPanel>
+            </ListViewItem>
+            <ListViewItem HorizontalAlignment="Left" Margin="0">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="TextureBox" />
+                    <TextBlock Text="Area"/>
+                </StackPanel>
+            </ListViewItem>
+            <ListViewItem HorizontalAlignment="Left" Margin="0">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="Run" />
+                    <TextBlock Text="Speed"/>
+                </StackPanel>
+            </ListViewItem>
+            <ListViewItem HorizontalAlignment="Left" Margin="0">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="ClockTimeThreeOutline" />
+                    <TextBlock Text="Time"/>
+                </StackPanel>
+            </ListViewItem>
+            <ListViewItem HorizontalAlignment="Left" Margin="0">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="Flash" />
+                    <TextBlock Text="Power"/>
+                </StackPanel>
+            </ListViewItem>
+            <ListViewItem HorizontalAlignment="Left" Margin="0">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="Database" />
+                    <TextBlock Text="Data"/>
+                </StackPanel>
+            </ListViewItem>
+            <ListViewItem HorizontalAlignment="Left" Margin="0">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="Speedometer" />
+                    <TextBlock Text="Pressure"/>
+                </StackPanel>
+            </ListViewItem>
+            <ListViewItem HorizontalAlignment="Left" Margin="0">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="AngleAcute" />
+                    <TextBlock Text="Angle"/>
+                </StackPanel>
+            </ListViewItem>
+        </ListView>
+    </StackPanel>
+</UserControl>

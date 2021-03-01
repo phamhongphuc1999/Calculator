@@ -1,6 +1,6 @@
 # Calculator
 - [XamlToolKit](https://github.com/MaterialDesignInXAML/MaterialDesignInXamlToolkit)
 ### Package
-    <PackageReference Include="MaterialDesignThemes" Version="4.0.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.3" />
-    <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.31" />
+    <package id="MaterialDesignColors" version="2.0.0" targetFramework="net472" />
+	<package id="MaterialDesignThemes" version="4.0.0" targetFramework="net472" />
+	<package id="System.Windows.Interactivity.WPF" version="2.0.20525" targetFramework="net472" />

@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Calculator.CustomControl
 {
     /// <summary>
-    /// Interaction logic for CustomLeftSideBar.xaml
+    /// Interaction logic for MainLeftSideBar.xaml
     /// </summary>
-    public partial class CustomLeftSideBar : UserControl
+    public partial class MainLeftSideBar : UserControl
     {
-        public CustomLeftSideBar()
+        public MainLeftSideBar()
         {
             InitializeComponent();
         }

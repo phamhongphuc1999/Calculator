@@ -13,34 +13,39 @@
         xmlns:local="clr-namespace:Calculator.View"
         xmlns:customcontrol="clr-namespace:Calculator.CustomControl"
         mc:Ignorable="d" WindowStartupLocation="CenterScreen" Name="mainWindow"
-        Title="Calculator" Height="650" Width="800" WindowStyle="None"
-        Icon="pack://application:,,,/Images/main.ico" Background="#FF9C9797"
-        Topmost="True">
+        Title="Calculator" Height="650" Width="800" WindowStyle="None" AllowsTransparency="True"
+        Icon="pack://application:,,,/Images/main.ico" Topmost="False">
     <Grid>
-        <Grid>
-            <Grid.Resources >
-                <Style TargetType="Border" >
-                    <Setter Property="Margin" Value="0" />
-                    <Setter Property="Padding" Value="0" />
-                </Style>
-            </Grid.Resources>
-            <Grid.Background>
-                <LinearGradientBrush EndPoint="1,0" StartPoint="0,1">
-                    <GradientStop Color="#8c8b87" Offset="0"/>
-                    <GradientStop Color="#ffff" Offset="1"/>
-                </LinearGradientBrush>
-            </Grid.Background>
-
-            <Grid.RowDefinitions>
-                <RowDefinition Height="auto"></RowDefinition>
-                <RowDefinition Height="auto"></RowDefinition>
-                <RowDefinition></RowDefinition>
-            </Grid.RowDefinitions>
-            <customcontrol:CustomControlBar Grid.Row="0" Tag="{Binding ElementName=mainWindow, Path=Title}"/>
-            <customcontrol:CustomSubControlBar Grid.Row="1" />
-        </Grid>
-        <Grid HorizontalAlignment="Left" Width="65" Background="#2E333A">
-            <TextBlock></TextBlock>
+        <Grid.Resources >
+            <Style TargetType="Border" >
+                <Setter Property="Margin" Value="0" />
+                <Setter Property="Padding" Value="0" />
+                <Setter Property="BorderBrush" Value="Transparent"/>
+                <Setter Property="BorderThickness" Value="0"/>
+            </Style>
+        </Grid.Resources>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="1,0" StartPoint="0,1">
+                <GradientStop Color="#8c8b87" Offset="0"/>
+                <GradientStop Color="#ffff" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <customcontrol:CustomControlBar Grid.Row="0" Tag="{Binding ElementName=mainWindow, Path=Title}" />
+        <Grid Grid.Row="1">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <customcontrol:CustomSubControlBar Grid.Row="0" Tag="{Binding ElementName=mainWindow, Path=Title}" />
+            </Grid>
+            <Grid HorizontalAlignment="Left" Width="165" Background="Red">
+                <customcontrol:MainLeftSideBar></customcontrol:MainLeftSideBar>
+            </Grid>
         </Grid>
     </Grid>
 </Window>
