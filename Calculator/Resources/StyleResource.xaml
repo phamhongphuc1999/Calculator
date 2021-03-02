@@ -27,4 +27,13 @@
             </Trigger>
         </Style.Triggers>
     </Style>
+    <Style TargetType="TextBlock" x:Key="boldText">
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="FontSize" Value="20"/>
+    </Style>
+    <Style TargetType="ListViewItem" x:Key="mainListViewItem">
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="Margin" Value="0"/>
+        <Setter Property="Padding" Value="10"/>
+    </Style>
 </ResourceDictionary>

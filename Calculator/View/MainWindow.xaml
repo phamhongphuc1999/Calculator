@@ -32,19 +32,63 @@
         </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <customcontrol:CustomControlBar Grid.Row="0" Tag="{Binding ElementName=mainWindow, Path=Title}" />
         <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0" Width="165" Background="White">
+                <ToggleButton VerticalAlignment="Center" HorizontalAlignment="Center" Width="40" Height="40"
+                      BorderThickness="0">
+                    <ToggleButton.Background>
+                        <ImageBrush ImageSource="../Images/tgBtn_default.png" Stretch="None"/>
+                    </ToggleButton.Background>
+                    <ToggleButton.Triggers>
+                        <EventTrigger RoutedEvent="ToggleButton.Unchecked">
+                            <BeginStoryboard>
+                                <Storyboard x:Name="HideListView">
+                                    <DoubleAnimation
+                                Storyboard.TargetName="mainLeftSidebar"
+                                Storyboard.TargetProperty="Width"
+                                BeginTime="0:0:0"
+                                From="165" To="0"
+                                Duration="0:0:0.2">
+                                    </DoubleAnimation>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                        <EventTrigger RoutedEvent="ToggleButton.Checked">
+                            <BeginStoryboard>
+                                <Storyboard x:Name="ShowListView">
+                                    <DoubleAnimation   
+                                Storyboard.TargetName="mainLeftSidebar"
+                                Storyboard.TargetProperty="Width"
+                                BeginTime="0:0:0"
+                                From="0" To="165"
+                                Duration="0:0:0.3">
+                                    </DoubleAnimation>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </ToggleButton.Triggers>
+                </ToggleButton>
+            </Grid>
+            <customcontrol:CustomSubControlBar Grid.Column="1" Tag="{Binding ElementName=mainWindow, Path=Title}" />
+        </Grid>
+        
+        <Grid Grid.Row="2">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto"></RowDefinition>
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
-                <customcontrol:CustomSubControlBar Grid.Row="0" Tag="{Binding ElementName=mainWindow, Path=Title}" />
             </Grid>
-            <Grid HorizontalAlignment="Left" Width="165" Background="Red">
-                <customcontrol:MainLeftSideBar></customcontrol:MainLeftSideBar>
+            <Grid HorizontalAlignment="Left" Width="auto" Background="Red">
+                <customcontrol:MainLeftSideBar Width="165" x:Name="mainLeftSidebar" />
             </Grid>
         </Grid>
     </Grid>

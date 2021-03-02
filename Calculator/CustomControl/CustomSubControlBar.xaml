@@ -23,7 +23,7 @@
         </materialDesign:ColorZone.Background>
         <DockPanel>
             <StackPanel Orientation="Horizontal">
-                <TextBlock VerticalAlignment="Center" Margin="50 0 0 0" FontWeight="Bold" FontSize="20"
+                <TextBlock VerticalAlignment="Center" Margin="50 0 0 0" Style="{StaticResource boldText}"
                            Text="{Binding ElementName=customSubControlBar, Path=Tag}">
                 </TextBlock>
             </StackPanel>
