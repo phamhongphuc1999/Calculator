@@ -14,7 +14,8 @@
         xmlns:customcontrol="clr-namespace:Calculator.CustomControl"
         mc:Ignorable="d" WindowStartupLocation="CenterScreen" Name="mainWindow"
         Title="Calculator" Height="650" Width="800" WindowStyle="None" AllowsTransparency="True"
-        Icon="pack://application:,,,/Images/main.ico" Topmost="False">
+        Icon="pack://application:,,,/Images/main.ico" Topmost="False"
+        DataContext="{StaticResource mainViewModel}">
     <Grid>
         <Grid.Resources >
             <Style TargetType="Border" >
@@ -43,7 +44,7 @@
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="0" Width="165" Background="White">
                 <ToggleButton VerticalAlignment="Center" HorizontalAlignment="Center" Width="40" Height="40"
-                      BorderThickness="0">
+                      BorderThickness="0" IsChecked="True">
                     <ToggleButton.Background>
                         <ImageBrush ImageSource="../Images/tgBtn_default.png" Stretch="None"/>
                     </ToggleButton.Background>
@@ -88,7 +89,8 @@
                 </Grid.RowDefinitions>
             </Grid>
             <Grid HorizontalAlignment="Left" Width="auto" Background="Red">
-                <customcontrol:MainLeftSideBar Width="165" x:Name="mainLeftSidebar" />
+                <customcontrol:MainLeftSideBar Width="165" x:Name="mainLeftSidebar" 
+                                               StandardClick="{Binding StandardClickCommand}"/>
             </Grid>
         </Grid>
     </Grid>
