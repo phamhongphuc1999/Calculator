@@ -12,140 +12,28 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Calculator.CustomControl"
-             mc:Ignorable="d" Name="mainLeftSideBar"
-             d:DesignHeight="450" d:DesignWidth="800">
+             mc:Ignorable="d" Name="mainLeftSideBar">
     <StackPanel>
-        <ListView x:Name="mainListView" Background="Transparent" BorderBrush="Transparent">
-            <TextBlock Style="{StaticResource boldText}"
-                       Width="{Binding ElementName=mainLeftSideBar, Path=Width}">Calculator</TextBlock>
-            <ListViewItem Width="{Binding ElementName=mainLeftSideBar, Path=Width}"
-                          Style="{StaticResource mainListViewItem}">
-                <StackPanel Orientation="Horizontal">
-                    <materialDesign:PackIcon Kind="Calculator" />
-                    <TextBlock Text="Standard"/>
-                </StackPanel>
-            </ListViewItem>
-            <ListViewItem Width="{Binding ElementName=mainLeftSideBar, Path=Width}"
-                          Style="{StaticResource mainListViewItem}">
-                <StackPanel Orientation="Horizontal">
-                    <materialDesign:PackIcon Kind="Atom" />
-                    <TextBlock Text="Scientific"/>
-                </StackPanel>
-            </ListViewItem>
-            <ListViewItem Width="{Binding ElementName=mainLeftSideBar, Path=Width}"
-                          Style="{StaticResource mainListViewItem}">
-                <StackPanel Orientation="Horizontal">
-                    <materialDesign:PackIcon Kind="Graphql" />
-                    <TextBlock Text="Graphing"/>
-                </StackPanel>
-            </ListViewItem>
-            <ListViewItem Width="{Binding ElementName=mainLeftSideBar, Path=Width}"
-                          Style="{StaticResource mainListViewItem}">
-                <StackPanel Orientation="Horizontal">
-                    <materialDesign:PackIcon Kind="Xml" />
-                    <TextBlock Text="Programmer"/>
-                </StackPanel>
-            </ListViewItem>
-            <ListViewItem Width="{Binding ElementName=mainLeftSideBar, Path=Width}"
-                          Style="{StaticResource mainListViewItem}">
-                <StackPanel Orientation="Horizontal">
-                    <materialDesign:PackIcon Kind="CalendarRange" />
-                    <TextBlock Text="Date Calculation"/>
-                </StackPanel>
-            </ListViewItem>
-            <TextBlock Style="{StaticResource boldText}"
-                       Width="{Binding ElementName=mainLeftSideBar, Path=Width}">Converter</TextBlock>
-            <ListViewItem Width="{Binding ElementName=mainLeftSideBar, Path=Width}"
-                          Style="{StaticResource mainListViewItem}">
-                <StackPanel Orientation="Horizontal">
-                    <materialDesign:PackIcon Kind="Cash" />
-                    <TextBlock Text="Currency"/>
-                </StackPanel>
-            </ListViewItem>
-            <ListViewItem Width="{Binding ElementName=mainLeftSideBar, Path=Width}"
-                          Style="{StaticResource mainListViewItem}">
-                <StackPanel Orientation="Horizontal">
-                    <materialDesign:PackIcon Kind="Cube" />
-                    <TextBlock Text="Volume"/>
-                </StackPanel>
-            </ListViewItem>
-            <ListViewItem Width="{Binding ElementName=mainLeftSideBar, Path=Width}"
-                          Style="{StaticResource mainListViewItem}">
-                <StackPanel Orientation="Horizontal">
-                    <materialDesign:PackIcon Kind="Ruler" />
-                    <TextBlock Text="Length"/>
-                </StackPanel>
-            </ListViewItem>
-            <ListViewItem Width="{Binding ElementName=mainLeftSideBar, Path=Width}"
-                          Style="{StaticResource mainListViewItem}">
-                <StackPanel Orientation="Horizontal">
-                    <materialDesign:PackIcon Kind="Weight" />
-                    <TextBlock Text="Weight and Mass"/>
-                </StackPanel>
-            </ListViewItem>
-            <ListViewItem Width="{Binding ElementName=mainLeftSideBar, Path=Width}"
-                          Style="{StaticResource mainListViewItem}">
-                <StackPanel Orientation="Horizontal">
-                    <materialDesign:PackIcon Kind="CoolantTemperature" />
-                    <TextBlock Text="Temperature"/>
-                </StackPanel>
-            </ListViewItem>
-            <ListViewItem Width="{Binding ElementName=mainLeftSideBar, Path=Width}"
-                          Style="{StaticResource mainListViewItem}">
-                <StackPanel Orientation="Horizontal">
-                    <materialDesign:PackIcon Kind="Fire" />
-                    <TextBlock Text="Energy"/>
-                </StackPanel>
-            </ListViewItem>
-            <ListViewItem Width="{Binding ElementName=mainLeftSideBar, Path=Width}"
-                          Style="{StaticResource mainListViewItem}">
-                <StackPanel Orientation="Horizontal">
-                    <materialDesign:PackIcon Kind="TextureBox" />
-                    <TextBlock Text="Area"/>
-                </StackPanel>
-            </ListViewItem>
-            <ListViewItem Width="{Binding ElementName=mainLeftSideBar, Path=Width}"
-                          Style="{StaticResource mainListViewItem}">
-                <StackPanel Orientation="Horizontal">
-                    <materialDesign:PackIcon Kind="Run" />
-                    <TextBlock Text="Speed"/>
-                </StackPanel>
-            </ListViewItem>
-            <ListViewItem Width="{Binding ElementName=mainLeftSideBar, Path=Width}"
-                          Style="{StaticResource mainListViewItem}">
-                <StackPanel Orientation="Horizontal">
-                    <materialDesign:PackIcon Kind="ClockTimeThreeOutline" />
-                    <TextBlock Text="Time"/>
-                </StackPanel>
-            </ListViewItem>
-            <ListViewItem Width="{Binding ElementName=mainLeftSideBar, Path=Width}"
-                          Style="{StaticResource mainListViewItem}">
-                <StackPanel Orientation="Horizontal">
-                    <materialDesign:PackIcon Kind="Flash" />
-                    <TextBlock Text="Power"/>
-                </StackPanel>
-            </ListViewItem>
-            <ListViewItem Width="{Binding ElementName=mainLeftSideBar, Path=Width}"
-                          Style="{StaticResource mainListViewItem}">
-                <StackPanel Orientation="Horizontal">
-                    <materialDesign:PackIcon Kind="Database" />
-                    <TextBlock Text="Data"/>
-                </StackPanel>
-            </ListViewItem>
-            <ListViewItem Width="{Binding ElementName=mainLeftSideBar, Path=Width}"
-                          Style="{StaticResource mainListViewItem}">
-                <StackPanel Orientation="Horizontal">
-                    <materialDesign:PackIcon Kind="Speedometer" />
-                    <TextBlock Text="Pressure"/>
-                </StackPanel>
-            </ListViewItem>
-            <ListViewItem Width="{Binding ElementName=mainLeftSideBar, Path=Width}"
-                          Style="{StaticResource mainListViewItem}">
-                <StackPanel Orientation="Horizontal">
-                    <materialDesign:PackIcon Kind="AngleAcute" />
-                    <TextBlock Text="Angle"/>
-                </StackPanel>
-            </ListViewItem>
-        </ListView>
+        <TextBlock Style="{StaticResource boldText}" Width="{Binding ElementName=mainLeftSideBar, Path=Width}">Calculator</TextBlock>
+        <local:MainLeftItem CustomTitle="Standard" CustomIcon="Calculator" CustomWidth="{Binding ElementName=mainLeftSideBar, Path=Width}" 
+                            CustomClickCommand="{Binding StandardClick}"/>
+        <local:MainLeftItem CustomTitle="Scientific" CustomIcon="Atom" CustomWidth="{Binding ElementName=mainLeftSideBar, Path=Width}" />
+        <local:MainLeftItem CustomTitle="Graphing" CustomIcon="Graphql" CustomWidth="{Binding ElementName=mainLeftSideBar, Path=Width}" />
+        <local:MainLeftItem CustomTitle="Programmer" CustomIcon="Xml" CustomWidth="{Binding ElementName=mainLeftSideBar, Path=Width}" />
+        <local:MainLeftItem CustomTitle="Date Calculation" CustomIcon="CalendarRange" CustomWidth="{Binding ElementName=mainLeftSideBar, Path=Width}" />
+        <TextBlock Style="{StaticResource boldText}" Width="{Binding ElementName=mainLeftSideBar, Path=Width}">Converter</TextBlock>
+        <local:MainLeftItem CustomTitle="Currency" CustomIcon="Cash" CustomWidth="{Binding ElementName=mainLeftSideBar, Path=Width}" />
+        <local:MainLeftItem CustomTitle="Volume" CustomIcon="Cube" CustomWidth="{Binding ElementName=mainLeftSideBar, Path=Width}" />
+        <local:MainLeftItem CustomTitle="Length" CustomIcon="Ruler" CustomWidth="{Binding ElementName=mainLeftSideBar, Path=Width}" />
+        <local:MainLeftItem CustomTitle="Weight and Mass" CustomIcon="Weight" CustomWidth="{Binding ElementName=mainLeftSideBar, Path=Width}" />
+        <local:MainLeftItem CustomTitle="Temperature" CustomIcon="CoolantTemperature" CustomWidth="{Binding ElementName=mainLeftSideBar, Path=Width}" />
+        <local:MainLeftItem CustomTitle="Energy" CustomIcon="Fire" CustomWidth="{Binding ElementName=mainLeftSideBar, Path=Width}" />
+        <local:MainLeftItem CustomTitle="Area" CustomIcon="TextureBox" CustomWidth="{Binding ElementName=mainLeftSideBar, Path=Width}" />
+        <local:MainLeftItem CustomTitle="Speed" CustomIcon="Run" CustomWidth="{Binding ElementName=mainLeftSideBar, Path=Width}" />
+        <local:MainLeftItem CustomTitle="Time" CustomIcon="ClockTimeThreeOutline" CustomWidth="{Binding ElementName=mainLeftSideBar, Path=Width}" />
+        <local:MainLeftItem CustomTitle="Power" CustomIcon="Flash" CustomWidth="{Binding ElementName=mainLeftSideBar, Path=Width}" />
+        <local:MainLeftItem CustomTitle="Data" CustomIcon="Database" CustomWidth="{Binding ElementName=mainLeftSideBar, Path=Width}" />
+        <local:MainLeftItem CustomTitle="Pressure" CustomIcon="Speedometer" CustomWidth="{Binding ElementName=mainLeftSideBar, Path=Width}" />
+        <local:MainLeftItem CustomTitle="Angle" CustomIcon="AngleAcute" CustomWidth="{Binding ElementName=mainLeftSideBar, Path=Width}" />
     </StackPanel>
 </UserControl>

@@ -77,6 +77,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="CustomControl\MainLeftItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="CustomControl\MainLeftSideBar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -103,11 +107,15 @@
     <Compile Include="CustomControl\CustomSubControlBar.xaml.cs">
       <DependentUpon>CustomSubControlBar.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CustomControl\MainLeftItem.xaml.cs">
+      <DependentUpon>MainLeftItem.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CustomControl\MainLeftSideBar.xaml.cs">
       <DependentUpon>MainLeftSideBar.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\CustomControlBarViewModel.cs" />
+    <Compile Include="ViewModel\MainLeftViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -147,6 +155,9 @@
   <ItemGroup>
     <Resource Include="Images\tgBtn_default.png" />
     <Resource Include="Images\tgBtn_MouseOver.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Model\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets')" />
