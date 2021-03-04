@@ -77,14 +77,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="CustomControl\MainLeftItem.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="CustomControl\MainLeftSideBar.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Resources\StyleResource.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -101,21 +93,16 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Constance.cs" />
     <Compile Include="CustomControl\CustomControlBar.xaml.cs">
       <DependentUpon>CustomControlBar.xaml</DependentUpon>
     </Compile>
     <Compile Include="CustomControl\CustomSubControlBar.xaml.cs">
       <DependentUpon>CustomSubControlBar.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CustomControl\MainLeftItem.xaml.cs">
-      <DependentUpon>MainLeftItem.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="CustomControl\MainLeftSideBar.xaml.cs">
-      <DependentUpon>MainLeftSideBar.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="Utilities.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\CustomControlBarViewModel.cs" />
-    <Compile Include="ViewModel\MainLeftViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

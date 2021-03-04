@@ -31,14 +31,16 @@
         <Setter Property="FontWeight" Value="Bold"/>
         <Setter Property="FontSize" Value="20"/>
     </Style>
-    <Style TargetType="Button" x:Key="mainLeftButtonItem">
+    <Style TargetType="ListViewItem" x:Key="mainLeftItem">
         <Setter Property="Width" Value="165"/>
+        <Setter Property="Height" Value="40"/>
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
         <Setter Property="Padding" Value="10"/>
-        <Setter Property="Template">
+        <!--<Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type Button}">
+                <ControlTemplate TargetType="{x:Type ListViewItem}">
                     <Border Background="{TemplateBinding Background}" BorderBrush="Transparent">
                         <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"
                                           Margin="{TemplateBinding Padding}"/>
@@ -50,6 +52,6 @@
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Background" Value="#8c8b87"/>
             </Trigger>
-        </Style.Triggers>
+        </Style.Triggers>-->
     </Style>
 </ResourceDictionary>

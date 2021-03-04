@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.Windows.Controls;
 
 namespace Calculator.View
 {
@@ -10,6 +11,11 @@ namespace Calculator.View
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void MainLeftSidebar_ScrollChanged(object sender, ScrollChangedEventArgs e)
+        {
+
         }
     }
 }
