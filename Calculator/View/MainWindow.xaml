@@ -67,12 +67,6 @@
                                             BeginTime="0:0:0"
                                             From="165" To="0"
                                             Duration="0:0:0.2" />
-                                        <DoubleAnimation
-                                            Storyboard.TargetName="GridCursor"
-                                            Storyboard.TargetProperty="Width"
-                                            BeginTime="0:0:0"
-                                            From="5" To="0"
-                                            Duration="0:0:0.2" />
                                     </Storyboard>
                                 </BeginStoryboard>
                             </EventTrigger>
@@ -91,12 +85,6 @@
                                             BeginTime="0:0:0"
                                             From="0" To="165"
                                             Duration="0:0:0.3" />
-                                        <DoubleAnimation
-                                            Storyboard.TargetName="GridCursor"
-                                            Storyboard.TargetProperty="Width"
-                                            BeginTime="0:0:0"
-                                            From="0" To="5"
-                                            Duration="0:0:0.1" />
                                     </Storyboard>
                                 </BeginStoryboard>
                             </EventTrigger>
@@ -114,12 +102,13 @@
                 </Grid.RowDefinitions>
             </Grid>
             <Grid HorizontalAlignment="Left" Width="auto">
-                <materialDesign:TransitioningContent x:Name="TrainsitionigContentSlide" OpeningEffect="{materialDesign:TransitionEffect SlideInFromLeft, Duration=0:0:0.2}">
-                    <Grid x:Name="GridCursor" Margin="0 40 0 0" Background="#FF0069C0" Width="5" HorizontalAlignment="Left" Height="40" VerticalAlignment="Top"/>
-                </materialDesign:TransitioningContent>
                 <ListView ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Visible"
-                          Width="165" x:Name="mainLeftSidebar" ScrollViewer.ScrollChanged="MainLeftSidebar_ScrollChanged">
+                          Width="165" x:Name="mainLeftSidebar">
                     <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="PreviewMouseLeftButtonDown">
+                            <i:InvokeCommandAction Command="{Binding PreviewMouseLeftButtonDownCommand}" 
+                                                   CommandParameter="{Binding ElementName=mainWindow}"/>
+                        </i:EventTrigger>
                         <i:EventTrigger EventName="SelectionChanged">
                             <i:InvokeCommandAction Command="{Binding SelectionChangedCommand}" 
                                                    CommandParameter="{Binding ElementName=mainWindow}"/>
@@ -127,7 +116,7 @@
                     </i:Interaction.Triggers>
                     <TextBlock Style="{StaticResource boldText}" Width="165">Calculator</TextBlock>
                     <ListViewItem Style="{StaticResource mainLeftItem}">
-                        <StackPanel Orientation="Horizontal" Width="165">
+                        <StackPanel Orientation="Horizontal" Width="165" Height="40">
                             <materialDesign:PackIcon Margin="0 0 15 0" Kind="Calculator" />
                             <TextBlock Text="Standard"/>
                         </StackPanel>
