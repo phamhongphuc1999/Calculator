@@ -17,7 +17,7 @@
         Icon="pack://application:,,,/Images/main.ico" Topmost="False"
         DataContext="{StaticResource mainViewModel}">
     <Grid>
-        <Grid.Resources >
+        <Grid.Resources>
             <Style TargetType="Border" >
                 <Setter Property="Margin" Value="0" />
                 <Setter Property="Padding" Value="0" />
@@ -42,45 +42,58 @@
                 <ColumnDefinition Width="auto"></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Grid Grid.Column="0" Width="165" Background="White">
-                <ToggleButton VerticalAlignment="Center" HorizontalAlignment="Center" Width="40" Height="40"
+            <Grid Grid.Column="0" Width="auto">
+                <Grid Width="165" Background="White" x:Name="backgroupGrid"></Grid>
+                <Grid Width="165" Background="Transparent">
+                    <ToggleButton VerticalAlignment="Center" HorizontalAlignment="Center" Width="40" Height="40"
                       BorderThickness="0" IsChecked="True">
-                    <ToggleButton.Background>
-                        <ImageBrush ImageSource="../Images/tgBtn_default.png" Stretch="None"/>
-                    </ToggleButton.Background>
-                    <ToggleButton.Triggers>
-                        <EventTrigger RoutedEvent="ToggleButton.Unchecked">
-                            <BeginStoryboard>
-                                <Storyboard x:Name="HideListView">
-                                    <DoubleAnimation
-                                Storyboard.TargetName="mainLeftSidebar"
-                                Storyboard.TargetProperty="Width"
-                                BeginTime="0:0:0"
-                                From="165" To="0"
-                                Duration="0:0:0.2">
-                                    </DoubleAnimation>
-                                </Storyboard>
-                            </BeginStoryboard>
-                        </EventTrigger>
-                        <EventTrigger RoutedEvent="ToggleButton.Checked">
-                            <BeginStoryboard>
-                                <Storyboard x:Name="ShowListView">
-                                    <DoubleAnimation   
-                                Storyboard.TargetName="mainLeftSidebar"
-                                Storyboard.TargetProperty="Width"
-                                BeginTime="0:0:0"
-                                From="0" To="165"
-                                Duration="0:0:0.3">
-                                    </DoubleAnimation>
-                                </Storyboard>
-                            </BeginStoryboard>
-                        </EventTrigger>
-                    </ToggleButton.Triggers>
-                </ToggleButton>
+                        <ToggleButton.Background>
+                            <ImageBrush ImageSource="../Images/tgBtn_default.png" Stretch="None"/>
+                        </ToggleButton.Background>
+                        <ToggleButton.Triggers>
+                            <EventTrigger RoutedEvent="ToggleButton.Unchecked">
+                                <BeginStoryboard>
+                                    <Storyboard x:Name="HideListView">
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="mainLeftSidebar"
+                                            Storyboard.TargetProperty="Width"
+                                            BeginTime="0:0:0"
+                                            From="165" To="0"
+                                            Duration="0:0:0.2" />
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="backgroupGrid"
+                                            Storyboard.TargetProperty="Width"
+                                            BeginTime="0:0:0"
+                                            From="165" To="0"
+                                            Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="ToggleButton.Checked">
+                                <BeginStoryboard>
+                                    <Storyboard x:Name="ShowListView">
+                                        <DoubleAnimation   
+                                            Storyboard.TargetName="mainLeftSidebar"
+                                            Storyboard.TargetProperty="Width"
+                                            BeginTime="0:0:0"
+                                            From="0" To="165"
+                                            Duration="0:0:0.3" />
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="backgroupGrid"
+                                            Storyboard.TargetProperty="Width"
+                                            BeginTime="0:0:0"
+                                            From="0" To="165"
+                                            Duration="0:0:0.3" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </ToggleButton.Triggers>
+                    </ToggleButton>
+                </Grid>
             </Grid>
             <customcontrol:CustomSubControlBar Grid.Column="1" Tag="{Binding ElementName=mainWindow, Path=Title}" />
         </Grid>
-        
+
         <Grid Grid.Row="2">
             <Grid>
                 <Grid.RowDefinitions>
