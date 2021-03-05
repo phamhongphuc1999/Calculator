@@ -6,6 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:standard="clr-namespace:Calculator.View.StandardWindow"
+        xmlns:scientific="clr-namespace:Calculator.View.ScientificWindow"
         xmlns:local="clr-namespace:Calculator.View"
         xmlns:customcontrol="clr-namespace:Calculator.CustomControl"
         mc:Ignorable="d" WindowStartupLocation="CenterScreen" Name="mainWindow"
@@ -23,8 +24,8 @@
         </Grid.Resources>
         <Grid.Background>
             <LinearGradientBrush EndPoint="1,0" StartPoint="0,1">
-                <GradientStop Color="#8c8b87" Offset="0"/>
-                <GradientStop Color="#ffff" Offset="1"/>
+                <GradientStop Color="#585c59" Offset="0"/>
+                <GradientStop Color="#222423" Offset="1"/>
             </LinearGradientBrush>
         </Grid.Background>
         <Grid.RowDefinitions>
@@ -91,6 +92,7 @@
         </Grid>
         <Grid Grid.Row="2">
             <standard:StandardWindow></standard:StandardWindow>
+            <!--<scientific:ScientificWindow></scientific:ScientificWindow>-->
             <Grid HorizontalAlignment="Left" Width="auto">
                 <ListView Style="{StaticResource scrollListView}"
                           Width="0" x:Name="mainLeftSidebar">
@@ -119,7 +121,7 @@
                     </ListViewItem>
                     <ListViewItem Style="{StaticResource mainLeftItem}">
                         <StackPanel Orientation="Horizontal" Width="165">
-                            <materialDesign:PackIcon Margin="0 0 15 0" Kind="Graphql" />
+                            <materialDesign:PackIcon Margin="0 0 15 0" Kind="ChartAreaspline" />
                             <TextBlock Text="Graphing"/>
                         </StackPanel>
                     </ListViewItem>

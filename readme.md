@@ -1,4 +1,4 @@
-# Calculator
+# Calculator in Win10 with WPF
 - [XamlToolKit](https://github.com/MaterialDesignInXAML/MaterialDesignInXamlToolkit)
 ### Package
     <package id="MaterialDesignColors" version="2.0.0" targetFramework="net472" />

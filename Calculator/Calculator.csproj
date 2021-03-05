@@ -74,8 +74,14 @@
     <Compile Include="CustomControl\CoreCalculator.xaml.cs">
       <DependentUpon>CoreCalculator.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CustomControl\MCalculator.xaml.cs">
+      <DependentUpon>MCalculator.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Model\CalculationResult.cs" />
     <Compile Include="ViewModel\StandardViewModel.cs" />
+    <Compile Include="View\ScientificWindow\ScientificWindow.xaml.cs">
+      <DependentUpon>ScientificWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\StandardWindow\StandardWindow.xaml.cs">
       <DependentUpon>StandardWindow.xaml</DependentUpon>
     </Compile>
@@ -88,6 +94,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="CustomControl\CustomSubControlBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CustomControl\MCalculator.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -126,6 +136,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\ScientificWindow\ScientificWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\StandardWindow\StandardWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

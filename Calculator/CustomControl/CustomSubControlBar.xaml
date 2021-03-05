@@ -14,13 +14,7 @@
              xmlns:local="clr-namespace:Calculator.CustomControl"
              mc:Ignorable="d" Name="customSubControlBar"
              d:DesignHeight="450" d:DesignWidth="800">
-    <materialDesign:ColorZone Height="40">
-        <materialDesign:ColorZone.Background>
-            <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
-                <GradientStop Color="#8c8b87" Offset="0"/>
-                <GradientStop Color="#ffff" Offset="1"/>
-            </LinearGradientBrush>
-        </materialDesign:ColorZone.Background>
+    <materialDesign:ColorZone Height="40" Background="Transparent">
         <DockPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock VerticalAlignment="Center" Margin="50 0 0 0" Style="{StaticResource boldText}"
