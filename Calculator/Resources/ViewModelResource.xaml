@@ -3,4 +3,5 @@
                     xmlns:local="clr-namespace:Calculator.Resources"
                     xmlns:viewmodel="clr-namespace:Calculator.ViewModel">
     <viewmodel:MainViewModel x:Key="mainViewModel"></viewmodel:MainViewModel>
+    <viewmodel:StandardViewModel x:Key="standardViewModel"></viewmodel:StandardViewModel>
 </ResourceDictionary>

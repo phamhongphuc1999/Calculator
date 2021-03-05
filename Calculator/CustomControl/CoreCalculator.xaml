@@ -1,0 +1,58 @@
+﻿<UserControl x:Class="Calculator.CustomControl.CoreCalculator"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Calculator.CustomControl"
+             mc:Ignorable="d" Name="coreCalculator"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Button Content="7" Grid.Row="0" Grid.Column="0" Style="{StaticResource calculatorButton}"
+                Name="seventButton" Command="{Binding ClickNumberCommand, ElementName=coreCalculator}"
+                CommandParameter="{Binding ElementName=seventButton}"></Button>
+        <Button Content="8" Grid.Row="0" Grid.Column="1" Style="{StaticResource calculatorButton}"
+                Name="eightButton" Command="{Binding ClickNumberCommand, ElementName=coreCalculator}"
+                CommandParameter="{Binding ElementName=eightButton}"></Button>
+        <Button Content="9" Grid.Row="0" Grid.Column="2" Style="{StaticResource calculatorButton}"
+                Name="nightButton" Command="{Binding ClickNumberCommand, ElementName=coreCalculator}"
+                CommandParameter="{Binding ElementName=nightButton}"></Button>
+        <Button Content="4" Grid.Row="1" Grid.Column="0" Style="{StaticResource calculatorButton}"
+                Name="fourButton" Command="{Binding ClickNumberCommand, ElementName=coreCalculator}"
+                CommandParameter="{Binding ElementName=fourButton}"></Button>
+        <Button Content="5" Grid.Row="1" Grid.Column="1" Style="{StaticResource calculatorButton}"
+                Name="fiveButton" Command="{Binding ClickNumberCommand, ElementName=coreCalculator}"
+                CommandParameter="{Binding ElementName=fiveButton}"></Button>
+        <Button Content="6" Grid.Row="1" Grid.Column="2" Style="{StaticResource calculatorButton}"
+                Name="sixButton" Command="{Binding ClickNumberCommand, ElementName=coreCalculator}"
+                CommandParameter="{Binding ElementName=sixButton}"></Button>
+        <Button Content="1" Grid.Row="2" Grid.Column="0" Style="{StaticResource calculatorButton}"
+                Name="oneButton" Command="{Binding ClickNumberCommand, ElementName=coreCalculator}"
+                CommandParameter="{Binding ElementName=oneButton}"></Button>
+        <Button Content="2" Grid.Row="2" Grid.Column="1" Style="{StaticResource calculatorButton}"
+                Name="twoButton" Command="{Binding ClickNumberCommand, ElementName=coreCalculator}"
+                CommandParameter="{Binding ElementName=twoButton}"></Button>
+        <Button Content="3" Grid.Row="2" Grid.Column="2" Style="{StaticResource calculatorButton}"
+                Name="threeButton" Command="{Binding ClickNumberCommand, ElementName=coreCalculator}"
+                CommandParameter="{Binding ElementName=threeButton}"></Button>
+        <Button Content="+/-" Grid.Row="3" Grid.Column="0" Style="{StaticResource calculatorButton}"
+                Name="transformSignButton" Command="{Binding TransformSignCommand, ElementName=coreCalculator}"
+                CommandParameter="{Binding ElementName=transformSignButton}"></Button>
+        <Button Content="0" Grid.Row="3" Grid.Column="1" Style="{StaticResource calculatorButton}"
+                Name="zeroButton" Command="{Binding ClickNumberCommand, ElementName=coreCalculator}"
+                CommandParameter="{Binding ElementName=zeroButton}"></Button>
+        <Button Content="." Grid.Row="3" Grid.Column="2" Style="{StaticResource calculatorButton}"
+                Name="decimalButton" Command="{Binding DecimalCommandProperty, ElementName=coreCalculator}"
+                CommandParameter="{Binding ElementName=decimalButton}"></Button>
+    </Grid>
+</UserControl>

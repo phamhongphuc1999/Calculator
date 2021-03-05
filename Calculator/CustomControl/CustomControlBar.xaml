@@ -31,17 +31,20 @@
         <DockPanel>
             <StackPanel DockPanel.Dock="Right" Background="Transparent" Orientation="Horizontal">
                 <Button ToolTip="Minimize" ToolBar.OverflowMode="AsNeeded" Style="{StaticResource transparentBut}"
+                            Width="40" Height="30"
                             Command="{Binding MinimizeWindowCommand}"
                             CommandParameter="{Binding ElementName=customControlBar}">
                     <materialDesign:PackIcon Kind="WindowMinimize" />
                 </Button>
                 <Button ToolTip="Maximize" ToolBar.OverflowMode="AsNeeded" Style="{StaticResource transparentBut}"
-                            Command="{Binding MaximizeWindowCommand}"
+                        Width="40" Height="30"    
+                        Command="{Binding MaximizeWindowCommand}"
                             CommandParameter="{Binding ElementName=customControlBar}">
                     <materialDesign:PackIcon Kind="{Binding MaximizeIcon}" />
                 </Button>
                 <Button ToolTip="Close" ToolBar.OverflowMode="AsNeeded" Style="{StaticResource transparentRedBut}"
-                            Command="{Binding CloseWindowCommand}"
+                        Width="40" Height="30"    
+                        Command="{Binding CloseWindowCommand}"
                             CommandParameter="{Binding ElementName=customControlBar}">
                     <materialDesign:PackIcon Kind="Close" />
                 </Button>

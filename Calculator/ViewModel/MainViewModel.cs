@@ -47,7 +47,7 @@ namespace Calculator.ViewModel
 
         public MainViewModel()
         {
-            IsCheck = true;
+            IsCheck = false;
             SelectionWindow = "Standard";
 
             InitializePreviewMouseLeftButtonDownCommand();
