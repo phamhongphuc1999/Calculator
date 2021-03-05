@@ -9,7 +9,7 @@
         xmlns:local="clr-namespace:Calculator.View"
         xmlns:customcontrol="clr-namespace:Calculator.CustomControl"
         mc:Ignorable="d" WindowStartupLocation="CenterScreen" Name="mainWindow"
-        Title="Calculator" Height="650" Width="800" WindowStyle="None" AllowsTransparency="True"
+        Title="Calculator" Height="630" Width="800" WindowStyle="None" AllowsTransparency="True"
         Icon="pack://application:,,,/Images/main.ico" Topmost="False"
         DataContext="{StaticResource mainViewModel}">
     <Grid>

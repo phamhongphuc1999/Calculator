@@ -21,11 +21,21 @@
         <Grid Grid.Column="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="1*" />
-                <RowDefinition Height="3*" />
-                <RowDefinition Height="6*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="10*" />
             </Grid.RowDefinitions>
-            <TextBlock Grid.Row="0" />
-            <TextBox Grid.Row="1" Style="{StaticResource calculatorTextBox}" />
+            <TextBlock x:Name="SaveTextBlock" Grid.Row="0"
+                       Text="{Binding CalculationText}">
+                <TextBlock.Style>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="Foreground" Value="Gray" />
+                        <Setter Property="FontSize" Value="24" />
+                        <Setter Property="HorizontalAlignment" Value="Right" />
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+            <TextBox x:Name="textBox" Grid.Row="1" Text="{Binding ElementText}"
+                      Style="{StaticResource calculatorTextBox}"/>
             <Grid Grid.Row="2">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto" />
@@ -86,9 +96,9 @@
                         </Grid>
                         <!--core computer-->
                         <CustomControl:CoreCalculator Grid.Row="1" 
-                                        ClickNumberCommand="{Binding ClickNumberCommand}"
+                                        ClickNumberCommand="{Binding DisplayValueCommand}"
                                         TransformSignCommand="{Binding TransformSignCommand}"
-                                        DecimalCommand="{Binding DecimalCommand}"/>
+                                        DecimalCommand="{Binding DisplayValueCommand}"/>
                     </Grid>
                     <Grid Grid.Column="1">
                         <Grid.RowDefinitions>
@@ -99,12 +109,24 @@
                             <RowDefinition/>
                             <RowDefinition/>
                         </Grid.RowDefinitions>
-                        <Button Content="X" Grid.Row="0" Style="{StaticResource calculatorButton}"></Button>
-                        <Button Content="/" Grid.Row="1" Style="{StaticResource calculatorButton}"></Button>
-                        <Button Content="x" Grid.Row="2" Style="{StaticResource calculatorButton}"></Button>
-                        <Button Content="-" Grid.Row="3" Style="{StaticResource calculatorButton}"></Button>
-                        <Button Content="+" Grid.Row="4" Style="{StaticResource calculatorButton}"></Button>
-                        <Button Content="=" Grid.Row="5" Style="{StaticResource calculatorButton}"></Button>
+                        <Button Content="X" Grid.Row="0" Style="{StaticResource calculatorButton}"
+                                Name="deleteButton" Command="{Binding DeleteCommand}"
+                                CommandParameter="{Binding ElementName=deleteButton}"></Button>
+                        <Button Content="/" Grid.Row="1" Style="{StaticResource calculatorButton}"
+                                Name="devisionButton" Command="{Binding BasicCalculationCommand}"
+                                CommandParameter="{Binding ElementName=devisionButton}"></Button>
+                        <Button Content="x" Grid.Row="2" Style="{StaticResource calculatorButton}"
+                                Name="mutipilationButton" Command="{Binding BasicCalculationCommand}"
+                                CommandParameter="{Binding ElementName=mutipilationButton}"></Button>
+                        <Button Content="-" Grid.Row="3" Style="{StaticResource calculatorButton}"
+                                Name="subtractButton" Command="{Binding BasicCalculationCommand}"
+                                CommandParameter="{Binding ElementName=subtractButton}"></Button>
+                        <Button Content="+" Grid.Row="4" Style="{StaticResource calculatorButton}"
+                                Name="addButton" Command="{Binding BasicCalculationCommand}"
+                                CommandParameter="{Binding ElementName=addButton}"></Button>
+                        <Button Content="=" Grid.Row="5" Style="{StaticResource calculatorButton}"
+                                Name="equalButton" Command="{Binding ResultCommand}"
+                                CommandParameter="{Binding ElementName=equalButton}"></Button>
                     </Grid>
                 </Grid>
             </Grid>

@@ -1,6 +1,6 @@
 ﻿namespace Calculator
 {
-    static class Utilities
+    public static class Utilities
     {
     }
 }

@@ -69,9 +69,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CalculateService\BasicService.cs" />
+    <Compile Include="CalculateService\CalculationManager.cs" />
     <Compile Include="CustomControl\CoreCalculator.xaml.cs">
       <DependentUpon>CoreCalculator.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Model\CalculationResult.cs" />
     <Compile Include="ViewModel\StandardViewModel.cs" />
     <Compile Include="View\StandardWindow\StandardWindow.xaml.cs">
       <DependentUpon>StandardWindow.xaml</DependentUpon>
@@ -85,6 +88,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="CustomControl\CustomSubControlBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\ColorResource.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -158,9 +165,7 @@
     <Resource Include="Images\tgBtn_default.png" />
     <Resource Include="Images\tgBtn_MouseOver.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Model\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
