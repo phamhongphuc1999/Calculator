@@ -1,0 +1,166 @@
+﻿<UserControl x:Class="Calculator.View.ProgrammerWindow.ProgrammerWindow"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Calculator.View.ProgrammerWindow"
+             xmlns:CustomControl="clr-namespace:Calculator.CustomControl"
+             mc:Ignorable="d" Name="programmerWindow"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Style="{StaticResource Container}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="6*" />
+            <ColumnDefinition Width="4*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="10*" />
+            </Grid.RowDefinitions>
+            <TextBlock x:Name="SaveTextBlock" Grid.Row="0" Style="{StaticResource calculatorTextBlock}"
+                       Text="{Binding CalculationText}" />
+            <TextBox x:Name="textBox" Grid.Row="1" Text="{Binding ElementText}"
+                      Style="{StaticResource calculatorTextBox}"/>
+            <Grid Grid.Row="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Button Grid.Row="0" Content="HEX 0" Style="{StaticResource transparentBut}" />
+                    <Button Grid.Row="1" Content="DEC 0" Style="{StaticResource transparentBut}" />
+                    <Button Grid.Row="2" Content="OCT 0" Style="{StaticResource transparentBut}" />
+                    <Button Grid.Row="3" Content="BIN 0" Style="{StaticResource transparentBut}" />
+                </Grid>
+                <Grid Grid.Row="1">
+                    
+                </Grid>
+                <Grid Grid.Row="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        
+                    </Grid>
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="3*"/>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <GridSplitter Grid.Column="1" Style="{StaticResource calculationColumnSplitter}" />
+                        <GridSplitter Grid.Column="3" Style="{StaticResource calculationColumnSplitter}" />
+                        <Grid Grid.Column="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <GridSplitter Grid.Row="1" Style="{StaticResource calculationRowSplitter}" />
+                            <GridSplitter Grid.Row="3" Style="{StaticResource calculationRowSplitter}" />
+                            <GridSplitter Grid.Row="5" Style="{StaticResource calculationRowSplitter}" />
+                            <GridSplitter Grid.Row="7" Style="{StaticResource calculationRowSplitter}" />
+                            <GridSplitter Grid.Row="9" Style="{StaticResource calculationRowSplitter}" />
+                            <Button Content="A" Grid.Row="0" Style="{StaticResource calculatorGrayButton}"></Button>
+                            <Button Content="B" Grid.Row="2" Style="{StaticResource calculatorGrayButton}"></Button>
+                            <Button Content="C" Grid.Row="4" Style="{StaticResource calculatorGrayButton}"></Button>
+                            <Button Content="D" Grid.Row="6" Style="{StaticResource calculatorGrayButton}"></Button>
+                            <Button Content="E" Grid.Row="8" Style="{StaticResource calculatorGrayButton}"></Button>
+                            <Button Content="F" Grid.Row="10" Style="{StaticResource calculatorGrayButton}"></Button>
+                        </Grid>
+                        <Grid Grid.Column="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <GridSplitter Grid.Row="1" Style="{StaticResource calculationRowSplitter}" />
+                            <Grid Grid.Row="0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition Height="auto" />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="auto" />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="auto" />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <GridSplitter Grid.Row="1" Style="{StaticResource calculationRowSplitter}" />
+                                <GridSplitter Grid.Column="1" Style="{StaticResource calculationColumnSplitter}" />
+                                <GridSplitter Grid.Column="3" Style="{StaticResource calculationColumnSplitter}" />
+                                <Button Content="«" Grid.Row="0" Grid.Column="0" Style="{StaticResource calculatorGrayButton}"></Button>
+                                <Button Content="»" Grid.Row="0" Grid.Column="2" Style="{StaticResource calculatorGrayButton}"></Button>
+                                <Button Content="C" Grid.Row="0" Grid.Column="4" Style="{StaticResource calculatorGrayButton}"></Button>
+                                <Button Content="(" Grid.Row="2" Grid.Column="0" Style="{StaticResource calculatorGrayButton}"></Button>
+                                <Button Content=")" Grid.Row="2" Grid.Column="2" Style="{StaticResource calculatorGrayButton}"></Button>
+                                <Button Content="%" Grid.Row="2" Grid.Column="4" Style="{StaticResource calculatorGrayButton}"></Button>
+                            </Grid>
+                            <CustomControl:CoreCalculator Grid.Row="2" />
+                        </Grid>
+                        <Grid Grid.Column="4">
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <GridSplitter Grid.Row="1" Style="{StaticResource calculationRowSplitter}" />
+                            <GridSplitter Grid.Row="3" Style="{StaticResource calculationRowSplitter}" />
+                            <GridSplitter Grid.Row="5" Style="{StaticResource calculationRowSplitter}" />
+                            <GridSplitter Grid.Row="7" Style="{StaticResource calculationRowSplitter}" />
+                            <GridSplitter Grid.Row="9" Style="{StaticResource calculationRowSplitter}" />
+                            <Button Content="X" Grid.Row="0" Style="{StaticResource calculatorGrayButton}"
+                                Tag="delete" Name="deleteButton" Command="{Binding DeleteCommand}"
+                                CommandParameter="{Binding ElementName=deleteButton}"></Button>
+                            <Button Content="÷" Grid.Row="2" Style="{StaticResource calculatorGrayButton}"
+                                Tag="devision" Name="devisionButton" Command="{Binding BasicCalculationCommand}"
+                                CommandParameter="{Binding ElementName=devisionButton}"></Button>
+                            <Button Content="x" Grid.Row="4" Style="{StaticResource calculatorGrayButton}"
+                                Tag="mutipilation" Name="mutipilationButton" Command="{Binding BasicCalculationCommand}"
+                                CommandParameter="{Binding ElementName=mutipilationButton}"></Button>
+                            <Button Content="-" Grid.Row="6" Style="{StaticResource calculatorGrayButton}"
+                                Tag="subtract" Name="subtractButton" Command="{Binding BasicCalculationCommand}"
+                                CommandParameter="{Binding ElementName=subtractButton}"></Button>
+                            <Button Content="+" Grid.Row="8" Style="{StaticResource calculatorGrayButton}"
+                                Tag="add" Name="addButton" Command="{Binding BasicCalculationCommand}"
+                                CommandParameter="{Binding ElementName=addButton}"></Button>
+                            <Button Content="=" Grid.Row="10" Style="{StaticResource calculatorPrimaryButton}"
+                                Tag="calculation" Name="equalButton" Command="{Binding ResultCommand}"
+                                CommandParameter="{Binding ElementName=equalButton}"></Button>
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>

@@ -33,7 +33,7 @@
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <customcontrol:CustomControlBar Grid.Row="0" Tag="{Binding SelectionWindow}" />
+        <customcontrol:CustomControlBar Grid.Row="0" Tag="{Binding Title, ElementName=mainWindow}" />
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto"></ColumnDefinition>
@@ -88,7 +88,7 @@
                     </ToggleButton>
                 </Grid>
             </Grid>
-            <customcontrol:CustomSubControlBar Grid.Column="1" Tag="{Binding SelectionWindow}" />
+            <customcontrol:CustomSubControlBar Grid.Column="1" Tag="{Binding SelectionWindow}" Background="Transparent" />
         </Grid>
         <Grid Grid.Row="2">
             <standard:StandardWindow></standard:StandardWindow>

@@ -4,9 +4,6 @@
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="./ColorResource.xaml" />
     </ResourceDictionary.MergedDictionaries>
-    <Style TargetType="Button" x:Key="transparentStandardButton" BasedOn="{StaticResource transparentBut}">
-        <Setter Property="Height" Value="40"/>
-    </Style>
     <Style TargetType="{x:Type Button}" x:Key="transparentBut">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderThickness" Value="0"/>
@@ -25,6 +22,9 @@
                 <Setter Property="Background" Value="#8c8b87"/>
             </Trigger>
         </Style.Triggers>
+    </Style>
+    <Style TargetType="Button" x:Key="transparentStandardButton" BasedOn="{StaticResource transparentBut}">
+        <Setter Property="Height" Value="40"/>
     </Style>
     <Style TargetType="{x:Type Button}" x:Key="calculatorDakrButton" BasedOn="{StaticResource transparentBut}">
         <Setter Property="Height" Value="auto"/>

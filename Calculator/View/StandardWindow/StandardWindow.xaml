@@ -22,7 +22,7 @@
             </Grid.RowDefinitions>
             <TextBlock x:Name="SaveTextBlock" Grid.Row="0" Style="{StaticResource calculatorTextBlock}"
                        Text="{Binding CalculationText}" />
-            <TextBox x:Name="textBox" Grid.Row="1" Text="{Binding ElementText}"
+            <TextBox x:Name="textBox" Grid.Row="1" Text="{Binding CurrentElement}"
                       Style="{StaticResource calculatorTextBox}"/>
             <Grid Grid.Row="2">
                 <Grid.RowDefinitions>
@@ -102,22 +102,22 @@
                         <GridSplitter Grid.Row="7" Style="{StaticResource calculationRowSplitter}" />
                         <GridSplitter Grid.Row="9" Style="{StaticResource calculationRowSplitter}" />
                         <Button Content="X" Grid.Row="0" Style="{StaticResource calculatorGrayButton}"
-                                Name="deleteButton" Command="{Binding DeleteCommand}"
+                                Tag="delete" Name="deleteButton" Command="{Binding DeleteCommand}"
                                 CommandParameter="{Binding ElementName=deleteButton}"></Button>
                         <Button Content="÷" Grid.Row="2" Style="{StaticResource calculatorGrayButton}"
-                                Name="devisionButton" Command="{Binding BasicCalculationCommand}"
+                                Tag="devision" Name="devisionButton" Command="{Binding BasicCalculationCommand}"
                                 CommandParameter="{Binding ElementName=devisionButton}"></Button>
                         <Button Content="x" Grid.Row="4" Style="{StaticResource calculatorGrayButton}"
-                                Name="mutipilationButton" Command="{Binding BasicCalculationCommand}"
+                                Tag="mutipilation" Name="mutipilationButton" Command="{Binding BasicCalculationCommand}"
                                 CommandParameter="{Binding ElementName=mutipilationButton}"></Button>
                         <Button Content="-" Grid.Row="6" Style="{StaticResource calculatorGrayButton}"
-                                Name="subtractButton" Command="{Binding BasicCalculationCommand}"
+                                Tag="subtract" Name="subtractButton" Command="{Binding BasicCalculationCommand}"
                                 CommandParameter="{Binding ElementName=subtractButton}"></Button>
                         <Button Content="+" Grid.Row="8" Style="{StaticResource calculatorGrayButton}"
-                                Name="addButton" Command="{Binding BasicCalculationCommand}"
+                                Tag="add" Name="addButton" Command="{Binding BasicCalculationCommand}"
                                 CommandParameter="{Binding ElementName=addButton}"></Button>
                         <Button Content="=" Grid.Row="10" Style="{StaticResource calculatorPrimaryButton}"
-                                Name="equalButton" Command="{Binding ResultCommand}"
+                                Tag="calculation" Name="equalButton" Command="{Binding ResultCommand}"
                                 CommandParameter="{Binding ElementName=equalButton}"></Button>
                     </Grid>
                 </Grid>

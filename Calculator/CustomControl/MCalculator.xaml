@@ -14,15 +14,10 @@
             <ColumnDefinition />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <Button Style="{StaticResource transparentStandardButton}"
-                            Grid.Column="0" Content="MC" />
-        <Button Style="{StaticResource transparentStandardButton}"
-                            Grid.Column="1" Content="MR"></Button>
-        <Button Style="{StaticResource transparentStandardButton}"
-                            Grid.Column="2" Content="M+"></Button>
-        <Button Style="{StaticResource transparentStandardButton}"
-                            Grid.Column="3" Content="M-"></Button>
-        <Button Style="{StaticResource transparentStandardButton}"
-                            Grid.Column="4" Content="MS"></Button>
+        <Button Style="{StaticResource transparentStandardButton}" Grid.Column="0" Content="MC" />
+        <Button Style="{StaticResource transparentStandardButton}" Grid.Column="1" Content="MR"></Button>
+        <Button Style="{StaticResource transparentStandardButton}" Grid.Column="2" Content="M+"></Button>
+        <Button Style="{StaticResource transparentStandardButton}" Grid.Column="3" Content="M-"></Button>
+        <Button Style="{StaticResource transparentStandardButton}" Grid.Column="4" Content="MS"></Button>
     </Grid>
 </UserControl>

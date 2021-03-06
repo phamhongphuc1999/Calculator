@@ -1,4 +1,6 @@
-﻿namespace Calculator
+﻿using System.Collections.Generic;
+
+namespace Calculator
 {
     public static class Constance
     {
@@ -24,6 +26,14 @@
             "Data",
             "Pressure",
             "Angle"
+        };
+
+        public static readonly Dictionary<string, char> BASIC_FUNCTIONS = new Dictionary<string, char>
+        {
+            { "devision", '÷' },
+            {"mutipilation", 'x' },
+            {"subtract", '-' },
+            {"add", '+' }
         };
     }
 }

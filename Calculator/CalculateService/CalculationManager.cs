@@ -1,20 +1,29 @@
 ﻿using Calculator.Model;
+using System;
+using static Calculator.Constance;
 
 namespace Calculator.CalculateService
 {
     public class CalculationManager
     {
-        public CalculationResult Handler(string elementText, string calculationText, string nextSign)
+        public CalculationResult Handler(string element1, string element2, string currentFunction, string nextFunction = "")
         {
-            int index = calculationText.Length - 1;
-            char sign = calculationText[index];
-            string calculator = calculationText.Substring(0, index);
             string result = "";
-            if (sign == '+') result = BasicService.Add(calculator, elementText);
+            switch (currentFunction)
+            {
+                case "add":
+                    result = BasicService.AddInteger(element1, element2);
+                    break;
+                case "subtract":
+                    result = BasicService.SubtractInteger(element1, element2);
+                    break;
+                default:
+                    throw new Exception();
+            }
             return new CalculationResult
             {
-                ElementText = result,
-                CalculationText = result + nextSign
+                CurrentText = result,
+                CalculationText = String.IsNullOrEmpty(nextFunction) ? result : result + BASIC_FUNCTIONS[nextFunction]
             };
         }
     }

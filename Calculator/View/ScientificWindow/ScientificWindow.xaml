@@ -37,10 +37,8 @@
                         <ColumnDefinition />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-                    <Button Style="{StaticResource transparentStandardButton}"
-                            Grid.Column="0" Content="DEG" />
-                    <Button Style="{StaticResource transparentStandardButton}"
-                            Grid.Column="1" Content="F-E"></Button>
+                    <Button Style="{StaticResource transparentStandardButton}" Grid.Column="0" Content="DEG" />
+                    <Button Style="{StaticResource transparentStandardButton}" Grid.Column="1" Content="F-E"></Button>
                 </Grid>
                 <CustomControl:MCalculator Grid.Row="1" />
                 <Grid Grid.Row="2">

@@ -2,6 +2,7 @@
 using Calculator.Model;
 using System.Windows.Controls;
 using System.Windows.Input;
+using static Calculator.Constance;
 
 namespace Calculator.ViewModel
 {
@@ -13,16 +14,19 @@ namespace Calculator.ViewModel
         public ICommand BasicCalculationCommand { get; set; }
         public ICommand ResultCommand { get; set; }
 
-        private string elementText;
-        public string ElementText
+        public string currentElement;
+        public string CurrentElement
         {
-            get { return elementText; }
+            get { return currentElement; }
             set
             {
-                elementText = value;
+                currentElement = value;
                 OnPropertyChanged();
             }
         }
+
+        private string PreviousElement;
+        private string CurrentFunction;
 
         private string calculationText;
         public string CalculationText
@@ -36,13 +40,16 @@ namespace Calculator.ViewModel
         }
 
         private bool isResult;
+        private bool isClear;
         private CalculationManager calculationManager;
 
         public StandardViewModel()
         {
-            ElementText = "0";
+            CurrentElement = "0";
             CalculationText = "";
+            CurrentFunction = "";
             isResult = false;
+            isClear = false;
             calculationManager = new CalculationManager();
 
             InitializeDisplayValueCommand();
@@ -58,12 +65,18 @@ namespace Calculator.ViewModel
                 sender => { return true; }, sender =>
                 {
                     string number = sender.Content.ToString();
-                    if (!isResult)
+                    if (isClear)
                     {
-                        ElementText = number;
+                        CalculationText = "";
+                        CurrentElement = number;
+                        isClear = false;
+                    }
+                    else if (!isResult)
+                    {
+                        CurrentElement = number;
                         isResult = true;
                     }
-                    else ElementText += number;
+                    else CurrentElement += number;
                 });
         }
 
@@ -72,7 +85,10 @@ namespace Calculator.ViewModel
             TransformSignCommand = new RelayCommand<Button>(
                 sender => { return true; }, sender =>
                 {
-
+                    char first = CurrentElement[0];
+                    if (first == '0' && CurrentElement.Length == 1) return;
+                    if (first == '-') CurrentElement = CurrentElement.Substring(1);
+                    else CurrentElement = '-' + CurrentElement;
                 });
         }
 
@@ -90,14 +106,16 @@ namespace Calculator.ViewModel
             BasicCalculationCommand = new RelayCommand<Button>(
                 sender => { return true; }, sender =>
                 {
-                    string function = sender.Content.ToString();
-                    if (CalculationText != "") 
+                    string function = sender.Tag.ToString();
+                    if (CurrentFunction != "")
                     {
-                        CalculationResult result = calculationManager.Handler(ElementText, CalculationText, function);
+                        CalculationResult result = calculationManager.Handler(PreviousElement, CurrentElement, CurrentFunction, function);
                         CalculationText = result.CalculationText;
-                        ElementText = result.ElementText;
+                        CurrentElement = result.CurrentText;
                     }
-                    else CalculationText = ElementText + function;
+                    else CalculationText = CurrentElement + BASIC_FUNCTIONS[function];
+                    PreviousElement = CurrentElement;
+                    CurrentFunction = function;
                     isResult = false;
                 });
         }
@@ -107,6 +125,14 @@ namespace Calculator.ViewModel
             ResultCommand = new RelayCommand<Button>(
                 sender => { return true; }, sender =>
                 {
+                    isClear = true;
+                    if (CurrentFunction != "")
+                    {
+                        CalculationResult result = calculationManager.Handler(PreviousElement, CurrentElement, CurrentFunction);
+                        CalculationText = result.CalculationText;
+                        CurrentElement = result.CurrentText;
+                    }
+                    else CalculationText = CurrentElement;
 
                 });
         }
