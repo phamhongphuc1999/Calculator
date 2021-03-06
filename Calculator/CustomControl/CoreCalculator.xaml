@@ -65,7 +65,7 @@
                 Name="zeroButton" Command="{Binding ClickNumberCommand, ElementName=coreCalculator}"
                 CommandParameter="{Binding ElementName=zeroButton}"></Button>
         <Button Content="." Grid.Row="6" Grid.Column="4" Style="{StaticResource calculatorDakrButton}"
-                Name="decimalButton" Command="{Binding DecimalCommandProperty, ElementName=coreCalculator}"
+                Name="decimalButton" Command="{Binding DecimalCommand, ElementName=coreCalculator}"
                 CommandParameter="{Binding ElementName=decimalButton}"></Button>
     </Grid>
 </UserControl>

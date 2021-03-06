@@ -69,7 +69,9 @@
                                     Style="{StaticResource calculatorGrayButton}"></Button>
                             <Button Content="1/x" Grid.Row="2" Grid.Column="0"
                                     Style="{StaticResource calculatorGrayButton}"></Button>
-                            <Button Grid.Row="2" Grid.Column="2" Style="{StaticResource calculatorGrayButton}">
+                            <Button x:Name="sqrButton" Tag="sqr" Grid.Row="2" Grid.Column="2" Style="{StaticResource calculatorGrayButton}"
+                                    Command="{Binding AdvancedCalculationCommand}"
+                                    CommandParameter="{Binding ElementName=sqrButton}">
                                 <materialDesign:PackIcon Kind="FormatSuperscript" Width="30" Height="30" />
                             </Button>
                             <Button Grid.Row="2" Grid.Column="4" Style="{StaticResource calculatorGrayButton}">
@@ -80,7 +82,7 @@
                         <CustomControl:CoreCalculator Grid.Row="2"
                                         ClickNumberCommand="{Binding DisplayValueCommand}"
                                         TransformSignCommand="{Binding TransformSignCommand}"
-                                        DecimalCommand="{Binding DisplayValueCommand}"/>
+                                        DecimalCommand="{Binding DecimalCommand}"/>
                     </Grid>
                     <Grid Grid.Column="2">
                         <Grid.RowDefinitions>

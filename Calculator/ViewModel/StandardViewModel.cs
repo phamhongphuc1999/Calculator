@@ -12,7 +12,9 @@ namespace Calculator.ViewModel
         public ICommand TransformSignCommand { get; set; }
         public ICommand DeleteCommand { get; set; }
         public ICommand BasicCalculationCommand { get; set; }
+        public ICommand AdvancedCalculationCommand { get; set; }
         public ICommand ResultCommand { get; set; }
+        public ICommand DecimalCommand { get; set; }
 
         public string currentElement;
         public string CurrentElement
@@ -57,6 +59,7 @@ namespace Calculator.ViewModel
             InitializeDeleteCommand();
             InitializeBasicCalculationCommand();
             InitializeResultCommand();
+            InitializeDecimalCommand();
         }
 
         private void InitializeDisplayValueCommand()
@@ -120,6 +123,15 @@ namespace Calculator.ViewModel
                 });
         }
 
+        private void InitializeAdvancedCalculationCommand()
+        {
+            AdvancedCalculationCommand = new RelayCommand<Button>(
+                sender => { return true; }, sender =>
+                {
+
+                });
+        }
+
         private void InitializeResultCommand()
         {
             ResultCommand = new RelayCommand<Button>(
@@ -134,6 +146,15 @@ namespace Calculator.ViewModel
                     }
                     else CalculationText = CurrentElement;
 
+                });
+        }
+
+        private void InitializeDecimalCommand()
+        {
+            DecimalCommand = new RelayCommand<Button>(
+                sender => { return true; }, sender =>
+                {
+                    if (CurrentElement.IndexOf('.') < 0) CurrentElement += '.';
                 });
         }
     }

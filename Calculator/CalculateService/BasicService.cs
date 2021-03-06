@@ -1,120 +1,168 @@
-﻿namespace Calculator.CalculateService
+﻿using System;
+using System.Numerics;
+
+namespace Calculator.CalculateService
 {
     class BasicService
     {
         public static string AddInteger(string number1, string number2)
         {
-            bool sign1 = number1[0] == '-';
-            bool sign2 = number2[0] == '-';
-            if (sign1 && sign2) return '-' + AddInteger(number1.Substring(1), number2.Substring(1));
-            else if (sign1 && !sign2) return SubtractInteger(number2, number1.Substring(1));
-            else if (!sign1 && sign2) return SubtractInteger(number1, number2.Substring(1));
-            string result = "";
-            int rememmber = 0;
-            int index1 = number1.Length - 1;
-            int index2 = number2.Length - 1;
-            while (index1 >= 0 && index2 >= 0)
+            try
             {
-                int num1 = number1[index1] - '0';
-                int num2 = number2[index2] - '0';
-                int sum = num1 + num2 + rememmber;
-                result = (char)(sum % 10 + '0') + result;
-                rememmber = sum / 10;
-                index1--; index2--;
+                BigInteger element1 = BigInteger.Parse(number1);
+                BigInteger element2 = BigInteger.Parse(number2);
+                return BigInteger.Add(element1, element2).ToString();
             }
-            while (index1 >= 0)
+            catch
             {
-                int sum = number1[index1] - '0' + rememmber;
-                result = (char)(sum % 10 + '0') + result;
-                rememmber = sum / 10;
-                index1--;
+                throw new Exception("This number format wrong");
             }
-            while (index2 >= 0)
-            {
-                int sum = number2[index2] - '0' + rememmber;
-                result = (char)(sum % 10 + '0') + result;
-                rememmber = sum / 10;
-                index2--;
-            }
-            if (rememmber == 1) return '1' + result;
-            return result;
-        }
-
-        private static bool IsSmaller(string number1, string number2)
-        {
-            int index1 = number1.Length - 1;
-            int index2 = number2.Length - 1;
-            if (index1 < index2) return true;
-            else if (index1 == index2)
-            {
-                int temp = index1;
-                while (temp >= 0)
-                    if (number1[temp] == number2[temp]) temp--;
-                    else
-                    {
-                        if (number1[temp] < number2[temp]) return true;
-                        break;
-                    }
-            }
-            return false;
         }
 
         public static string SubtractInteger(string number1, string number2)
         {
-            bool sign1 = number1[0] == '-';
-            bool sign2 = number2[0] == '-';
-            if (sign1 && sign2) return SubtractInteger(number2, number1);
-            else if (sign1 && !sign2) return '-' + AddInteger(number1.Substring(1), number2);
-            else if (!sign1 && sign2) return AddInteger(number1, number2.Substring(1));
-            bool isSign = IsSmaller(number1, number2);
-            int rememmber = 0;
-            string result = "";
-            string element1 = number1, element2 = number2;
-            if (isSign)
+            try
             {
-                element1 = number2;
-                element2 = number1;
+                BigInteger element1 = BigInteger.Parse(number1);
+                BigInteger element2 = BigInteger.Parse(number2);
+                return BigInteger.Subtract(element1, element2).ToString();
             }
-            int index1 = element1.Length - 1;
-            int index2 = element2.Length - 1;
-            while (index1 >= 0 && index2 >= 0)
+            catch
             {
-                int num1 = element1[index1] - '0';
-                int num2 = element2[index2] - '0';
-                int subtract = num1 - num2 - rememmber;
-                if (subtract < 0)
-                {
-                    subtract = 10 + subtract;
-                    rememmber = 1;
-                }
-                else rememmber = 0;
-                result = (char)(subtract + '0') + result;
-                index1--; index2--;
+                throw new Exception("This number format wrong");
             }
-            while (index1 >= 0)
-            {
-                int subtract = element1[index1] - '0' - rememmber;
-                if (subtract < 0)
-                {
-                    subtract = 10 + subtract;
-                    rememmber = 1;
-                }
-                else rememmber = 0;
-                result = (char)(subtract + '0') + result;
-                index1--;
-            }
-            if (isSign) return '-' + result;
-            return result;
         }
 
-        //public static string AddReal(string number1, string number2)
-        //{
-        //    string[] element1 = number1.Split('.');
-        //}
+        public static string MutipilationInteger(string number1, string number2)
+        {
+            try
+            {
+                BigInteger element1 = BigInteger.Parse(number1);
+                BigInteger element2 = BigInteger.Parse(number2);
+                return BigInteger.Multiply(element1, element2).ToString();
+            }
+            catch
+            {
+                throw new Exception("This number format wrong");
+            }
+        }
 
-        //public static string SubtractReal(string number1, string number2)
-        //{
+        public static string DivisionInteger(string number1, string number2)
+        {
+            try
+            {
+                BigInteger element1 = BigInteger.Parse(number1);
+                BigInteger element2 = BigInteger.Parse(number2);
+                return BigInteger.Divide(element1, element2).ToString();
+            }
+            catch
+            {
+                throw new Exception("This number format wrong");
+            }
+        }
 
-        //}
+        public static string DivisionInteger(string number1, string number2, out string remainder)
+        {
+            try
+            {
+                BigInteger element1 = BigInteger.Parse(number1);
+                BigInteger element2 = BigInteger.Parse(number2);
+                BigInteger bRemainder = new BigInteger();
+                BigInteger result = BigInteger.DivRem(element1, element2, out bRemainder);
+                remainder = bRemainder.ToString();
+                return result.ToString();
+            }
+            catch
+            {
+                throw new Exception("This number format wrong");
+            }
+        }
+
+        private static int ConvertDecimal(ref string dec)
+        {
+            int length = dec.Length;
+            int index = dec.IndexOf('.');
+            string[] temp = dec.Split('.');
+            if(temp.Length > 1) dec = temp[0] + temp[1];
+            if (index >= 0) return length - index - 1;
+            else return 0;
+        }
+
+        public static string AddDecimal(string decimal1, string decimal2)
+        {
+            int need1 = ConvertDecimal(ref decimal1);
+            int need2 = ConvertDecimal(ref decimal2);
+            int need = 0;
+            if(need1 > need2)
+            {
+                need = need1;
+                int temp = need1 - need2;
+                for (int i = 0; i < temp; i++) decimal2 += '0';
+            }
+            else
+            {
+                need = need2;
+                int temp = need2 - need1;
+                for (int i = 0; i < temp; i++) decimal1 += '0';
+            }
+            string result = AddInteger(decimal1, decimal2);
+            if (need == 0) return result;
+            return result.Insert(result.Length - need, ".");
+        }
+
+        public static string SubtractDecimal(string decimal1, string decimal2)
+        {
+            int need1 = ConvertDecimal(ref decimal1);
+            int need2 = ConvertDecimal(ref decimal2);
+            int need = 0;
+            if (need1 > need2)
+            {
+                need = need1;
+                int temp = need1 - need2;
+                for (int i = 0; i < temp; i++) decimal2 += '0';
+            }
+            else
+            {
+                need = need2;
+                int temp = need2 - need1;
+                for (int i = 0; i < temp; i++) decimal1 += '0';
+            }
+            string result = SubtractInteger(decimal1, decimal2);
+            if (need == 0) return result;
+            return result.Insert(result.Length - need, ".");
+        }
+
+        public static string MutipilationDecimal(string decimal1, string decimal2)
+        {
+            int need1 = ConvertDecimal(ref decimal1);
+            int need2 = ConvertDecimal(ref decimal2);
+            int need = need1 + need2;
+            string result = MutipilationInteger(decimal1, decimal2);
+            if (need == 0) return result;
+            return result.Insert(result.Length - need, ".");
+        }
+
+        public static string DivisionDecimal(string decimal1, string decimal2, int accuracy)
+        {
+            int need1 = ConvertDecimal(ref decimal1);
+            int need2 = ConvertDecimal(ref decimal2);
+            if (need1 > need2)
+            {
+                int temp = need1 - need2;
+                for (int i = 0; i < temp; i++) decimal2 += '0';
+            }
+            else
+            {
+                int temp = need2 - need1;
+                for (int i = 0; i < temp; i++) decimal1 += '0';
+            }
+            string remainder = "";
+            string result = DivisionInteger(decimal1, decimal2, out remainder);
+            if (accuracy == 0 || remainder == "0") return result;
+            for (int i = 0; i < accuracy; i++) remainder += '0';
+            string sTemp = DivisionInteger(remainder, decimal2);
+            while (sTemp.Length < accuracy) sTemp = '0' + sTemp;
+            return result + '.' + sTemp;
+        }
     }
 }

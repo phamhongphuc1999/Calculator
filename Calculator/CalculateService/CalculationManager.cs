@@ -12,10 +12,16 @@ namespace Calculator.CalculateService
             switch (currentFunction)
             {
                 case "add":
-                    result = BasicService.AddInteger(element1, element2);
+                    result = BasicService.AddDecimal(element1, element2);
                     break;
                 case "subtract":
-                    result = BasicService.SubtractInteger(element1, element2);
+                    result = BasicService.SubtractDecimal(element1, element2);
+                    break;
+                case "mutipilation":
+                    result = BasicService.MutipilationDecimal(element1, element2);
+                    break;
+                case "devision":
+                    result = BasicService.DivisionDecimal(element1, element2, 20);
                     break;
                 default:
                     throw new Exception();
