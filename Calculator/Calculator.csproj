@@ -76,14 +76,15 @@
     <Compile Include="CustomControl\CoreCalculator.xaml.cs">
       <DependentUpon>CoreCalculator.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CustomControl\MainLeftListView.xaml.cs">
-      <DependentUpon>MainLeftListView.xaml</DependentUpon>
+    <Compile Include="CustomControl\MainLeftSidebar.xaml.cs">
+      <DependentUpon>MainLeftSidebar.xaml</DependentUpon>
     </Compile>
     <Compile Include="CustomControl\MCalculator.xaml.cs">
       <DependentUpon>MCalculator.xaml</DependentUpon>
     </Compile>
     <Compile Include="DisplayService\DisplayManager.cs" />
     <Compile Include="Model\CalculationResult.cs" />
+    <Compile Include="Model\LeftSideBarItem.cs" />
     <Compile Include="ViewModel\StandardViewModel.cs" />
     <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -109,7 +110,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="CustomControl\MainLeftListView.xaml">
+    <Page Include="CustomControl\MainLeftSidebar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

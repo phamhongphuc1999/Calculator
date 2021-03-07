@@ -95,9 +95,9 @@
         </Grid>
         <Grid Grid.Row="2">
             <standard:StandardWindow></standard:StandardWindow>
-            <Grid HorizontalAlignment="Left" Width="0" Name="mainLeftSidebar" Background="#585c59">
-                <customcontrol:MainLeftListView
-                    PreviewMouseLeftButtonDownCommand="{Binding PreviewMouseLeftButtonDownCommand}"
+            <Grid HorizontalAlignment="Left" Width="0" x:Name="mainLeftSidebar" Background="#585c59">
+                <customcontrol:MainLeftSidebar 
+                    PreviewMouseLeftButtonDownCommand="{Binding PreviewMouseLeftButtonDownCommand}" 
                     SelectionChangedCommand="{Binding SelectionChangedCommand}"/>
             </Grid>
         </Grid>
