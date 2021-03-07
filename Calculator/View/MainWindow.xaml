@@ -14,6 +14,11 @@
         Icon="pack://application:,,,/Images/main.ico" Topmost="False"
         DataContext="{StaticResource mainViewModel}">
     <Grid>
+        <i:Interaction.Triggers>
+            <i:EventTrigger EventName="MouseDown">
+                <i:InvokeCommandAction Command="{Binding MouseDownWindowCommand}" />
+            </i:EventTrigger>
+        </i:Interaction.Triggers>
         <Grid.Resources>
             <Style TargetType="Border" >
                 <Setter Property="Margin" Value="0" />
@@ -43,10 +48,8 @@
                 <Grid Width="0" Background="White" x:Name="backgroupGrid"></Grid>
                 <Grid Width="165" Background="Transparent">
                     <ToggleButton VerticalAlignment="Center" HorizontalAlignment="Center" Width="40" Height="40"
-                      BorderThickness="0" IsChecked="{Binding IsCheck}" Name="listViewToButton">
-                        <ToggleButton.Background>
-                            <ImageBrush ImageSource="../Images/tgBtn_default.png" Stretch="None"/>
-                        </ToggleButton.Background>
+                      BorderThickness="0" IsChecked="{Binding IsCheck}" Name="listViewToButton"
+                                  Style="{StaticResource MaterialDesignHamburgerToggleButton}">
                         <ToggleButton.Triggers>
                             <EventTrigger RoutedEvent="ToggleButton.Unchecked">
                                 <BeginStoryboard>
@@ -92,131 +95,10 @@
         </Grid>
         <Grid Grid.Row="2">
             <standard:StandardWindow></standard:StandardWindow>
-            <!--<scientific:ScientificWindow></scientific:ScientificWindow>-->
-            <Grid HorizontalAlignment="Left" Width="auto">
-                <ListView Style="{StaticResource scrollListView}"
-                          Width="0" x:Name="mainLeftSidebar">
-                    <i:Interaction.Triggers>
-                        <i:EventTrigger EventName="PreviewMouseLeftButtonDown">
-                            <i:InvokeCommandAction Command="{Binding PreviewMouseLeftButtonDownCommand}" 
-                                                   CommandParameter="{Binding ElementName=mainWindow}"/>
-                        </i:EventTrigger>
-                        <i:EventTrigger EventName="SelectionChanged">
-                            <i:InvokeCommandAction Command="{Binding SelectionChangedCommand}" 
-                                                   CommandParameter="{Binding ElementName=mainWindow}"/>
-                        </i:EventTrigger>
-                    </i:Interaction.Triggers>
-                    <TextBlock Style="{StaticResource boldText}" Width="165">Calculator</TextBlock>
-                    <ListViewItem Style="{StaticResource mainLeftItem}">
-                        <StackPanel Orientation="Horizontal" Width="165" Height="40">
-                            <materialDesign:PackIcon Margin="0 0 15 0" Kind="Calculator" />
-                            <TextBlock Text="Standard"/>
-                        </StackPanel>
-                    </ListViewItem>
-                    <ListViewItem Style="{StaticResource mainLeftItem}">
-                        <StackPanel Orientation="Horizontal" Width="165">
-                            <materialDesign:PackIcon Margin="0 0 15 0" Kind="Atom" />
-                            <TextBlock Text="Scientific"/>
-                        </StackPanel>
-                    </ListViewItem>
-                    <ListViewItem Style="{StaticResource mainLeftItem}">
-                        <StackPanel Orientation="Horizontal" Width="165">
-                            <materialDesign:PackIcon Margin="0 0 15 0" Kind="ChartAreaspline" />
-                            <TextBlock Text="Graphing"/>
-                        </StackPanel>
-                    </ListViewItem>
-                    <ListViewItem Style="{StaticResource mainLeftItem}">
-                        <StackPanel Orientation="Horizontal" Width="165">
-                            <materialDesign:PackIcon Margin="0 0 15 0" Kind="Xml" />
-                            <TextBlock Text="Programmer"/>
-                        </StackPanel>
-                    </ListViewItem>
-                    <ListViewItem Style="{StaticResource mainLeftItem}">
-                        <StackPanel Orientation="Horizontal" Width="165">
-                            <materialDesign:PackIcon Margin="0 0 15 0" Kind="CalendarRange" />
-                            <TextBlock Text="Date Calculation"/>
-                        </StackPanel>
-                    </ListViewItem>
-                    <TextBlock Style="{StaticResource boldText}" Width="165">Converter</TextBlock>
-                    <ListViewItem Style="{StaticResource mainLeftItem}">
-                        <StackPanel Orientation="Horizontal" Width="165">
-                            <materialDesign:PackIcon Margin="0 0 15 0" Kind="Cash" />
-                            <TextBlock Text="Currency"/>
-                        </StackPanel>
-                    </ListViewItem>
-                    <ListViewItem Style="{StaticResource mainLeftItem}">
-                        <StackPanel Orientation="Horizontal" Width="165">
-                            <materialDesign:PackIcon Margin="0 0 15 0" Kind="Cube" />
-                            <TextBlock Text="Volume"/>
-                        </StackPanel>
-                    </ListViewItem>
-                    <ListViewItem Style="{StaticResource mainLeftItem}">
-                        <StackPanel Orientation="Horizontal" Width="165">
-                            <materialDesign:PackIcon Margin="0 0 15 0" Kind="Ruler" />
-                            <TextBlock Text="Length"/>
-                        </StackPanel>
-                    </ListViewItem>
-                    <ListViewItem Style="{StaticResource mainLeftItem}">
-                        <StackPanel Orientation="Horizontal" Width="165">
-                            <materialDesign:PackIcon Margin="0 0 15 0" Kind="Weight" />
-                            <TextBlock Text="Weight and Mass"/>
-                        </StackPanel>
-                    </ListViewItem>
-                    <ListViewItem Style="{StaticResource mainLeftItem}">
-                        <StackPanel Orientation="Horizontal" Width="165">
-                            <materialDesign:PackIcon Margin="0 0 15 0" Kind="CoolantTemperature" />
-                            <TextBlock Text="Temperature"/>
-                        </StackPanel>
-                    </ListViewItem>
-                    <ListViewItem Style="{StaticResource mainLeftItem}">
-                        <StackPanel Orientation="Horizontal" Width="165">
-                            <materialDesign:PackIcon Margin="0 0 15 0" Kind="Fire" />
-                            <TextBlock Text="Energy"/>
-                        </StackPanel>
-                    </ListViewItem>
-                    <ListViewItem Style="{StaticResource mainLeftItem}">
-                        <StackPanel Orientation="Horizontal" Width="165">
-                            <materialDesign:PackIcon Margin="0 0 15 0" Kind="TextureBox" />
-                            <TextBlock Text="Area"/>
-                        </StackPanel>
-                    </ListViewItem>
-                    <ListViewItem Style="{StaticResource mainLeftItem}">
-                        <StackPanel Orientation="Horizontal" Width="165">
-                            <materialDesign:PackIcon Margin="0 0 15 0" Kind="Run" />
-                            <TextBlock Text="Speed"/>
-                        </StackPanel>
-                    </ListViewItem>
-                    <ListViewItem Style="{StaticResource mainLeftItem}">
-                        <StackPanel Orientation="Horizontal" Width="165">
-                            <materialDesign:PackIcon Margin="0 0 15 0" Kind="ClockTimeThreeOutline" />
-                            <TextBlock Text="Time"/>
-                        </StackPanel>
-                    </ListViewItem>
-                    <ListViewItem Style="{StaticResource mainLeftItem}">
-                        <StackPanel Orientation="Horizontal" Width="165">
-                            <materialDesign:PackIcon Margin="0 0 15 0" Kind="Flash" />
-                            <TextBlock Text="Power"/>
-                        </StackPanel>
-                    </ListViewItem>
-                    <ListViewItem Style="{StaticResource mainLeftItem}">
-                        <StackPanel Orientation="Horizontal" Width="165">
-                            <materialDesign:PackIcon Margin="0 0 15 0" Kind="Database" />
-                            <TextBlock Text="Data"/>
-                        </StackPanel>
-                    </ListViewItem>
-                    <ListViewItem Style="{StaticResource mainLeftItem}">
-                        <StackPanel Orientation="Horizontal" Width="165">
-                            <materialDesign:PackIcon Margin="0 0 15 0" Kind="Speedometer" />
-                            <TextBlock Text="Pressure"/>
-                        </StackPanel>
-                    </ListViewItem>
-                    <ListViewItem Style="{StaticResource mainLeftItem}">
-                        <StackPanel Orientation="Horizontal" Width="165">
-                            <materialDesign:PackIcon Margin="0 0 15 0" Kind="AngleAcute" />
-                            <TextBlock Text="Angle"/>
-                        </StackPanel>
-                    </ListViewItem>
-                </ListView>
+            <Grid HorizontalAlignment="Left" Width="0" Name="mainLeftSidebar" Background="#585c59">
+                <customcontrol:MainLeftListView
+                    PreviewMouseLeftButtonDownCommand="{Binding PreviewMouseLeftButtonDownCommand}"
+                    SelectionChangedCommand="{Binding SelectionChangedCommand}"/>
             </Grid>
         </Grid>
     </Grid>

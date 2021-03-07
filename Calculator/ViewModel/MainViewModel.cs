@@ -1,5 +1,4 @@
-﻿using Calculator.View;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using static Calculator.Constance;
@@ -10,6 +9,7 @@ namespace Calculator.ViewModel
     {
         public ICommand PreviewMouseLeftButtonDownCommand { get; set; }
         public ICommand SelectionChangedCommand { get; set; }
+        public ICommand MouseDownWindowCommand { get; set; }
 
         private bool isCheck;
         public bool IsCheck
@@ -52,26 +52,33 @@ namespace Calculator.ViewModel
 
             InitializePreviewMouseLeftButtonDownCommand();
             InitializeSelectionChangedCommand();
+            InitializeMouseDownWindowCommand();
         }
 
         private void InitializePreviewMouseLeftButtonDownCommand()
         {
-            PreviewMouseLeftButtonDownCommand = new RelayCommand<MainWindow>(
+            PreviewMouseLeftButtonDownCommand = new RelayCommand<ListView>(
                 sender => { return true; }, sender => IsCheck = !IsCheck);
         }
 
         private void InitializeSelectionChangedCommand()
         {
-            SelectionChangedCommand = new RelayCommand<MainWindow>(
+            SelectionChangedCommand = new RelayCommand<ListView>(
                 sender => { return true; }, sender =>
                 {
                     if (sender == null) return;
-                    ListViewItem selected = sender.mainLeftSidebar.SelectedItem as ListViewItem;
+                    ListViewItem selected = sender.SelectedItem as ListViewItem;
                     if (selected == null) return;
-                    int index = sender.mainLeftSidebar.SelectedIndex;
+                    int index = sender.SelectedIndex;
                     SelectionWindow = MAIN_LIST_TITLE[index];
                     SelectionItem = selected;
                 });
+        }
+
+        private void InitializeMouseDownWindowCommand()
+        {
+            MouseDownWindowCommand = new RelayCommand<object>(
+                sender => { return true; }, sender => IsCheck = !IsCheck);
         }
     }
 }

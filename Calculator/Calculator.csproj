@@ -70,10 +70,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CalculateService\AdvancedService.cs" />
     <Compile Include="CalculateService\BasicService.cs" />
     <Compile Include="CalculateService\CalculationManager.cs" />
     <Compile Include="CustomControl\CoreCalculator.xaml.cs">
       <DependentUpon>CoreCalculator.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControl\MainLeftListView.xaml.cs">
+      <DependentUpon>MainLeftListView.xaml</DependentUpon>
     </Compile>
     <Compile Include="CustomControl\MCalculator.xaml.cs">
       <DependentUpon>MCalculator.xaml</DependentUpon>
@@ -81,6 +85,9 @@
     <Compile Include="DisplayService\DisplayManager.cs" />
     <Compile Include="Model\CalculationResult.cs" />
     <Compile Include="ViewModel\StandardViewModel.cs" />
+    <Compile Include="View\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ProgrammerWindow\ProgrammerWindow.xaml.cs">
       <DependentUpon>ProgrammerWindow.xaml</DependentUpon>
     </Compile>
@@ -102,6 +109,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="CustomControl\MainLeftListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="CustomControl\MCalculator.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -118,10 +129,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -137,10 +144,10 @@
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\CustomControlBarViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
-    <Compile Include="View\MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
+    <Page Include="View\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="View\ProgrammerWindow\ProgrammerWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -183,10 +190,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\main.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\tgBtn_default.png" />
-    <Resource Include="Images\tgBtn_MouseOver.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

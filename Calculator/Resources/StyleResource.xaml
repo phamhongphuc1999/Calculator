@@ -1,9 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:Calculator.Resources">
-    <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="./ColorResource.xaml" />
-    </ResourceDictionary.MergedDictionaries>
     <Style TargetType="{x:Type Button}" x:Key="transparentBut">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderThickness" Value="0"/>
@@ -23,8 +20,47 @@
             </Trigger>
         </Style.Triggers>
     </Style>
-    <Style TargetType="Button" x:Key="transparentStandardButton" BasedOn="{StaticResource transparentBut}">
+    <Style TargetType="Button" x:Key="transparentStandardButton">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="Height" Value="40"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <EventTrigger RoutedEvent="MouseMove">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation To="#8c8b87"
+                                    Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)" 
+                                    Duration="0:0:1"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                        <EventTrigger RoutedEvent="MouseLeave">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation To="Transparent"
+                                    Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)" 
+                                    Duration="0:0:1"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Foreground" Value="#8c8b87" />
+            </Trigger>
+        </Style.Triggers>
     </Style>
     <Style TargetType="{x:Type Button}" x:Key="calculatorDakrButton" BasedOn="{StaticResource transparentBut}">
         <Setter Property="Height" Value="auto"/>
@@ -68,6 +104,7 @@
         <Setter Property="Padding" Value="10"/>
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="BorderBrush" Value="#FF0069C0"/>
+        <Setter Property="FontWeight" Value="Bold" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ListViewItem}">
@@ -79,9 +116,12 @@
             </Setter.Value>
         </Setter>
     </Style>
-    <Style TargetType="ListView" x:Key="scrollListView">
-        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled"/>
-        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
+    <Style TargetType="ListView" x:Key="mainListViewStyle">
+        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Hidden" />
+        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Hidden"/>
+        <Setter Property="ScrollViewer.Width" Value="1" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Foreground" Value="White" />
     </Style>
     <Style TargetType="{x:Type TextBox}" x:Key="calculatorTextBox">
         <Setter Property="MinWidth" Value="120" />
