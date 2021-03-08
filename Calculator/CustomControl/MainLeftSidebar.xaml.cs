@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace Calculator.CustomControl
 {
@@ -9,10 +10,10 @@ namespace Calculator.CustomControl
     public partial class MainLeftSidebar : UserControl
     {
         private static DependencyProperty PreviewMouseLeftButtonDownCommandProperty = DependencyProperty.Register(
-            "PreviewMouseLeftButtonDownCommand", typeof(string), typeof(MainLeftSidebar));
-        public string PreviewMouseLeftButtonDownCommand
+            "PreviewMouseLeftButtonDownCommand", typeof(ICommand), typeof(MainLeftSidebar));
+        public ICommand PreviewMouseLeftButtonDownCommand
         {
-            get { return (string)GetValue(PreviewMouseLeftButtonDownCommandProperty); }
+            get { return (ICommand)GetValue(PreviewMouseLeftButtonDownCommandProperty); }
             set
             {
                 SetValue(PreviewMouseLeftButtonDownCommandProperty, value);
@@ -20,10 +21,10 @@ namespace Calculator.CustomControl
         }
 
         private static DependencyProperty SelectionChangedCommandProperty = DependencyProperty.Register(
-            "SelectionChangedCommand", typeof(string), typeof(MainLeftSidebar));
-        public string SelectionChangedCommand
+            "SelectionChangedCommand", typeof(ICommand), typeof(MainLeftSidebar));
+        public ICommand SelectionChangedCommand
         {
-            get { return (string)GetValue(SelectionChangedCommandProperty); }
+            get { return (ICommand)GetValue(SelectionChangedCommandProperty); }
             set
             {
                 SetValue(SelectionChangedCommandProperty, value);

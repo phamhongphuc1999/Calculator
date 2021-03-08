@@ -6,9 +6,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Calculator.CustomControl"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+             mc:Ignorable="d" d:DesignHeight="450" d:DesignWidth="800">
+    <ScrollViewer Grid.Row="0" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
         <ListView Style="{StaticResource mainListViewStyle}" Width="165" x:Name="mainLeftSidebar">
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="PreviewMouseLeftButtonDown">
@@ -20,114 +19,114 @@
                                                    CommandParameter="{Binding ElementName=mainLeftSidebar}"/>
                 </i:EventTrigger>
             </i:Interaction.Triggers>
-            <TextBlock Style="{StaticResource boldText}" Width="165">Calculator</TextBlock>
-            <ListViewItem Style="{StaticResource mainLeftItem}">
+            <TextBlock Style="{StaticResource boldText}" Width="165" Text="{StaticResource Calculator}" />
+            <ListViewItem Style="{StaticResource mainLeftItem}" Tag="{StaticResource Standard}">
                 <StackPanel Orientation="Horizontal" Width="165" Height="40">
                     <materialDesign:PackIcon Margin="0 0 15 0" Kind="Calculator" />
-                    <TextBlock Text="Standard"/>
+                    <TextBlock Text="{StaticResource Standard}"/>
                 </StackPanel>
             </ListViewItem>
-            <ListViewItem Style="{StaticResource mainLeftItem}">
+            <ListViewItem Style="{StaticResource mainLeftItem}" Tag="{StaticResource Scientific}">
                 <StackPanel Orientation="Horizontal" Width="165">
                     <materialDesign:PackIcon Margin="0 0 15 0" Kind="Atom" />
-                    <TextBlock Text="Scientific"/>
+                    <TextBlock Text="{StaticResource Scientific}"/>
                 </StackPanel>
             </ListViewItem>
-            <ListViewItem Style="{StaticResource mainLeftItem}">
+            <ListViewItem Style="{StaticResource mainLeftItem}" Tag="{StaticResource Graphing}">
                 <StackPanel Orientation="Horizontal" Width="165">
                     <materialDesign:PackIcon Margin="0 0 15 0" Kind="ChartAreaspline" />
-                    <TextBlock Text="Graphing"/>
+                    <TextBlock Text="{StaticResource Graphing}"/>
                 </StackPanel>
             </ListViewItem>
-            <ListViewItem Style="{StaticResource mainLeftItem}">
+            <ListViewItem Style="{StaticResource mainLeftItem}" Tag="{StaticResource Programmer}">
                 <StackPanel Orientation="Horizontal" Width="165">
                     <materialDesign:PackIcon Margin="0 0 15 0" Kind="Xml" />
-                    <TextBlock Text="Programmer"/>
+                    <TextBlock Text="{StaticResource Programmer}"/>
                 </StackPanel>
             </ListViewItem>
-            <ListViewItem Style="{StaticResource mainLeftItem}">
+            <ListViewItem Style="{StaticResource mainLeftItem}" Tag="{StaticResource DateCalculation}">
                 <StackPanel Orientation="Horizontal" Width="165">
                     <materialDesign:PackIcon Margin="0 0 15 0" Kind="CalendarRange" />
-                    <TextBlock Text="Date Calculation"/>
+                    <TextBlock Text="{StaticResource DateCalculation}"/>
                 </StackPanel>
             </ListViewItem>
             <TextBlock Style="{StaticResource boldText}" Width="165">Converter</TextBlock>
-            <ListViewItem Style="{StaticResource mainLeftItem}">
+            <ListViewItem Style="{StaticResource mainLeftItem}" Tag="{StaticResource Currency}">
                 <StackPanel Orientation="Horizontal" Width="165">
                     <materialDesign:PackIcon Margin="0 0 15 0" Kind="Cash" />
-                    <TextBlock Text="Currency"/>
+                    <TextBlock Text="{StaticResource Currency}"/>
                 </StackPanel>
             </ListViewItem>
-            <ListViewItem Style="{StaticResource mainLeftItem}">
+            <ListViewItem Style="{StaticResource mainLeftItem}" Tag="{StaticResource Volume}">
                 <StackPanel Orientation="Horizontal" Width="165">
                     <materialDesign:PackIcon Margin="0 0 15 0" Kind="Cube" />
-                    <TextBlock Text="Volume"/>
+                    <TextBlock Text="{StaticResource Volume}"/>
                 </StackPanel>
             </ListViewItem>
-            <ListViewItem Style="{StaticResource mainLeftItem}">
+            <ListViewItem Style="{StaticResource mainLeftItem}" Tag="{StaticResource Length}">
                 <StackPanel Orientation="Horizontal" Width="165">
                     <materialDesign:PackIcon Margin="0 0 15 0" Kind="Ruler" />
-                    <TextBlock Text="Length"/>
+                    <TextBlock Text="{StaticResource Length}"/>
                 </StackPanel>
             </ListViewItem>
-            <ListViewItem Style="{StaticResource mainLeftItem}">
+            <ListViewItem Style="{StaticResource mainLeftItem}" Tag="{StaticResource WeightMass}">
                 <StackPanel Orientation="Horizontal" Width="165">
                     <materialDesign:PackIcon Margin="0 0 15 0" Kind="Weight" />
-                    <TextBlock Text="Weight and Mass"/>
+                    <TextBlock Text="{StaticResource WeightMass}"/>
                 </StackPanel>
             </ListViewItem>
-            <ListViewItem Style="{StaticResource mainLeftItem}">
+            <ListViewItem Style="{StaticResource mainLeftItem}" Tag="{StaticResource Temperature}">
                 <StackPanel Orientation="Horizontal" Width="165">
                     <materialDesign:PackIcon Margin="0 0 15 0" Kind="CoolantTemperature" />
-                    <TextBlock Text="Temperature"/>
+                    <TextBlock Text="{StaticResource Temperature}"/>
                 </StackPanel>
             </ListViewItem>
-            <ListViewItem Style="{StaticResource mainLeftItem}">
+            <ListViewItem Style="{StaticResource mainLeftItem}" Tag="{StaticResource Energy}">
                 <StackPanel Orientation="Horizontal" Width="165">
                     <materialDesign:PackIcon Margin="0 0 15 0" Kind="Fire" />
-                    <TextBlock Text="Energy"/>
+                    <TextBlock Text="{StaticResource Energy}"/>
                 </StackPanel>
             </ListViewItem>
-            <ListViewItem Style="{StaticResource mainLeftItem}">
+            <ListViewItem Style="{StaticResource mainLeftItem}" Tag="{StaticResource Area}">
                 <StackPanel Orientation="Horizontal" Width="165">
                     <materialDesign:PackIcon Margin="0 0 15 0" Kind="TextureBox" />
-                    <TextBlock Text="Area"/>
+                    <TextBlock Text="{StaticResource Area}"/>
                 </StackPanel>
             </ListViewItem>
-            <ListViewItem Style="{StaticResource mainLeftItem}">
+            <ListViewItem Style="{StaticResource mainLeftItem}" Tag="{StaticResource Speed}">
                 <StackPanel Orientation="Horizontal" Width="165">
                     <materialDesign:PackIcon Margin="0 0 15 0" Kind="Run" />
-                    <TextBlock Text="Speed"/>
+                    <TextBlock Text="{StaticResource Speed}"/>
                 </StackPanel>
             </ListViewItem>
-            <ListViewItem Style="{StaticResource mainLeftItem}">
+            <ListViewItem Style="{StaticResource mainLeftItem}" Tag="{StaticResource Time}">
                 <StackPanel Orientation="Horizontal" Width="165">
                     <materialDesign:PackIcon Margin="0 0 15 0" Kind="ClockTimeThreeOutline" />
-                    <TextBlock Text="Time"/>
+                    <TextBlock Text="{StaticResource Time}"/>
                 </StackPanel>
             </ListViewItem>
-            <ListViewItem Style="{StaticResource mainLeftItem}">
+            <ListViewItem Style="{StaticResource mainLeftItem}" Tag="{StaticResource Power}">
                 <StackPanel Orientation="Horizontal" Width="165">
                     <materialDesign:PackIcon Margin="0 0 15 0" Kind="Flash" />
-                    <TextBlock Text="Power"/>
+                    <TextBlock Text="{StaticResource Power}"/>
                 </StackPanel>
             </ListViewItem>
-            <ListViewItem Style="{StaticResource mainLeftItem}">
+            <ListViewItem Style="{StaticResource mainLeftItem}" Tag="{StaticResource Data}">
                 <StackPanel Orientation="Horizontal" Width="165">
                     <materialDesign:PackIcon Margin="0 0 15 0" Kind="Database" />
-                    <TextBlock Text="Data"/>
+                    <TextBlock Text="{StaticResource Data}"/>
                 </StackPanel>
             </ListViewItem>
-            <ListViewItem Style="{StaticResource mainLeftItem}">
+            <ListViewItem Style="{StaticResource mainLeftItem}" Tag="{StaticResource Pressure}">
                 <StackPanel Orientation="Horizontal" Width="165">
                     <materialDesign:PackIcon Margin="0 0 15 0" Kind="Speedometer" />
-                    <TextBlock Text="Pressure"/>
+                    <TextBlock Text="{StaticResource Pressure}"/>
                 </StackPanel>
             </ListViewItem>
-            <ListViewItem Style="{StaticResource mainLeftItem}">
+            <ListViewItem Style="{StaticResource mainLeftItem}" Tag="{StaticResource Angle}">
                 <StackPanel Orientation="Horizontal" Width="165">
                     <materialDesign:PackIcon Margin="0 0 15 0" Kind="AngleAcute" />
-                    <TextBlock Text="Angle"/>
+                    <TextBlock Text="{StaticResource Angle}"/>
                 </StackPanel>
             </ListViewItem>
         </ListView>

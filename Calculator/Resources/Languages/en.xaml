@@ -1,0 +1,29 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib"
+                    xmlns:local="clr-namespace:Calculator.Resources.Languages">
+    <system:String x:Key="Calculator">Calculator</system:String>
+    <system:String x:Key="Standard">Standard</system:String>
+    <system:String x:Key="Scientific">Scientific</system:String>
+    <system:String x:Key="Graphing">Graphing</system:String>
+    <system:String x:Key="Programmer">Programmer</system:String>
+    <system:String x:Key="DateCalculation">Date Calculation</system:String>
+    <system:String x:Key="Converter">Converter</system:String>
+    <system:String x:Key="Currency">Currency</system:String>
+    <system:String x:Key="Volume">Volume</system:String>
+    <system:String x:Key="Length">Length</system:String>
+    <system:String x:Key="WeightMass">Weight and Mass</system:String>
+    <system:String x:Key="Temperature">Temperature</system:String>
+    <system:String x:Key="Energy">Energy</system:String>
+    <system:String x:Key="Area">Area</system:String>
+    <system:String x:Key="Speed">Speed</system:String>
+    <system:String x:Key="Time">Time</system:String>
+    <system:String x:Key="Power">Power</system:String>
+    <system:String x:Key="Data">Data</system:String>
+    <system:String x:Key="Pressure">Pressure</system:String>
+    <system:String x:Key="Angle">Angle</system:String>
+    <system:String x:Key="Setting">Setting</system:String>
+    <system:String x:Key="About">About</system:String>
+    <system:String x:Key="Theme">Theme</system:String>
+    <system:String x:Key="ThemeDetail">Backgroud,...</system:String>
+</ResourceDictionary>

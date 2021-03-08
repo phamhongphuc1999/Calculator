@@ -1,7 +1,6 @@
-﻿using System.Windows;
+﻿using Calculator.View;
 using System.Windows.Controls;
 using System.Windows.Input;
-using static Calculator.Constance;
 
 namespace Calculator.ViewModel
 {
@@ -10,6 +9,8 @@ namespace Calculator.ViewModel
         public ICommand PreviewMouseLeftButtonDownCommand { get; set; }
         public ICommand SelectionChangedCommand { get; set; }
         public ICommand MouseDownWindowCommand { get; set; }
+        public ICommand SettingCommand { get; set; }
+        public ICommand AboutCommand { get; set; }
 
         private bool isCheck;
         public bool IsCheck
@@ -33,18 +34,6 @@ namespace Calculator.ViewModel
             }
         }
 
-        private ListViewItem selectionItem;
-        public ListViewItem SelectionItem
-        {
-            get { return selectionItem; }
-            set
-            {
-                if (selectionItem != null) selectionItem.BorderThickness = new Thickness(0);
-                selectionItem = value;
-                selectionItem.BorderThickness = new Thickness(5, 0, 0, 0);
-            }
-        }
-
         public MainViewModel()
         {
             IsCheck = false;
@@ -53,12 +42,14 @@ namespace Calculator.ViewModel
             InitializePreviewMouseLeftButtonDownCommand();
             InitializeSelectionChangedCommand();
             InitializeMouseDownWindowCommand();
+            InitializeSettingCommand();
+            InitializeAboutCommand();
         }
 
         private void InitializePreviewMouseLeftButtonDownCommand()
         {
             PreviewMouseLeftButtonDownCommand = new RelayCommand<ListView>(
-                sender => { return true; }, sender => IsCheck = !IsCheck);
+                sender => { return true; }, sender => IsCheck = false);
         }
 
         private void InitializeSelectionChangedCommand()
@@ -69,9 +60,7 @@ namespace Calculator.ViewModel
                     if (sender == null) return;
                     ListViewItem selected = sender.SelectedItem as ListViewItem;
                     if (selected == null) return;
-                    int index = sender.SelectedIndex;
-                    SelectionWindow = MAIN_LIST_TITLE[index];
-                    SelectionItem = selected;
+                    SelectionWindow = (string)selected.Tag;
                 });
         }
 
@@ -79,6 +68,26 @@ namespace Calculator.ViewModel
         {
             MouseDownWindowCommand = new RelayCommand<object>(
                 sender => { return true; }, sender => IsCheck = !IsCheck);
+        }
+
+        private void InitializeSettingCommand()
+        {
+            SettingCommand = new RelayCommand<object>(
+                sender => { return true; }, sender =>
+                {
+                    SettingWindow settingWindow = new SettingWindow();
+                    IsCheck = false;
+                    settingWindow.ShowDialog();
+                });
+        }
+
+        private void InitializeAboutCommand()
+        {
+            AboutCommand = new RelayCommand<object>(
+                sender => { return true; }, sender =>
+                {
+
+                });
         }
     }
 }

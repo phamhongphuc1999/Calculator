@@ -82,9 +82,13 @@
     <Compile Include="CustomControl\MCalculator.xaml.cs">
       <DependentUpon>MCalculator.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CustomControl\SettingButton.xaml.cs">
+      <DependentUpon>SettingButton.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DisplayService\DisplayManager.cs" />
     <Compile Include="Model\CalculationResult.cs" />
     <Compile Include="Model\LeftSideBarItem.cs" />
+    <Compile Include="ViewModel\SettingViewModel.cs" />
     <Compile Include="ViewModel\StandardViewModel.cs" />
     <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -94,6 +98,9 @@
     </Compile>
     <Compile Include="View\ScientificWindow\ScientificWindow.xaml.cs">
       <DependentUpon>ScientificWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SettingWindow.xaml.cs">
+      <DependentUpon>SettingWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\StandardWindow\StandardWindow.xaml.cs">
       <DependentUpon>StandardWindow.xaml</DependentUpon>
@@ -118,7 +125,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="CustomControl\SettingButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Resources\ColorResource.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Languages\en.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Languages\vn.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -154,6 +173,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ScientificWindow\ScientificWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SettingWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

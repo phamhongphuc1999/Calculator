@@ -1,0 +1,29 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib"
+                    xmlns:local="clr-namespace:Calculator.Resources.Languages">
+    <system:String x:Key="Calculator">Máy tính</system:String>
+    <system:String x:Key="Standard">Tiêu chuẩn</system:String>
+    <system:String x:Key="Scientific">Khoa học</system:String>
+    <system:String x:Key="Graphing">Đồ thị</system:String>
+    <system:String x:Key="Programmer">Lập trình</system:String>
+    <system:String x:Key="DateCalculation">Ngày tháng</system:String>
+    <system:String x:Key="Converter">Quy đổi</system:String>
+    <system:String x:Key="Currency">Tiền tệ</system:String>
+    <system:String x:Key="Volume">Thể tích</system:String>
+    <system:String x:Key="Length">Chiều dài</system:String>
+    <system:String x:Key="WeightMass">Khối lượng</system:String>
+    <system:String x:Key="Temperature">Nhiệt độ</system:String>
+    <system:String x:Key="Energy">Năng lượng</system:String>
+    <system:String x:Key="Area">Diện tích</system:String>
+    <system:String x:Key="Speed">Tốc độ</system:String>
+    <system:String x:Key="Time">Thời gian</system:String>
+    <system:String x:Key="Power">Công suất</system:String>
+    <system:String x:Key="Data">Dữ liệu</system:String>
+    <system:String x:Key="Pressure">Áp suất</system:String>
+    <system:String x:Key="Angle">Góc</system:String>
+    <system:String x:Key="Setting">Cài đặt</system:String>
+    <system:String x:Key="About">Thông tin</system:String>
+    <system:String x:Key="Theme">Chủ đề</system:String>
+    <system:String x:Key="ThemeDetail">Hình nền,...</system:String>
+</ResourceDictionary>

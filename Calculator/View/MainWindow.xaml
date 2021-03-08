@@ -96,9 +96,32 @@
         <Grid Grid.Row="2">
             <standard:StandardWindow></standard:StandardWindow>
             <Grid HorizontalAlignment="Left" Width="0" x:Name="mainLeftSidebar" Background="#585c59">
-                <customcontrol:MainLeftSidebar 
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+                <customcontrol:MainLeftSidebar Grid.Row="0"
                     PreviewMouseLeftButtonDownCommand="{Binding PreviewMouseLeftButtonDownCommand}" 
                     SelectionChangedCommand="{Binding SelectionChangedCommand}"/>
+                <StackPanel Orientation="Vertical" Grid.Row="1">
+                    <GridSplitter Style="{StaticResource calculationRowSplitter}" Width="165" Background="White" />
+                    <Button x:Name="settingButton" Style="{StaticResource transparentStandardButton}"
+                    Command="{Binding SettingCommand}"
+                    CommandParameter="{Binding ElementName=settingButton}">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Width="165">
+                            <materialDesign:PackIcon Margin="15 0 15 0" Kind="CogOutline" />
+                            <TextBlock Text="{StaticResource Setting}" />
+                        </StackPanel>
+                    </Button>
+                    <Button x:Name="aboutButton" Style="{StaticResource transparentStandardButton}"
+                    Command="{Binding AboutCommand}"
+                    CommandParameter="{Binding ElementName=aboutButton}">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Width="165">
+                            <materialDesign:PackIcon Margin="15 0 15 0" Kind="InformationOutline" />
+                            <TextBlock Text="{StaticResource About}" />
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
             </Grid>
         </Grid>
     </Grid>
