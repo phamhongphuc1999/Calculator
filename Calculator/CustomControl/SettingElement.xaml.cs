@@ -5,23 +5,23 @@ using System.Windows.Input;
 namespace Calculator.CustomControl
 {
     /// <summary>
-    /// Interaction logic for SettingButton.xaml
+    /// Interaction logic for SettingElement.xaml
     /// </summary>
-    public partial class SettingButton : UserControl
+    public partial class SettingElement : UserControl
     {
-        private static DependencyProperty ClickCommandProperty = DependencyProperty.Register(
-            "ClickCommand", typeof(ICommand), typeof(SettingButton));
-        public ICommand ClickCommand
+        private static DependencyProperty MouseDownWindowCommandProperty = DependencyProperty.Register(
+            "MouseDownWindowCommand", typeof(ICommand), typeof(SettingElement));
+        public ICommand MouseDownWindowCommand
         {
-            get { return (ICommand)GetValue(ClickCommandProperty); }
+            get { return (ICommand)GetValue(MouseDownWindowCommandProperty); }
             set
             {
-                SetValue(ClickCommandProperty, value);
+                SetValue(MouseDownWindowCommandProperty, value);
             }
         }
 
         private static DependencyProperty DesignIconProperty = DependencyProperty.Register(
-            "DesignIcon", typeof(string), typeof(SettingButton));
+            "DesignIcon", typeof(string), typeof(SettingElement));
         public string DesignIcon
         {
             get { return (string)GetValue(DesignIconProperty); }
@@ -32,7 +32,7 @@ namespace Calculator.CustomControl
         }
 
         private static DependencyProperty MainTitleProperty = DependencyProperty.Register(
-            "MainTitle", typeof(string), typeof(SettingButton));
+            "MainTitle", typeof(string), typeof(SettingElement));
         public string MainTitle
         {
             get { return (string)GetValue(MainTitleProperty); }
@@ -43,7 +43,7 @@ namespace Calculator.CustomControl
         }
 
         private static DependencyProperty SubTitleProperty = DependencyProperty.Register(
-            "SubTitle", typeof(string), typeof(SettingButton));
+            "SubTitle", typeof(string), typeof(SettingElement));
         public string SubTitle
         {
             get { return (string)GetValue(SubTitleProperty); }
@@ -53,7 +53,7 @@ namespace Calculator.CustomControl
             }
         }
 
-        public SettingButton()
+        public SettingElement()
         {
             InitializeComponent();
         }

@@ -82,8 +82,8 @@
     <Compile Include="CustomControl\MCalculator.xaml.cs">
       <DependentUpon>MCalculator.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CustomControl\SettingButton.xaml.cs">
-      <DependentUpon>SettingButton.xaml</DependentUpon>
+    <Compile Include="CustomControl\SettingElement.xaml.cs">
+      <DependentUpon>SettingElement.xaml</DependentUpon>
     </Compile>
     <Compile Include="DisplayService\DisplayManager.cs" />
     <Compile Include="Model\CalculationResult.cs" />
@@ -125,7 +125,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="CustomControl\SettingButton.xaml">
+    <Page Include="CustomControl\SettingElement.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

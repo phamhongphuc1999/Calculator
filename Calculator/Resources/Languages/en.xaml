@@ -26,4 +26,6 @@
     <system:String x:Key="About">About</system:String>
     <system:String x:Key="Theme">Theme</system:String>
     <system:String x:Key="ThemeDetail">Backgroud,...</system:String>
+    <system:String x:Key="Language">Language</system:String>
+    <system:String x:Key="LanguageDetail">Change your display language</system:String>
 </ResourceDictionary>

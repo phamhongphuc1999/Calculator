@@ -26,4 +26,6 @@
     <system:String x:Key="About">Thông tin</system:String>
     <system:String x:Key="Theme">Chủ đề</system:String>
     <system:String x:Key="ThemeDetail">Hình nền,...</system:String>
+    <system:String x:Key="Language">Ngôn ngữ</system:String>
+    <system:String x:Key="LanguageDetail">Thay đổi ngôn ngữ hiển thị</system:String>
 </ResourceDictionary>

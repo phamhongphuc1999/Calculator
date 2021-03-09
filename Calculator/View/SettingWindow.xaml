@@ -23,8 +23,8 @@
         <customcontrol:CustomControlBar Grid.Row="0" Tag="{Binding Title, ElementName=settingWindow}" />
         <Grid Grid.Row="1">
             <WrapPanel Margin="50">
-                <customcontrol:SettingButton DesignIcon="Palette" MainTitle="{StaticResource Theme}" SubTitle="{StaticResource ThemeDetail}" 
-                                             />
+                <customcontrol:SettingElement MouseDownWindowCommand="{Binding ThemeSettingCommand}"
+                                              DesignIcon="ThemeLightDark" MainTitle="{StaticResource Theme}" SubTitle="{StaticResource ThemeDetail}"/>
             </WrapPanel>
         </Grid>
     </Grid>
