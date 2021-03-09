@@ -72,7 +72,8 @@
     </ApplicationDefinition>
     <Compile Include="CalculateService\AdvancedService.cs" />
     <Compile Include="CalculateService\BasicService.cs" />
-    <Compile Include="CalculateService\CalculationManager.cs" />
+    <Compile Include="CalculateService\NumberManager.cs" />
+    <Compile Include="CalculateService\DateService.cs" />
     <Compile Include="CustomControl\CoreCalculator.xaml.cs">
       <DependentUpon>CoreCalculator.xaml</DependentUpon>
     </Compile>
@@ -88,8 +89,12 @@
     <Compile Include="DisplayService\DisplayManager.cs" />
     <Compile Include="Model\CalculationResult.cs" />
     <Compile Include="Model\LeftSideBarItem.cs" />
+    <Compile Include="ViewModel\DateCalculationViewModel.cs" />
     <Compile Include="ViewModel\SettingViewModel.cs" />
     <Compile Include="ViewModel\StandardViewModel.cs" />
+    <Compile Include="View\DateCalculationWindow\DataCalculationWindow.xaml.cs">
+      <DependentUpon>DataCalculationWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
@@ -164,6 +169,10 @@
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\CustomControlBarViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
+    <Page Include="View\DateCalculationWindow\DataCalculationWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

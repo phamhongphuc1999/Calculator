@@ -25,6 +25,8 @@
             <WrapPanel Margin="50">
                 <customcontrol:SettingElement MouseDownWindowCommand="{Binding ThemeSettingCommand}"
                                               DesignIcon="ThemeLightDark" MainTitle="{StaticResource Theme}" SubTitle="{StaticResource ThemeDetail}"/>
+                <customcontrol:SettingElement MouseDownWindowCommand="{Binding LanguageSettingCommand}"
+                                              DesignIcon="Translate" MainTitle="{StaticResource Language}" SubTitle="{StaticResource LanguageDetail}"/>
             </WrapPanel>
         </Grid>
     </Grid>

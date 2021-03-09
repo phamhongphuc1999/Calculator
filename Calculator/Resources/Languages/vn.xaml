@@ -2,6 +2,15 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:system="clr-namespace:System;assembly=mscorlib"
                     xmlns:local="clr-namespace:Calculator.Resources.Languages">
+    <system:String x:Key="Add">Cộng</system:String>
+    <system:String x:Key="Subtract">Trừ</system:String>
+    <system:String x:Key="From">Từ</system:String>
+    <system:String x:Key="To">Đến</system:String>
+    <system:String x:Key="Years">Năm</system:String>
+    <system:String x:Key="Months">Tháng</system:String>
+    <system:String x:Key="Days">Ngày</system:String>
+    <system:String x:Key="Date">Ngày tháng</system:String>
+    <system:String x:Key="Diffirence">Khác</system:String>
     <system:String x:Key="Calculator">Máy tính</system:String>
     <system:String x:Key="Standard">Tiêu chuẩn</system:String>
     <system:String x:Key="Scientific">Khoa học</system:String>
@@ -28,4 +37,6 @@
     <system:String x:Key="ThemeDetail">Hình nền,...</system:String>
     <system:String x:Key="Language">Ngôn ngữ</system:String>
     <system:String x:Key="LanguageDetail">Thay đổi ngôn ngữ hiển thị</system:String>
+    <system:String x:Key="DiffirenceBetweenDate">Sự khác biệt giữa hai ngày</system:String>
+    <system:String x:Key="AddOrSubtractDay">Cộng trừ ngày tháng</system:String>
 </ResourceDictionary>

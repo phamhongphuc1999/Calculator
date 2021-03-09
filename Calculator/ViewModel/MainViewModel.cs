@@ -67,7 +67,7 @@ namespace Calculator.ViewModel
         private void InitializeMouseDownWindowCommand()
         {
             MouseDownWindowCommand = new RelayCommand<object>(
-                sender => { return true; }, sender => IsCheck = !IsCheck);
+                sender => { return true; }, sender => IsCheck = false);
         }
 
         private void InitializeSettingCommand()
@@ -86,7 +86,7 @@ namespace Calculator.ViewModel
             AboutCommand = new RelayCommand<object>(
                 sender => { return true; }, sender =>
                 {
-
+                    System.Diagnostics.Process.Start(Constance.GITHUB_LINK);
                 });
         }
     }

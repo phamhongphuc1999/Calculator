@@ -1,4 +1,5 @@
 ﻿using Calculator.CalculateService;
+using Calculator.DisplayService;
 using Calculator.Model;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -43,7 +44,8 @@ namespace Calculator.ViewModel
 
         private bool isResult;
         private bool isClear;
-        private CalculationManager calculationManager;
+        private NumberManager numberManager;
+        private DisplayManager displayManager;
 
         public StandardViewModel()
         {
@@ -52,12 +54,14 @@ namespace Calculator.ViewModel
             CurrentFunction = "";
             isResult = false;
             isClear = false;
-            calculationManager = new CalculationManager();
+            numberManager = new NumberManager();
+            displayManager = new DisplayManager();
 
             InitializeDisplayValueCommand();
             InitializeTransformSignCommand();
             InitializeDeleteCommand();
             InitializeBasicCalculationCommand();
+            InitializeAdvancedCalculationCommand();
             InitializeResultCommand();
             InitializeDecimalCommand();
         }
@@ -112,7 +116,7 @@ namespace Calculator.ViewModel
                     string function = sender.Tag.ToString();
                     if (CurrentFunction != "")
                     {
-                        CalculationResult result = calculationManager.Handler(PreviousElement, CurrentElement, CurrentFunction, function);
+                        CalculationResult result = numberManager.Handler(PreviousElement, CurrentElement, CurrentFunction, function);
                         CalculationText = result.CalculationText;
                         CurrentElement = result.CurrentText;
                     }
@@ -137,14 +141,14 @@ namespace Calculator.ViewModel
             ResultCommand = new RelayCommand<Button>(
                 sender => { return true; }, sender =>
                 {
-                    isClear = true;
-                    if (CurrentFunction != "")
-                    {
-                        CalculationResult result = calculationManager.Handler(PreviousElement, CurrentElement, CurrentFunction);
-                        CalculationText = result.CalculationText;
-                        CurrentElement = result.CurrentText;
-                    }
-                    else CalculationText = CurrentElement;
+                    //isClear = true;
+                    //if (CurrentFunction != "")
+                    //{
+                    //    CalculationResult result = calculationManager.Handler(PreviousElement, CurrentElement, CurrentFunction);
+                    //    CalculationText = result.CalculationText;
+                    //    CurrentElement = result.CurrentText;
+                    //}
+                    //else CalculationText = CurrentElement;
 
                 });
         }

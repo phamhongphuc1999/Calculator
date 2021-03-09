@@ -5,4 +5,5 @@
     <viewmodel:MainViewModel x:Key="mainViewModel"></viewmodel:MainViewModel>
     <viewmodel:StandardViewModel x:Key="standardViewModel"></viewmodel:StandardViewModel>
     <viewmodel:SettingViewModel x:Key="settingViewModel"></viewmodel:SettingViewModel>
+    <viewmodel:DateCalculationViewModel x:Key="dateViewModel"></viewmodel:DateCalculationViewModel>
 </ResourceDictionary>

@@ -4,7 +4,7 @@ using static Calculator.Constance;
 
 namespace Calculator.CalculateService
 {
-    public class CalculationManager
+    public class NumberManager
     {
         public CalculationResult Handler(string element1, string element2, string currentFunction, string nextFunction = "")
         {

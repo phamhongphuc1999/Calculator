@@ -36,5 +36,7 @@ namespace Calculator
             {"subtract", '-' },
             {"add", '+' }
         };
+
+        public const string GITHUB_LINK = "https://github.com/phamhongphuc1999/Calculator";
     }
 }
