@@ -6,6 +6,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Calculator.View.DateCalculationWindow"
+             xmlns:System="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d" Name="dateCalculationWindow" DataContext="{StaticResource dateViewModel}"
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Style="{StaticResource Container}">
@@ -14,6 +15,14 @@
                 <i:InvokeCommandAction Command="{Binding MouseDownWindowCommand}" />
             </i:EventTrigger>
         </i:Interaction.Triggers>
+        <Grid.Resources>
+            <Style TargetType="TextBlock" x:Key="dateTextBlock">
+                <Setter Property="Foreground" Value="White" />
+                <Setter Property="FontWeight" Value="Bold" />
+                <Setter Property="FontSize" Value="20" />
+                <Setter Property="Margin" Value="0 0 0 15" />
+            </Style>
+        </Grid.Resources>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="4*" />
             <ColumnDefinition Width="6*" />
@@ -40,36 +49,52 @@
                     <RowDefinition />
                     <RowDefinition />
                 </Grid.RowDefinitions>
-                <Button Grid.Row="0" TabIndex="0" x:Name="diffirenceDateButton" Style="{StaticResource transparentStandardButton}"
+                <Button Grid.Row="0" Tag="0" x:Name="diffirenceDateButton" Style="{StaticResource transparentStandardButton}"
                         Command="{Binding SwitchFunctionCommand}" CommandParameter="{Binding ElementName=diffirenceDateButton}"
                         Content="{StaticResource DiffirenceBetweenDate}"/>
-                <Button Grid.Row="1" TabIndex="1" x:Name="addOrSubtractDays" Style="{StaticResource transparentStandardButton}"
+                <Button Grid.Row="1" Tag="1" x:Name="addOrSubtractDays" Style="{StaticResource transparentStandardButton}"
                         Command="{Binding SwitchFunctionCommand}" CommandParameter="{Binding ElementName=addOrSubtractDays}"
                         Content="{StaticResource AddOrSubtractDay}"/>
             </Grid>
         </Grid>
         <StackPanel Grid.Row="1">
             <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
-                <TextBlock Text="{StaticResource From}" Foreground="White" />
-                <DatePicker Width="140" materialDesign:HintAssist.Hint="Pick Date"
-                 Style="{StaticResource MaterialDesignOutlinedDatePicker}" />
+                <TextBlock Text="{StaticResource From}" Style="{StaticResource dateTextBlock}" />
+                <DatePicker Width="140" materialDesign:HintAssist.Hint="{Binding Source={x:Static System:DateTime.Now}}"
+                 Style="{StaticResource MaterialDesignOutlinedDatePicker}" Name="fromDatePicker">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="SelectedDateChanged">
+                            <i:InvokeCommandAction Command="{Binding FromDateSelectedDateChangedCommand}"
+                                                   CommandParameter="{Binding ElementName=fromDatePicker}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </DatePicker>
             </StackPanel>
             <Grid>
-                <StackPanel Visibility="Hidden" Orientation="Vertical" HorizontalAlignment="Left">
-                    <TextBlock Text="{StaticResource To}" Foreground="White" />
-                    <DatePicker Width="140" materialDesign:HintAssist.Hint="Pick Date"
-                                Style="{StaticResource MaterialDesignOutlinedDatePicker}" />
-                    <TextBlock Text="{StaticResource Diffirence}" Foreground="White" />
-                    <TextBlock x:Name="resultDiffirentTextBlock" Text="{Binding ResultText}" Foreground="White" />
+                <StackPanel x:Name="diffirenceStackPanel" Visibility="{Binding DiffirenceVisibilityStack}"  Orientation="Vertical" HorizontalAlignment="Left">
+                    <TextBlock Text="{StaticResource To}" Style="{StaticResource dateTextBlock}" />
+                    <DatePicker Width="140" materialDesign:HintAssist.Hint="{Binding Source={x:Static System:DateTime.Now}}"
+                                Style="{StaticResource MaterialDesignOutlinedDatePicker}" Name="toDatePicker">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="SelectedDateChanged">
+                                <i:InvokeCommandAction Command="{Binding ToDateSelectedDateChangedCommand}"
+                                                       CommandParameter="{Binding ElementName=toDatePicker}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </DatePicker>
+                    <TextBlock Text="{StaticResource Diffirence}" Style="{StaticResource dateTextBlock}" />
+                    <TextBlock x:Name="resultDiffirentTextBlock" Text="{Binding ResultDiffirenceText}" Style="{StaticResource dateTextBlock}" />
                 </StackPanel>
-                <StackPanel Visibility="Visible" HorizontalAlignment="Left">
+                <StackPanel x:Name="addOrSubtractStackPanel" Visibility="{Binding AddOrSubtractVisibilityStack}" HorizontalAlignment="Left">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition></ColumnDefinition>
                             <ColumnDefinition></ColumnDefinition>
                         </Grid.ColumnDefinitions>
-                        <RadioButton IsChecked="True" Grid.Column="0" GroupName="function" Content="{StaticResource Add}" />
-                        <RadioButton Grid.Column="1" GroupName="function" Content="{StaticResource Subtract}" />
+                        <RadioButton x:Name="addRadio" IsChecked="{Binding IsAddChoose}" Grid.Column="0" GroupName="function" Content="{StaticResource Add}"
+                                     Style="{StaticResource dateRadio}" Command="{Binding RadioChooseCommand}" CommandParameter="{Binding ElementName=addRadio}" />
+                        <RadioButton x:Name="subtractRadio" Grid.Column="1" GroupName="function" Content="{StaticResource Subtract}"
+                                     Style="{StaticResource dateRadio}" Command="{Binding RadioChooseCommand}" CommandParameter="{Binding ElementName=subtractRadio}" />
                     </Grid>
                     <Grid>
                         <Grid.ColumnDefinitions>
@@ -77,30 +102,48 @@
                             <ColumnDefinition />
                             <ColumnDefinition />
                         </Grid.ColumnDefinitions>
-                        <StackPanel Orientation="Vertical" Grid.Column="0">
+                        <StackPanel Orientation="Vertical" Grid.Column="0" Margin="0 0 5 0">
                             <TextBlock Text="{StaticResource Years}"/>
-                            <ComboBox Style="{StaticResource MaterialDesignFilledComboBox}" x:Name="YearComboBox"
+                            <ComboBox x:Name="yearCombo" Style="{StaticResource MaterialDesignFilledComboBox}"
                                 IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignFilledComboBoxEnabledComboBox}"
-                                materialDesign:HintAssist.Hint="Some item" Width="256">
+                                materialDesign:HintAssist.Hint="Year" Width="256" ItemsSource="{Binding CbContent}">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="SelectionChanged">
+                                        <i:InvokeCommandAction Command="{Binding YearSelectionChangedCommand}"
+                                                       CommandParameter="{Binding ElementName=yearCombo}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
                             </ComboBox>
                         </StackPanel>
-                        <StackPanel Orientation="Vertical" Grid.Column="1">
+                        <StackPanel Orientation="Vertical" Grid.Column="1" Margin="5 0 5 0">
                             <TextBlock Text="{StaticResource Months}"/>
-                            <ComboBox Style="{StaticResource MaterialDesignFilledComboBox}" x:Name="MonthComboBox"
+                            <ComboBox x:Name="monthCombo" Style="{StaticResource MaterialDesignFilledComboBox}"
                                 IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignFilledComboBoxEnabledComboBox}"
-                                materialDesign:HintAssist.Hint="Some item" Width="256">
+                                materialDesign:HintAssist.Hint="Month" Width="256" ItemsSource="{Binding CbContent}">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="SelectionChanged">
+                                        <i:InvokeCommandAction Command="{Binding MonthSelectionChangedCommand}"
+                                                       CommandParameter="{Binding ElementName=monthCombo}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
                             </ComboBox>
                         </StackPanel>
-                        <StackPanel Orientation="Vertical" Grid.Column="2">
+                        <StackPanel Orientation="Vertical" Grid.Column="2" Margin="5 0 0 0">
                             <TextBlock Text="{StaticResource Days}"/>
-                            <ComboBox Style="{StaticResource MaterialDesignFilledComboBox}" x:Name="DayComboBox"
+                            <ComboBox x:Name="dayCombo" Style="{StaticResource MaterialDesignFilledComboBox}"
                                 IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignFilledComboBoxEnabledComboBox}"
-                                materialDesign:HintAssist.Hint="Some item" Width="256">
+                                materialDesign:HintAssist.Hint="Day" Width="256" ItemsSource="{Binding CbContent}">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="SelectionChanged">
+                                        <i:InvokeCommandAction Command="{Binding DaySelectionChangedCommand}"
+                                                       CommandParameter="{Binding ElementName=dayCombo}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
                             </ComboBox>
                         </StackPanel>
                     </Grid>
-                    <TextBlock Text="{StaticResource Date}" Foreground="White" />
-                    <TextBlock x:Name="resultCalTextBlock" Text="{Binding ResultText}" Foreground="White" />
+                    <TextBlock Text="{StaticResource Date}" Style="{StaticResource dateTextBlock}" />
+                    <TextBlock x:Name="resultCalTextBlock" Text="{Binding ResultCalculationText}" Style="{StaticResource dateTextBlock}" />
                 </StackPanel>
             </Grid>
         </StackPanel>
