@@ -5,6 +5,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
 
 namespace Calculator.ViewModel
 {
@@ -22,6 +23,7 @@ namespace Calculator.ViewModel
 
         private DateTime fromDate, toDate;
         private int years, months, days;
+        private Button currentFunctionButton;
 
         public ObservableCollection<int> CbContent { get; private set; }
 
@@ -102,6 +104,17 @@ namespace Calculator.ViewModel
             }
         }
 
+        private Thickness gridMargin;
+        public Thickness GridMargin
+        {
+            get { return gridMargin; }
+            set
+            {
+                gridMargin = value;
+                OnPropertyChanged();
+            }
+        }
+
         public DateCalculationViewModel()
         {
             SwitchVisibilityGrid = Visibility.Hidden;
@@ -112,6 +125,7 @@ namespace Calculator.ViewModel
             fromDate = toDate = DateTime.Now;
             years = months = days = 0;
             IsAddChoose = true;
+            GridMargin = new Thickness(0, 35, 0, 0);
 
             int[] sequence = Enumerable.Range(0, 999).ToArray();
             CbContent = new ObservableCollection<int>(sequence);
@@ -158,6 +172,9 @@ namespace Calculator.ViewModel
             SwitchFunctionCommand = new RelayCommand<Button>(
                 sender => { return true; }, sender =>
                 {
+                    if(currentFunctionButton != null) currentFunctionButton.Background = Brushes.Transparent;
+                    currentFunctionButton = sender;
+                    currentFunctionButton.Background = Brushes.Purple;
                     CurrentFunctionText = (string)sender.Content;
                     SwitchVisibilityGrid = Visibility.Hidden;
                     string index = (string)sender.Tag;
@@ -165,11 +182,13 @@ namespace Calculator.ViewModel
                     {
                         DiffirenceVisibilityStack = Visibility.Visible;
                         AddOrSubtractVisibilityStack = Visibility.Hidden;
+                        GridMargin = new Thickness(0, 35, 0, 0);
                     }
                     else
                     {
                         DiffirenceVisibilityStack = Visibility.Hidden;
                         AddOrSubtractVisibilityStack = Visibility.Visible;
+                        GridMargin = new Thickness(0, -35, 0, 0);
                     }
                 });
         }

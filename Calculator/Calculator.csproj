@@ -77,6 +77,9 @@
     <Compile Include="CustomControl\CoreCalculator.xaml.cs">
       <DependentUpon>CoreCalculator.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CustomControl\CoreConverter.xaml.cs">
+      <DependentUpon>CoreConverter.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CustomControl\MainLeftSidebar.xaml.cs">
       <DependentUpon>MainLeftSidebar.xaml</DependentUpon>
     </Compile>
@@ -87,7 +90,6 @@
       <DependentUpon>SettingElement.xaml</DependentUpon>
     </Compile>
     <Compile Include="DisplayService\DisplayManager.cs" />
-    <Compile Include="Model\CalculationResult.cs" />
     <Compile Include="Model\LeftSideBarItem.cs" />
     <Compile Include="ViewModel\DateCalculationViewModel.cs" />
     <Compile Include="ViewModel\SettingViewModel.cs" />
@@ -111,6 +113,10 @@
       <DependentUpon>StandardWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="CustomControl\CoreCalculator.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CustomControl\CoreConverter.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

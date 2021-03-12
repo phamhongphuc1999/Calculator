@@ -39,12 +39,7 @@
                     <materialDesign:PackIcon Kind="ChevronDown" />
                 </StackPanel>
             </Button>
-            <Grid x:Name="switchFunctionGrid" Visibility="{Binding SwitchVisibilityGrid}">
-                <Grid.Style>
-                    <Style TargetType="Grid">
-                        <Setter Property="Background" Value="#FF888888" />
-                    </Style>
-                </Grid.Style>
+            <Grid x:Name="switchFunctionGrid" Visibility="{Binding SwitchVisibilityGrid}" Margin="{Binding GridMargin}" Background="Gray">
                 <Grid.RowDefinitions>
                     <RowDefinition />
                     <RowDefinition />

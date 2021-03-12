@@ -1,15 +1,13 @@
-﻿using Calculator.Model;
-using System;
-using static Calculator.Constance;
+﻿using System;
 
 namespace Calculator.CalculateService
 {
     public class NumberManager
     {
-        public CalculationResult Handler(string element1, string element2, string currentFunction, string nextFunction = "")
+        public string BasicHandler(string element1, string element2, string function)
         {
             string result = "";
-            switch (currentFunction)
+            switch (function)
             {
                 case "add":
                     result = BasicService.AddDecimal(element1, element2);
@@ -26,11 +24,7 @@ namespace Calculator.CalculateService
                 default:
                     throw new Exception();
             }
-            return new CalculationResult
-            {
-                CurrentText = result,
-                CalculationText = String.IsNullOrEmpty(nextFunction) ? result : result + BASIC_FUNCTIONS[nextFunction]
-            };
+            return result;
         }
     }
 }

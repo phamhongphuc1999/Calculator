@@ -1,6 +1,5 @@
 ﻿using Calculator.CalculateService;
 using Calculator.DisplayService;
-using Calculator.Model;
 using System.Windows.Controls;
 using System.Windows.Input;
 using static Calculator.Constance;
@@ -31,29 +30,29 @@ namespace Calculator.ViewModel
         private string PreviousElement;
         private string CurrentFunction;
 
-        private string calculationText;
-        public string CalculationText
+        private string displayText;
+        public string DisplayText
         {
-            get { return calculationText; }
+            get { return displayText; }
             set
             {
-                calculationText = value;
+                displayText = value;
                 OnPropertyChanged();
             }
         }
 
-        private bool isResult;
-        private bool isClear;
+        private ButtonStyle previousStyle;
+        private bool isResult, isClear;
         private NumberManager numberManager;
         private DisplayManager displayManager;
 
         public StandardViewModel()
         {
             CurrentElement = "0";
-            CalculationText = "";
+            DisplayText = "";
             CurrentFunction = "";
-            isResult = false;
-            isClear = false;
+            isResult = isClear = false;
+            previousStyle = ButtonStyle.NONE;
             numberManager = new NumberManager();
             displayManager = new DisplayManager();
 
@@ -72,9 +71,10 @@ namespace Calculator.ViewModel
                 sender => { return true; }, sender =>
                 {
                     string number = sender.Content.ToString();
+                    previousStyle = ButtonStyle.NUMBER;
                     if (isClear)
                     {
-                        CalculationText = "";
+                        DisplayText = "";
                         CurrentElement = number;
                         isClear = false;
                     }
@@ -114,13 +114,19 @@ namespace Calculator.ViewModel
                 sender => { return true; }, sender =>
                 {
                     string function = sender.Tag.ToString();
+                    if (previousStyle == ButtonStyle.FUNCTION)
+                    {
+                        CurrentFunction = function;
+                        DisplayText = displayManager.BasicDisplay(CurrentElement, function);
+                        return;
+                    }
+                    previousStyle = ButtonStyle.FUNCTION;
                     if (CurrentFunction != "")
                     {
-                        CalculationResult result = numberManager.Handler(PreviousElement, CurrentElement, CurrentFunction, function);
-                        CalculationText = result.CalculationText;
-                        CurrentElement = result.CurrentText;
+                        string result = numberManager.BasicHandler(PreviousElement, CurrentElement, CurrentFunction);
+                        CurrentElement = result;
                     }
-                    else CalculationText = CurrentElement + BASIC_FUNCTIONS[function];
+                    DisplayText = displayManager.BasicDisplay(CurrentElement, function);
                     PreviousElement = CurrentElement;
                     CurrentFunction = function;
                     isResult = false;
@@ -141,15 +147,10 @@ namespace Calculator.ViewModel
             ResultCommand = new RelayCommand<Button>(
                 sender => { return true; }, sender =>
                 {
-                    //isClear = true;
-                    //if (CurrentFunction != "")
-                    //{
-                    //    CalculationResult result = calculationManager.Handler(PreviousElement, CurrentElement, CurrentFunction);
-                    //    CalculationText = result.CalculationText;
-                    //    CurrentElement = result.CurrentText;
-                    //}
-                    //else CalculationText = CurrentElement;
-
+                    DisplayText = displayManager.CalculationDisplay(CurrentElement, PreviousElement, CurrentFunction);
+                    string result = numberManager.BasicHandler(CurrentElement, PreviousElement, CurrentFunction);
+                    CurrentElement = result;
+                    isClear = true;
                 });
         }
 

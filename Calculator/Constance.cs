@@ -34,8 +34,16 @@ namespace Calculator
             { "devision", '÷' },
             {"mutipilation", 'x' },
             {"subtract", '-' },
-            {"add", '+' }
+            {"add", '+' },
+            {"calculation", '=' }
         };
+
+        public enum ButtonStyle
+        {
+            FUNCTION,
+            NUMBER,
+            NONE
+        }
 
         public const string GITHUB_LINK = "https://github.com/phamhongphuc1999/Calculator";
     }

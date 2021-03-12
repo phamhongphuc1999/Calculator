@@ -21,7 +21,7 @@
                 <RowDefinition Height="10*" />
             </Grid.RowDefinitions>
             <TextBlock x:Name="SaveTextBlock" Grid.Row="0" Style="{StaticResource calculatorTextBlock}"
-                       Text="{Binding CalculationText}" />
+                       Text="{Binding DisplayText}" />
             <TextBox x:Name="textBox" Grid.Row="1" Text="{Binding CurrentElement}"
                       Style="{StaticResource calculatorTextBox}"/>
             <Grid Grid.Row="2">
@@ -103,9 +103,11 @@
                         <GridSplitter Grid.Row="5" Style="{StaticResource calculationRowSplitter}" />
                         <GridSplitter Grid.Row="7" Style="{StaticResource calculationRowSplitter}" />
                         <GridSplitter Grid.Row="9" Style="{StaticResource calculationRowSplitter}" />
-                        <Button Content="X" Grid.Row="0" Style="{StaticResource calculatorGrayButton}"
+                        <Button Grid.Row="0" Style="{StaticResource calculatorGrayButton}"
                                 Tag="delete" Name="deleteButton" Command="{Binding DeleteCommand}"
-                                CommandParameter="{Binding ElementName=deleteButton}"></Button>
+                                CommandParameter="{Binding ElementName=deleteButton}">
+                            <materialDesign:PackIcon Kind="ArrowLeftThick" />
+                        </Button>
                         <Button Content="÷" Grid.Row="2" Style="{StaticResource calculatorGrayButton}"
                                 Tag="devision" Name="devisionButton" Command="{Binding BasicCalculationCommand}"
                                 CommandParameter="{Binding ElementName=devisionButton}"></Button>

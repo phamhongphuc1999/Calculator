@@ -165,9 +165,11 @@
                             <GridSplitter Grid.Row="7" Style="{StaticResource calculationRowSplitter}" />
                             <GridSplitter Grid.Row="9" Style="{StaticResource calculationRowSplitter}" />
                             <GridSplitter Grid.Row="11" Style="{StaticResource calculationRowSplitter}" />
-                            <Button Content="X" Grid.Row="0" Style="{StaticResource calculatorGrayButton}"
+                            <Button Grid.Row="0" Style="{StaticResource calculatorGrayButton}"
                                 Name="deleteButton" Command="{Binding DeleteCommand}"
-                                CommandParameter="{Binding ElementName=deleteButton}"></Button>
+                                CommandParameter="{Binding ElementName=deleteButton}">
+                                <materialDesign:PackIcon Kind="ArrowLeftThick" />
+                            </Button>
                             <Button Content="mod" Grid.Row="2" Style="{StaticResource calculatorGrayButton}"
                                 Name="modButton" Command="{Binding DeleteCommand}"
                                 CommandParameter="{Binding ElementName=deleteButton}"></Button>
