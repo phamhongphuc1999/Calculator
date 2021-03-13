@@ -6,7 +6,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Calculator.View.ProgrammerWindow"
              xmlns:CustomControl="clr-namespace:Calculator.CustomControl"
-             mc:Ignorable="d" Name="programmerWindow"
+             mc:Ignorable="d" Name="programmerWindow" DataContext="{StaticResource programmerViewModel}"
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Style="{StaticResource Container}">
         <Grid.ColumnDefinitions>
@@ -49,9 +49,26 @@
                         <RowDefinition Height="auto"/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
-                    <Grid Grid.Row="0">
-                        
-                    </Grid>
+                    <WrapPanel Grid.Row="0">
+                        <Button x:Name="trigonometryButton" Style="{StaticResource transparentStandardButton}" Margin="0 0 20 0"
+                                    Command="{Binding TrigonometryButtonCommand}"
+                                    CommandParameter="{Binding ElementName=trigonometryButton}">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="AngleRight" />
+                                <TextBlock Text="{StaticResource Trigonometry}" />
+                                <materialDesign:PackIcon Kind="ChevronDown" />
+                            </StackPanel>
+                        </Button>
+                        <Button x:Name="functionButton" Style="{StaticResource transparentStandardButton}" Margin="0 0 20 0"
+                                    Command="{Binding FunctionButtonCommand}"
+                                    CommandParameter="{Binding ElementName=functionButton}">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="Function" />
+                                <TextBlock Text="{StaticResource Function}" />
+                                <materialDesign:PackIcon Kind="ChevronDown" />
+                            </StackPanel>
+                        </Button>
+                    </WrapPanel>
                     <Grid Grid.Row="1">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="1*"/>

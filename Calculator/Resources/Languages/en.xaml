@@ -10,6 +10,8 @@
     <system:String x:Key="Months">Months</system:String>
     <system:String x:Key="Days">Days</system:String>
     <system:String x:Key="Date">Date</system:String>
+    <system:String x:Key="Trigonometry">Trigonometry</system:String>
+    <system:String x:Key="Function">Function</system:String>
     <system:String x:Key="Diffirence">Diffirence</system:String>
     <system:String x:Key="Calculator">Calculator</system:String>
     <system:String x:Key="Standard">Standard</system:String>

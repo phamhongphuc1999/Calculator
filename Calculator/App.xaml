@@ -13,8 +13,8 @@
                 <ResourceDictionary Source="/Resources/Languages/vn.xaml" />
                 <ResourceDictionary Source="/Resources/Languages/en.xaml" />
                 <ResourceDictionary Source="/Resources/ViewModelResource.xaml" />
-                <ResourceDictionary Source="/Resources/StyleResource.xaml" />
                 <ResourceDictionary Source="/Resources/ColorResource.xaml" />
+                <ResourceDictionary Source="/Resources/StyleResource.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

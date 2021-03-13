@@ -6,4 +6,6 @@
     <viewmodel:StandardViewModel x:Key="standardViewModel"></viewmodel:StandardViewModel>
     <viewmodel:SettingViewModel x:Key="settingViewModel"></viewmodel:SettingViewModel>
     <viewmodel:DateCalculationViewModel x:Key="dateViewModel"></viewmodel:DateCalculationViewModel>
+    <viewmodel:ScientificViewModel x:Key="scientificViewModel"></viewmodel:ScientificViewModel>
+    <viewmodel:ProgrammerViewModel x:Key="programmerViewModel"></viewmodel:ProgrammerViewModel>
 </ResourceDictionary>

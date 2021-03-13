@@ -13,6 +13,7 @@
             <ColumnDefinition />
             <ColumnDefinition />
             <ColumnDefinition />
+            <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <Button IsEnabled="False" Style="{StaticResource transparentStandardButton}" Grid.Column="0" Content="MC" />
         <Button IsEnabled="False" Style="{StaticResource transparentStandardButton}" Grid.Column="1" Content="MR" />

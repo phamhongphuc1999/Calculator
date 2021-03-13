@@ -92,6 +92,8 @@
     <Compile Include="DisplayService\DisplayManager.cs" />
     <Compile Include="Model\LeftSideBarItem.cs" />
     <Compile Include="ViewModel\DateCalculationViewModel.cs" />
+    <Compile Include="ViewModel\ProgrammerViewModel.cs" />
+    <Compile Include="ViewModel\ScientificViewModel.cs" />
     <Compile Include="ViewModel\SettingViewModel.cs" />
     <Compile Include="ViewModel\StandardViewModel.cs" />
     <Compile Include="View\DateCalculationWindow\DataCalculationWindow.xaml.cs">

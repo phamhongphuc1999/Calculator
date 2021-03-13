@@ -25,7 +25,7 @@
         <Setter Property="BorderBrush" Value="Transparent"/>
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="Height" Value="40"/>
-        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Foreground" Value="{StaticResource ControlLightColor}"/>
         <Setter Property="FontWeight" Value="Bold"/>
         <Setter Property="Template">
             <Setter.Value>
@@ -66,10 +66,10 @@
         <Setter Property="Height" Value="auto"/>
         <Setter Property="Background" Value="Black"/>
         <Setter Property="FontSize" Value="20" />
-        <Setter Property="Foreground" Value="White" />
+        <Setter Property="Foreground" Value="{StaticResource ControlLightColor}" />
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="#FF444444"/>
+                <Setter Property="Background" Value="{StaticResource GlyphColor}"/>
             </Trigger>
         </Style.Triggers>
     </Style>
@@ -77,10 +77,10 @@
         <Setter Property="Background" Value="#302f2f"/>
     </Style>
     <Style TargetType="Button" x:Key="calculatorPrimaryButton" BasedOn="{StaticResource calculatorDakrButton}">
-        <Setter Property="Background" Value="#FF7381F9"/>
+        <Setter Property="Background" Value="{StaticResource ControlMediumColor}"/>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="#FF3843C4"/>
+                <Setter Property="Background" Value="{StaticResource ControlMouseOverColor}"/>
             </Trigger>
         </Style.Triggers>
     </Style>
@@ -146,7 +146,7 @@
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Hidden"/>
         <Setter Property="ScrollViewer.Width" Value="1" />
         <Setter Property="Background" Value="Transparent" />
-        <Setter Property="Foreground" Value="White" />
+        <Setter Property="Foreground" Value="{StaticResource ControlLightColor}" />
     </Style>
     <Style TargetType="{x:Type TextBox}" x:Key="calculatorTextBox">
         <Setter Property="MinWidth" Value="120" />
@@ -156,7 +156,7 @@
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="FontSize" Value="45"/>
         <Setter Property="FontWeight" Value="Medium" />
-        <Setter Property="Foreground" Value="White" />
+        <Setter Property="Foreground" Value="{StaticResource ControlLightColor}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type TextBoxBase}">
@@ -205,7 +205,7 @@
         <Setter Property="Background" Value="Transparent" />
     </Style>
     <Style TargetType="TextBlock" x:Key="calculatorTextBlock">
-        <Setter Property="Foreground" Value="Gray" />
+        <Setter Property="Foreground" Value="{StaticResource DisabledForegroundColor}" />
         <Setter Property="FontSize" Value="24" />
         <Setter Property="HorizontalAlignment" Value="Right" />
     </Style>

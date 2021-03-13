@@ -10,6 +10,8 @@
     <system:String x:Key="Months">Tháng</system:String>
     <system:String x:Key="Days">Ngày</system:String>
     <system:String x:Key="Date">Ngày tháng</system:String>
+    <system:String x:Key="Trigonometry">Lượng giác</system:String>
+    <system:String x:Key="Function">Hàm</system:String>
     <system:String x:Key="Diffirence">Khác</system:String>
     <system:String x:Key="Calculator">Máy tính</system:String>
     <system:String x:Key="Standard">Tiêu chuẩn</system:String>

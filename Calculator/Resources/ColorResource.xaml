@@ -2,47 +2,46 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:Calculator.Resources">
     <!--Control colors.-->
-    <Color x:Key="WindowColor">#FFE8EDF9</Color>
-    <Color x:Key="ContentAreaColorLight">#FFC5CBF9</Color>
-    <Color x:Key="ContentAreaColorDark">#FF7381F9</Color>
+    <Brush x:Key="WindowColor">#FFE8EDF9</Brush>
+    <Brush x:Key="ContentAreaColorLight">#FFC5CBF9</Brush>
+    <Brush x:Key="ContentAreaColorDark">#FF7381F9</Brush>
 
-    <Color x:Key="DisabledControlLightColor">#FFE8EDF9</Color>
-    <Color x:Key="DisabledControlDarkColor">#FFC5CBF9</Color>
-    <Color x:Key="DisabledForegroundColor">#FF888888</Color>
+    <Brush x:Key="DisabledControlLightColor">#FFE8EDF9</Brush>
+    <Brush x:Key="DisabledControlDarkColor">#FFC5CBF9</Brush>
+    <Brush x:Key="DisabledForegroundColor">#FF888888</Brush>
 
-    <Color x:Key="SelectedBackgroundColor">#FFC5CBF9</Color>
-    <Color x:Key="SelectedUnfocusedColor">#FFDDDDDD</Color>
+    <Brush x:Key="SelectedBackgroundColor">#FFC5CBF9</Brush>
+    <Brush x:Key="SelectedUnfocusedColor">#FFDDDDDD</Brush>
 
-    <Color x:Key="ControlLightColor">White</Color>
-    <Color x:Key="ControlMediumColor">#FF7381F9</Color>
-    <Color x:Key="ControlDarkColor">#FF211AA9</Color>
+    <Brush x:Key="ControlLightColor">White</Brush>
+    <Brush x:Key="ControlMediumColor">#FF7381F9</Brush>
+    <Brush x:Key="ControlDarkColor">#FF211AA9</Brush>
 
-    <Color x:Key="ControlMouseOverColor">#FF3843C4</Color>
-    <Color x:Key="ControlPressedColor">#FF211AA9</Color>
+    <Brush x:Key="ControlMouseOverColor">#FF3843C4</Brush>
+    <Brush x:Key="ControlPressedColor">#FF211AA9</Brush>
 
-
-    <Color x:Key="GlyphColor">#FF444444</Color>
-    <Color x:Key="GlyphMouseOver">sc#1, 0.004391443, 0.002428215, 0.242281124</Color>
+    <Brush x:Key="GlyphColor">#FF444444</Brush>
+    <Brush x:Key="GlyphMouseOver">sc#1, 0.004391443, 0.002428215, 0.242281124</Brush>
 
     <!--Border colors-->
-    <Color x:Key="BorderLightColor">#FFCCCCCC</Color>
-    <Color x:Key="BorderMediumColor">#FF888888</Color>
-    <Color x:Key="BorderDarkColor">#FF444444</Color>
+    <Brush x:Key="BorderLightColor">#FFCCCCCC</Brush>
+    <Brush x:Key="BorderMediumColor">#FF888888</Brush>
+    <Brush x:Key="BorderDarkColor">#FF444444</Brush>
 
-    <Color x:Key="PressedBorderLightColor">#FF888888</Color>
-    <Color x:Key="PressedBorderDarkColor">#FF444444</Color>
+    <Brush x:Key="PressedBorderLightColor">#FF888888</Brush>
+    <Brush x:Key="PressedBorderDarkColor">#FF444444</Brush>
 
-    <Color x:Key="DisabledBorderLightColor">#FFAAAAAA</Color>
-    <Color x:Key="DisabledBorderDarkColor">#FF888888</Color>
+    <Brush x:Key="DisabledBorderLightColor">#FFAAAAAA</Brush>
+    <Brush x:Key="DisabledBorderDarkColor">#FF888888</Brush>
 
-    <Color x:Key="DefaultBorderBrushDarkColor">Black</Color>
+    <Brush x:Key="DefaultBorderBrushDarkColor">Black</Brush>
 
     <!--Control-specific resources.-->
-    <Color x:Key="HeaderTopColor">#FFC5CBF9</Color>
-    <Color x:Key="DatagridCurrentCellBorderColor">Black</Color>
-    <Color x:Key="SliderTrackDarkColor">#FFC5CBF9</Color>
+    <Brush x:Key="HeaderTopColor">#FFC5CBF9</Brush>
+    <Brush x:Key="DatagridCurrentCellBorderColor">Black</Brush>
+    <Brush x:Key="SliderTrackDarkColor">#FFC5CBF9</Brush>
 
-    <Color x:Key="NavButtonFrameColor">#FF3843C4</Color>
+    <Brush x:Key="NavButtonFrameColor">#FF3843C4</Brush>
 
     <LinearGradientBrush x:Key="MenuPopupBrush" EndPoint="0.5,1" StartPoint="0.5,0">
         <GradientStop Color="{DynamicResource ControlLightColor}" Offset="0" />
