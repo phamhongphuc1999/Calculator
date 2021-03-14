@@ -115,6 +115,7 @@
                                 BorderThickness="{Binding MemoryBorderThickness}" Style="{StaticResource transparentBorderBut}"
                                 Command="{Binding HistoryCommand}"
                                 CommandParameter="{Binding ElementName=memoryButton}"/>
+                        <TextBlock />
                     </StackPanel>
                 </Grid>
             </materialDesign:ColorZone>

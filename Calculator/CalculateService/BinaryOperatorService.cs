@@ -3,7 +3,7 @@ using System.Numerics;
 
 namespace Calculator.CalculateService
 {
-    class BasicService
+    class BinaryOperatorService
     {
         public static string AddInteger(string number1, string number2)
         {

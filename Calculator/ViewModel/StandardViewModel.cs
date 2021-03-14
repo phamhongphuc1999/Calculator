@@ -11,23 +11,25 @@ namespace Calculator.ViewModel
         public ICommand DisplayValueCommand { get; set; }
         public ICommand TransformSignCommand { get; set; }
         public ICommand DeleteCommand { get; set; }
-        public ICommand BasicCalculationCommand { get; set; }
-        public ICommand AdvancedCalculationCommand { get; set; }
+        public ICommand BinaryCalculationCommand { get; set; }
+        public ICommand UnaryCalculationCommand { get; set; }
         public ICommand ResultCommand { get; set; }
         public ICommand DecimalCommand { get; set; }
+        public ICommand CECommand { get; set; }
+        public ICommand CCommand { get; set; }
 
-        public string currentElement;
-        public string CurrentElement
+        public string element1;
+        public string Element1
         {
-            get { return currentElement; }
+            get { return element1; }
             set
             {
-                currentElement = value;
+                element1 = value;
                 OnPropertyChanged();
             }
         }
 
-        private string PreviousElement;
+        private string Element2;
         private string CurrentFunction;
 
         private string displayText;
@@ -48,7 +50,7 @@ namespace Calculator.ViewModel
 
         public StandardViewModel()
         {
-            CurrentElement = "0";
+            Element1 = "0";
             DisplayText = "";
             CurrentFunction = "";
             isResult = isClear = false;
@@ -59,10 +61,12 @@ namespace Calculator.ViewModel
             InitializeDisplayValueCommand();
             InitializeTransformSignCommand();
             InitializeDeleteCommand();
-            InitializeBasicCalculationCommand();
-            InitializeAdvancedCalculationCommand();
+            InitializeBinaryCalculationCommand();
+            InitializeUnaryCalculationCommand();
             InitializeResultCommand();
             InitializeDecimalCommand();
+            InitializeCECommand();
+            InitializeCCommand();
         }
 
         private void InitializeDisplayValueCommand()
@@ -75,15 +79,17 @@ namespace Calculator.ViewModel
                     if (isClear)
                     {
                         DisplayText = "";
-                        CurrentElement = number;
+                        if (Element1.Length > 0) Element2 = Element1;
+                        Element1 = number;
                         isClear = false;
                     }
                     else if (!isResult)
                     {
-                        CurrentElement = number;
+                        if (Element1.Length > 0) Element2 = Element1;
+                        Element1 = number;
                         isResult = true;
                     }
-                    else CurrentElement += number;
+                    else Element1 += number;
                 });
         }
 
@@ -92,10 +98,10 @@ namespace Calculator.ViewModel
             TransformSignCommand = new RelayCommand<Button>(
                 sender => { return true; }, sender =>
                 {
-                    char first = CurrentElement[0];
-                    if (first == '0' && CurrentElement.Length == 1) return;
-                    if (first == '-') CurrentElement = CurrentElement.Substring(1);
-                    else CurrentElement = '-' + CurrentElement;
+                    char first = Element1[0];
+                    if (first == '0' && Element1.Length == 1) return;
+                    if (first == '-') Element1 = Element1.Substring(1);
+                    else Element1 = '-' + Element1;
                 });
         }
 
@@ -108,37 +114,44 @@ namespace Calculator.ViewModel
                 });
         }
 
-        private void InitializeBasicCalculationCommand()
+        private void InitializeBinaryCalculationCommand()
         {
-            BasicCalculationCommand = new RelayCommand<Button>(
+            BinaryCalculationCommand = new RelayCommand<Button>(
                 sender => { return true; }, sender =>
                 {
                     string function = sender.Tag.ToString();
-                    if (previousStyle == ButtonStyle.FUNCTION)
+                    if (previousStyle == ButtonStyle.BINARY)
                     {
                         CurrentFunction = function;
-                        DisplayText = displayManager.BasicDisplay(CurrentElement, function);
+                        DisplayText = displayManager.BasicDisplay(Element1, function);
                         return;
                     }
-                    previousStyle = ButtonStyle.FUNCTION;
+                    previousStyle = ButtonStyle.BINARY;
                     if (CurrentFunction != "")
                     {
-                        string result = numberManager.BasicHandler(PreviousElement, CurrentElement, CurrentFunction);
-                        CurrentElement = result;
+                        string result = numberManager.BinaryHandler(Element2, Element1, CurrentFunction);
+                        Element2 = Element1;
+                        Element1 = result;
                     }
-                    DisplayText = displayManager.BasicDisplay(CurrentElement, function);
-                    PreviousElement = CurrentElement;
+                    else Element2 = Element1;
+                    DisplayText = displayManager.BasicDisplay(Element1, function);
                     CurrentFunction = function;
                     isResult = false;
                 });
         }
 
-        private void InitializeAdvancedCalculationCommand()
+        private void InitializeUnaryCalculationCommand()
         {
-            AdvancedCalculationCommand = new RelayCommand<Button>(
+            UnaryCalculationCommand = new RelayCommand<Button>(
                 sender => { return true; }, sender =>
                 {
-
+                    string function = sender.Tag.ToString();
+                    previousStyle = ButtonStyle.UNARY;
+                    string result = numberManager.UnaryHandler(Element1, function);
+                    Element2 = Element1;
+                    Element1 = result;
+                    CurrentFunction = function;
+                    isResult = false;
                 });
         }
 
@@ -147,9 +160,10 @@ namespace Calculator.ViewModel
             ResultCommand = new RelayCommand<Button>(
                 sender => { return true; }, sender =>
                 {
-                    DisplayText = displayManager.CalculationDisplay(CurrentElement, PreviousElement, CurrentFunction);
-                    string result = numberManager.BasicHandler(CurrentElement, PreviousElement, CurrentFunction);
-                    CurrentElement = result;
+                    DisplayText = displayManager.CalculationDisplay(Element1, Element2, CurrentFunction);
+                    string result = numberManager.BinaryHandler(Element1, Element2, CurrentFunction);
+                    Element2 = Element1;
+                    Element1 = result;
                     isClear = true;
                 });
         }
@@ -159,7 +173,25 @@ namespace Calculator.ViewModel
             DecimalCommand = new RelayCommand<Button>(
                 sender => { return true; }, sender =>
                 {
-                    if (CurrentElement.IndexOf('.') < 0) CurrentElement += '.';
+                    if (Element1.IndexOf('.') < 0) Element1 += '.';
+                });
+        }
+
+        private void InitializeCECommand()
+        {
+            CECommand = new RelayCommand<Button>(
+                sender => { return true; }, sender =>
+                {
+
+                });
+        }
+
+        private void InitializeCCommand()
+        {
+            CCommand = new RelayCommand<Button>(
+                sender => { return true; }, sender =>
+                {
+
                 });
         }
     }

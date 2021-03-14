@@ -11,7 +11,7 @@
     <Grid>
         <Grid.Resources>
             <Style TargetType="Button" x:Key="specifiedGrayButton" BasedOn="{StaticResource calculatorGrayButton}">
-                <Setter Property="Height" Value="50" />
+                <Setter Property="Height" Value="40" />
             </Style>
         </Grid.Resources>
         <Grid.ColumnDefinitions>

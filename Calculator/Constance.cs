@@ -38,9 +38,15 @@ namespace Calculator
             {"calculation", '=' }
         };
 
+        public static readonly string[] LENGTH = new string[]
+        {
+            "Nanometers", "Microns", "Milimeters", "Centimeters", "Meters", "Kilometers", "Inches", "Feet", "Yards", "Miles", "Nautical Miles"
+        };
+
         public enum ButtonStyle
         {
-            FUNCTION,
+            UNARY,
+            BINARY,
             NUMBER,
             NONE
         }

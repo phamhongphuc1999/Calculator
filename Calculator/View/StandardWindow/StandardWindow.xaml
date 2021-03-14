@@ -22,7 +22,7 @@
             </Grid.RowDefinitions>
             <TextBlock x:Name="SaveTextBlock" Grid.Row="0" Style="{StaticResource calculatorTextBlock}"
                        Text="{Binding DisplayText}" />
-            <TextBox x:Name="textBox" Grid.Row="1" Text="{Binding CurrentElement}"
+            <TextBox x:Name="textBox" Grid.Row="1" Text="{Binding Element1}"
                       Style="{StaticResource calculatorTextBox}"/>
             <Grid Grid.Row="2">
                 <Grid.RowDefinitions>
@@ -61,20 +61,20 @@
                             <GridSplitter Grid.Column="1" Style="{StaticResource calculationColumnSplitter}" />
                             <GridSplitter Grid.Column="3" Style="{StaticResource calculationColumnSplitter}" />
                             <GridSplitter Grid.Row="1" Style="{StaticResource calculationRowSplitter}" />
-                            <Button Content="%" Grid.Row="0" Grid.Column="0"
-                                    Style="{StaticResource calculatorGrayButton}"></Button>
-                            <Button Content="CE" Grid.Row="0" Grid.Column="2"
-                                    Style="{StaticResource calculatorGrayButton}"></Button>
-                            <Button Content="C" Grid.Row="0" Grid.Column="4"
-                                    Style="{StaticResource calculatorGrayButton}"></Button>
-                            <Button Content="1/x" Grid.Row="2" Grid.Column="0"
-                                    Style="{StaticResource calculatorGrayButton}"></Button>
-                            <Button x:Name="sqrButton" Tag="sqr" Grid.Row="2" Grid.Column="2" Style="{StaticResource calculatorGrayButton}"
-                                    Command="{Binding AdvancedCalculationCommand}"
-                                    CommandParameter="{Binding ElementName=sqrButton}">
+                            <Button Tag="percent" x:Name="percentButton" Content="%" Grid.Row="0" Grid.Column="0" Style="{StaticResource calculatorGrayButton}" 
+                                    Command="{Binding UnaryCalculationCommand}" CommandParameter="{Binding ElementName=percentButton}"/>
+                            <Button x:Name="ceButton" Content="CE" Grid.Row="0" Grid.Column="2" Style="{StaticResource calculatorGrayButton}" 
+                                    Command="{Binding CECommand}" CommandParameter="{Binding ElementName=ceButton}"/>
+                            <Button x:Name="cButton" Content="C" Grid.Row="0" Grid.Column="4" Style="{StaticResource calculatorGrayButton}" 
+                                    Command="{Binding CCommand}" CommandParameter="{Binding ElementName=cButton}"/>
+                            <Button x:Name="inverseButton" Tag="inverse" Content="1/x" Grid.Row="2" Grid.Column="0" Style="{StaticResource calculatorGrayButton}"
+                                    Command="{Binding UnaryCalculationCommand}" CommandParameter="{Binding ElementName=inverseButton}"/>
+                            <Button x:Name="exponentialButton" Tag="exponential" Grid.Row="2" Grid.Column="2" Style="{StaticResource calculatorGrayButton}"
+                                    Command="{Binding UnaryCalculationCommand}" CommandParameter="{Binding ElementName=exponentialButton}">
                                 <materialDesign:PackIcon Kind="FormatSuperscript" Width="30" Height="30" />
                             </Button>
-                            <Button Grid.Row="2" Grid.Column="4" Style="{StaticResource calculatorGrayButton}">
+                            <Button x:Name="squareButton" Tag="square" Grid.Row="2" Grid.Column="4" Style="{StaticResource calculatorGrayButton}"
+                                    Command="{Binding UnaryCalculationCommand}" CommandParameter="{Binding ElementName=squareButton}">
                                 <materialDesign:PackIcon Kind="SquareRoot" Width="30" Height="30" />
                             </Button>
                         </Grid>
@@ -109,16 +109,16 @@
                             <materialDesign:PackIcon Kind="ArrowLeftThick" />
                         </Button>
                         <Button Content="÷" Grid.Row="2" Style="{StaticResource calculatorGrayButton}"
-                                Tag="devision" Name="devisionButton" Command="{Binding BasicCalculationCommand}"
+                                Tag="devision" Name="devisionButton" Command="{Binding BinaryCalculationCommand}"
                                 CommandParameter="{Binding ElementName=devisionButton}"></Button>
                         <Button Content="x" Grid.Row="4" Style="{StaticResource calculatorGrayButton}"
-                                Tag="mutipilation" Name="mutipilationButton" Command="{Binding BasicCalculationCommand}"
+                                Tag="mutipilation" Name="mutipilationButton" Command="{Binding BinaryCalculationCommand}"
                                 CommandParameter="{Binding ElementName=mutipilationButton}"></Button>
                         <Button Content="-" Grid.Row="6" Style="{StaticResource calculatorGrayButton}"
-                                Tag="subtract" Name="subtractButton" Command="{Binding BasicCalculationCommand}"
+                                Tag="subtract" Name="subtractButton" Command="{Binding BinaryCalculationCommand}"
                                 CommandParameter="{Binding ElementName=subtractButton}"></Button>
                         <Button Content="+" Grid.Row="8" Style="{StaticResource calculatorGrayButton}"
-                                Tag="add" Name="addButton" Command="{Binding BasicCalculationCommand}"
+                                Tag="add" Name="addButton" Command="{Binding BinaryCalculationCommand}"
                                 CommandParameter="{Binding ElementName=addButton}"></Button>
                         <Button Content="=" Grid.Row="10" Style="{StaticResource calculatorPrimaryButton}"
                                 Tag="calculation" Name="equalButton" Command="{Binding ResultCommand}"

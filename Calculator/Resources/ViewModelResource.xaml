@@ -11,4 +11,5 @@
     <viewmodel:ProgrammerViewModel x:Key="programmerViewModel"></viewmodel:ProgrammerViewModel>
     <viewmodel:GraphingViewModel x:Key="graphingViewModel"></viewmodel:GraphingViewModel>
     <convert:CurrencyViewModel x:Key="currencyViewModel"></convert:CurrencyViewModel>
+    <convert:LengthViewModel x:Key="lengthViewModel"></convert:LengthViewModel>
 </ResourceDictionary>
