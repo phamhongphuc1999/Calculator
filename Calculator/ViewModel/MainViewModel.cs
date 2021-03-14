@@ -1,4 +1,5 @@
 ﻿using Calculator.View;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
@@ -12,6 +13,7 @@ namespace Calculator.ViewModel
         public ICommand LoadedWindowCommand { get; set; }
         public ICommand SettingCommand { get; set; }
         public ICommand AboutCommand { get; set; }
+        public ICommand HistoryCommand { get; set; }
 
         private Frame mainContentFrame;
         private Routes router;
@@ -38,10 +40,46 @@ namespace Calculator.ViewModel
             }
         }
 
+        private Visibility historyVisibility;
+        public Visibility HistoryVisibility
+        {
+            get { return historyVisibility; }
+            set
+            {
+                historyVisibility = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private Thickness historyBorderThickness;
+        public Thickness HistoryBorderThickness
+        {
+            get { return historyBorderThickness; }
+            set
+            {
+                historyBorderThickness = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private Thickness memoryBorderThickness;
+        public Thickness MemoryBorderThickness
+        {
+            get { return memoryBorderThickness; }
+            set
+            {
+                memoryBorderThickness = value;
+                OnPropertyChanged();
+            }
+        }
+
         public MainViewModel()
         {
             IsCheck = false;
             SelectionWindow = "Standard";
+            HistoryVisibility = Visibility.Visible;
+            HistoryBorderThickness = new Thickness(0, 0, 0, 5);
+            MemoryBorderThickness = new Thickness(0);
             CreateRoute();
 
             InitializePreviewMouseLeftButtonDownCommand();
@@ -50,13 +88,17 @@ namespace Calculator.ViewModel
             InitializeLoadedWindowCommand();
             InitializeSettingCommand();
             InitializeAboutCommand();
+            InitializeHistoryCommand();
         }
 
         private void CreateRoute()
         {
             router = new Routes();
-            router.RoutingEvent += (sender, e) =>
+            router.RoutingEvent += (object sender, EventArgsRoute e) =>
             {
+                int index = e.index;
+                bool check = index == 1 || index == 2 || index == 4 || index == 5;
+                HistoryVisibility = check ? Visibility.Visible : Visibility.Hidden;
             };
         }
 
@@ -113,6 +155,24 @@ namespace Calculator.ViewModel
                 sender => { return true; }, sender =>
                 {
                     System.Diagnostics.Process.Start(Constance.GITHUB_LINK);
+                });
+        }
+
+        private void InitializeHistoryCommand()
+        {
+            HistoryCommand = new RelayCommand<Button>(
+                sender => { return true; }, sender =>
+                {
+                    if(sender.Name == "historyButton")
+                    {
+                        HistoryBorderThickness = new Thickness(0, 0, 0, 5);
+                        MemoryBorderThickness = new Thickness(0);
+                    }
+                    else
+                    {
+                        HistoryBorderThickness = new Thickness(0);
+                        MemoryBorderThickness = new Thickness(0, 0, 0, 5);
+                    }
                 });
         }
     }

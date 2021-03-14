@@ -97,9 +97,27 @@
                     </ToggleButton>
                 </Grid>
             </Grid>
-            <Grid Grid.Column="1" Background="Transparent">
-                <customcontrol:CustomSubControlBar Tag="{Binding SelectionWindow}" />
-            </Grid>
+            <materialDesign:ColorZone Grid.Column="1" Height="40" Background="Transparent">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="6*" />
+                        <ColumnDefinition Width="4*" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" VerticalAlignment="Center" Margin="50 0 0 0" Style="{StaticResource boldText}"
+                                Text="{Binding SelectionWindow}">
+                    </TextBlock>
+                    <StackPanel Orientation="Horizontal" Grid.Column="1">
+                        <Button x:Name="historyButton" Content="{StaticResource History}" Visibility="{Binding HistoryVisibility}"
+                                BorderThickness="{Binding HistoryBorderThickness}" Style="{StaticResource transparentBorderBut}"
+                                Command="{Binding HistoryCommand}"
+                                CommandParameter="{Binding ElementName=historyButton}"/>
+                        <Button x:Name="memoryButton" Content="{StaticResource Memory}" Visibility="{Binding HistoryVisibility}"
+                                BorderThickness="{Binding MemoryBorderThickness}" Style="{StaticResource transparentBorderBut}"
+                                Command="{Binding HistoryCommand}"
+                                CommandParameter="{Binding ElementName=memoryButton}"/>
+                    </StackPanel>
+                </Grid>
+            </materialDesign:ColorZone>
         </Grid>
         <Grid Grid.Row="2">
             <Frame x:Name="mainContentFrame" NavigationUIVisibility="Hidden" />

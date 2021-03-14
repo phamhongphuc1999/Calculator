@@ -1,11 +1,14 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:Calculator.Resources"
-                    xmlns:viewmodel="clr-namespace:Calculator.ViewModel">
+                    xmlns:viewmodel="clr-namespace:Calculator.ViewModel"
+                    xmlns:convert="clr-namespace:Calculator.ViewModel.ConvertViewModel">
     <viewmodel:MainViewModel x:Key="mainViewModel"></viewmodel:MainViewModel>
     <viewmodel:StandardViewModel x:Key="standardViewModel"></viewmodel:StandardViewModel>
     <viewmodel:SettingViewModel x:Key="settingViewModel"></viewmodel:SettingViewModel>
     <viewmodel:DateCalculationViewModel x:Key="dateViewModel"></viewmodel:DateCalculationViewModel>
     <viewmodel:ScientificViewModel x:Key="scientificViewModel"></viewmodel:ScientificViewModel>
     <viewmodel:ProgrammerViewModel x:Key="programmerViewModel"></viewmodel:ProgrammerViewModel>
+    <viewmodel:GraphingViewModel x:Key="graphingViewModel"></viewmodel:GraphingViewModel>
+    <convert:CurrencyViewModel x:Key="currencyViewModel"></convert:CurrencyViewModel>
 </ResourceDictionary>
