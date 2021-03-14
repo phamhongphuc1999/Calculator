@@ -5,9 +5,9 @@ namespace Calculator.View.DateCalculationWindow
     /// <summary>
     /// Interaction logic for DataCalculationWindow.xaml
     /// </summary>
-    public partial class DataCalculationWindow : UserControl
+    public partial class DateCalculationWindow : UserControl
     {
-        public DataCalculationWindow()
+        public DateCalculationWindow()
         {
             InitializeComponent();
         }

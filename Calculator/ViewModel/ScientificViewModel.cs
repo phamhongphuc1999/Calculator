@@ -47,8 +47,8 @@ namespace Calculator.ViewModel
             MouseDownWindowCommand = new RelayCommand<object>(
                 sender => { return true; }, sender =>
                 {
-                    if (TrigonometryVisibility == Visibility.Visible) TrigonometryVisibility = Visibility.Hidden;
-                    if (FunctionVisibility == Visibility.Visible) FunctionVisibility = Visibility.Hidden;
+                    TrigonometryVisibility = Visibility.Hidden;
+                    FunctionVisibility = Visibility.Hidden;
                 });
         }
 

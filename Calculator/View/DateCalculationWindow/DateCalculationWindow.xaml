@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="Calculator.View.DateCalculationWindow.DataCalculationWindow"
+﻿<UserControl x:Class="Calculator.View.DateCalculationWindow.DateCalculationWindow"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -87,9 +87,9 @@
                             <ColumnDefinition></ColumnDefinition>
                         </Grid.ColumnDefinitions>
                         <RadioButton x:Name="addRadio" IsChecked="{Binding IsAddChoose}" Grid.Column="0" GroupName="function" Content="{StaticResource Add}"
-                                     Style="{StaticResource dateRadio}" Command="{Binding RadioChooseCommand}" CommandParameter="{Binding ElementName=addRadio}" />
+                                     Command="{Binding RadioChooseCommand}" CommandParameter="{Binding ElementName=addRadio}" />
                         <RadioButton x:Name="subtractRadio" Grid.Column="1" GroupName="function" Content="{StaticResource Subtract}"
-                                     Style="{StaticResource dateRadio}" Command="{Binding RadioChooseCommand}" CommandParameter="{Binding ElementName=subtractRadio}" />
+                                     Command="{Binding RadioChooseCommand}" CommandParameter="{Binding ElementName=subtractRadio}" />
                     </Grid>
                     <Grid>
                         <Grid.ColumnDefinitions>

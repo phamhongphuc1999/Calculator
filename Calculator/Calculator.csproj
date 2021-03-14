@@ -91,13 +91,17 @@
     </Compile>
     <Compile Include="DisplayService\DisplayManager.cs" />
     <Compile Include="Model\LeftSideBarItem.cs" />
+    <Compile Include="Routes.cs" />
     <Compile Include="ViewModel\DateCalculationViewModel.cs" />
     <Compile Include="ViewModel\ProgrammerViewModel.cs" />
     <Compile Include="ViewModel\ScientificViewModel.cs" />
     <Compile Include="ViewModel\SettingViewModel.cs" />
     <Compile Include="ViewModel\StandardViewModel.cs" />
-    <Compile Include="View\DateCalculationWindow\DataCalculationWindow.xaml.cs">
-      <DependentUpon>DataCalculationWindow.xaml</DependentUpon>
+    <Compile Include="View\DateCalculationWindow\DateCalculationWindow.xaml.cs">
+      <DependentUpon>DateCalculationWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\GraphingWindow\GraphingWindow.xaml.cs">
+      <DependentUpon>GraphingWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -173,11 +177,14 @@
     <Compile Include="CustomControl\CustomSubControlBar.xaml.cs">
       <DependentUpon>CustomSubControlBar.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Utilities.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\CustomControlBarViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
-    <Page Include="View\DateCalculationWindow\DataCalculationWindow.xaml">
+    <Page Include="View\DateCalculationWindow\DateCalculationWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\GraphingWindow\GraphingWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -20,6 +20,10 @@
             <i:EventTrigger EventName="MouseDown">
                 <i:InvokeCommandAction Command="{Binding MouseDownWindowCommand}" />
             </i:EventTrigger>
+            <i:EventTrigger EventName="Loaded">
+                <i:InvokeCommandAction Command="{Binding LoadedWindowCommand}"
+                                       CommandParameter="{Binding ElementName=mainContentFrame}"/>
+            </i:EventTrigger>
         </i:Interaction.Triggers>
         <Grid.Resources>
             <Style TargetType="Border" >
@@ -93,13 +97,12 @@
                     </ToggleButton>
                 </Grid>
             </Grid>
-            <customcontrol:CustomSubControlBar Grid.Column="1" Tag="{Binding SelectionWindow}" Background="Transparent" />
+            <Grid Grid.Column="1" Background="Transparent">
+                <customcontrol:CustomSubControlBar Tag="{Binding SelectionWindow}" />
+            </Grid>
         </Grid>
         <Grid Grid.Row="2">
-            <!--<standard:StandardWindow />-->
-            <!--<date:DataCalculationWindow />-->
-            <!--<scientific:ScientificWindow />-->
-            <program:ProgrammerWindow />
+            <Frame x:Name="mainContentFrame" NavigationUIVisibility="Hidden" />
             <Grid HorizontalAlignment="Left" Width="0" x:Name="mainLeftSidebar" Background="#585c59">
                 <Grid.RowDefinitions>
                     <RowDefinition />

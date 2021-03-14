@@ -225,16 +225,16 @@
                                 <Ellipse x:Name="Border" StrokeThickness="1">
                                     <Ellipse.Stroke>
                                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                            <GradientStop Color="{DynamicResource BorderLightColor}" Offset="0" />
-                                            <GradientStop Color="{DynamicResource BorderDarkColor}" Offset="1" />
+                                            <GradientStop Color="#FFCCCCCC" Offset="0" />
+                                            <GradientStop Color="#FF444444" Offset="1" />
                                         </LinearGradientBrush>
                                     </Ellipse.Stroke>
                                     <Ellipse.Fill>
                                         <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
                                             <LinearGradientBrush.GradientStops>
                                                 <GradientStopCollection>
-                                                    <GradientStop Color="{DynamicResource ControlLightColor}" />
-                                                    <GradientStop Color="{DynamicResource ControlMediumColor}" Offset="1.0" />
+                                                    <GradientStop Color="White" />
+                                                    <GradientStop Color="#FF7381F9" Offset="1.0" />
                                                 </GradientStopCollection>
                                             </LinearGradientBrush.GradientStops>
                                         </LinearGradientBrush>
@@ -242,7 +242,7 @@
                                 </Ellipse>
                                 <Ellipse x:Name="CheckMark" Margin="4" Visibility="Collapsed">
                                     <Ellipse.Fill>
-                                        <SolidColorBrush Color="{DynamicResource GlyphColor}" />
+                                        <SolidColorBrush Color="#FF444444" />
                                     </Ellipse.Fill>
                                 </Ellipse>
                             </Grid>

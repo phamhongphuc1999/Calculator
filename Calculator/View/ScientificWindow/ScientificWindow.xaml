@@ -80,8 +80,7 @@
                         </Button>
                     </WrapPanel>
                     <Canvas x:Name="mainCanvas" Grid.Row="1">
-                        <UniformGrid Panel.ZIndex="1" Background="{StaticResource DisabledForegroundColor}" Columns="4"
-                                     Visibility="{Binding TrigonometryVisibility}">
+                        <UniformGrid Panel.ZIndex="1" Background="{StaticResource DisabledForegroundColor}" Columns="4" Visibility="{Binding TrigonometryVisibility}">
                             <Button Style="{StaticResource specifiedButton}" Content="2^nd" />
                             <Button Style="{StaticResource specifiedButton}" Content="sin" />
                             <Button Style="{StaticResource specifiedButton}" Content="cos" />
