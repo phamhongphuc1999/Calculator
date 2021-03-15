@@ -6,8 +6,8 @@ namespace Calculator.CalculateService
     {
         public string BinaryHandler(string element1, string element2, string function)
         {
-            Utilities.StandardizedDisplay(ref element1);
-            Utilities.StandardizedDisplay(ref element2);
+             element1 = CalculateUtilities.StandardizedDisplay(element1);
+             element2 = CalculateUtilities.StandardizedDisplay(element2);
             switch (function)
             {
                 case "add":
@@ -25,7 +25,7 @@ namespace Calculator.CalculateService
 
         public string UnaryHandler(string element, string function)
         {
-            Utilities.StandardizedDisplay(ref element);
+            element = CalculateUtilities.StandardizedDisplay(element);
             switch (function)
             {
                 case "percent":
@@ -34,6 +34,8 @@ namespace Calculator.CalculateService
                     return UnaryOperatorService.InverseNumber(element);
                 case "exponential":
                     return UnaryOperatorService.ExponentialDecimal(element, 2);
+                case "square":
+                    return UnaryOperatorService.SquareDecimal(element, 2, 0);
                 default:
                     throw new Exception();
             }

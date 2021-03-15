@@ -78,20 +78,10 @@ namespace Calculator.CalculateService
             }
         }
 
-        private static int ConvertDecimal(ref string dec)
-        {
-            int length = dec.Length;
-            int index = dec.IndexOf('.');
-            string[] temp = dec.Split('.');
-            if(temp.Length > 1) dec = temp[0] + temp[1];
-            if (index >= 0) return length - index - 1;
-            else return 0;
-        }
-
         public static string AddDecimal(string decimal1, string decimal2)
         {
-            int need1 = ConvertDecimal(ref decimal1);
-            int need2 = ConvertDecimal(ref decimal2);
+            int need1 = CalculateUtilities.ConvertDecimal(ref decimal1);
+            int need2 = CalculateUtilities.ConvertDecimal(ref decimal2);
             int need = 0;
             if(need1 > need2)
             {
@@ -112,8 +102,8 @@ namespace Calculator.CalculateService
 
         public static string SubtractDecimal(string decimal1, string decimal2)
         {
-            int need1 = ConvertDecimal(ref decimal1);
-            int need2 = ConvertDecimal(ref decimal2);
+            int need1 = CalculateUtilities.ConvertDecimal(ref decimal1);
+            int need2 = CalculateUtilities.ConvertDecimal(ref decimal2);
             int need = 0;
             if (need1 > need2)
             {
@@ -134,8 +124,8 @@ namespace Calculator.CalculateService
 
         public static string MutipilationDecimal(string decimal1, string decimal2)
         {
-            int need1 = ConvertDecimal(ref decimal1);
-            int need2 = ConvertDecimal(ref decimal2);
+            int need1 = CalculateUtilities.ConvertDecimal(ref decimal1);
+            int need2 = CalculateUtilities.ConvertDecimal(ref decimal2);
             int need = need1 + need2;
             string result = MutipilationInteger(decimal1, decimal2);
             if (need == 0) return result;
@@ -144,8 +134,8 @@ namespace Calculator.CalculateService
 
         public static string DivisionDecimal(string decimal1, string decimal2, int accuracy)
         {
-            int need1 = ConvertDecimal(ref decimal1);
-            int need2 = ConvertDecimal(ref decimal2);
+            int need1 = CalculateUtilities.ConvertDecimal(ref decimal1);
+            int need2 = CalculateUtilities.ConvertDecimal(ref decimal2);
             if (need1 > need2)
             {
                 int temp = need1 - need2;

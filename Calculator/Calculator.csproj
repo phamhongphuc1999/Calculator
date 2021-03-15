@@ -92,7 +92,7 @@
     <Compile Include="DisplayService\DisplayManager.cs" />
     <Compile Include="Model\LeftSideBarItem.cs" />
     <Compile Include="Routes.cs" />
-    <Compile Include="Utilities.cs" />
+    <Compile Include="CalculateService\CalculateUtilities.cs" />
     <Compile Include="ViewModel\ConvertViewModel\ConverterViewModel.cs" />
     <Compile Include="ViewModel\ConvertViewModel\CurrencyViewModel.cs" />
     <Compile Include="ViewModel\ConvertViewModel\LengthViewModel.cs" />

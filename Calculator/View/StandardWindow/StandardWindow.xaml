@@ -44,7 +44,6 @@
                             <RowDefinition Height="4*" />
                         </Grid.RowDefinitions>
                         <GridSplitter Grid.Row="1" Style="{StaticResource calculationRowSplitter}" />
-                        <!--advanced computer-->
                         <Grid Grid.Row="0">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition/>
@@ -78,7 +77,6 @@
                                 <materialDesign:PackIcon Kind="SquareRoot" Width="30" Height="30" />
                             </Button>
                         </Grid>
-                        <!--core computer-->
                         <CustomControl:CoreCalculator Grid.Row="2"
                                         ClickNumberCommand="{Binding DisplayValueCommand}"
                                         TransformSignCommand="{Binding TransformSignCommand}"

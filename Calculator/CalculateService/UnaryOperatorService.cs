@@ -5,6 +5,43 @@ namespace Calculator.CalculateService
 {
     static class UnaryOperatorService
     {
+        public static string Mutipilation10(string number, int n)
+        {
+            if (n < 0) return Devision10(number, -n);
+            if (n == 0) return number;
+            int index = number.IndexOf('.');
+            int length = number.Length;
+            if (index < 0) index = length;
+            else number = number.Remove(index, 1);
+            int _index = index + n;
+            if (_index < length) number = number.Insert(_index, ".");
+            else if (_index > length)
+            {
+                int temp = _index - length;
+                for (int i = 0; i < temp; i++) number += '0';
+            }
+            return CalculateUtilities.StandardizedDisplay(number);
+        }
+
+        public static string Devision10(string number, int n)
+        {
+            if (n < 0) return Mutipilation10(number, -n);
+            if (n == 0) return number;
+            int index = number.IndexOf('.');
+            int length = number.Length;
+            if (index < 0) index = length;
+            else number = number.Remove(index, 1);
+            int _index = index - n;
+            if (_index > 0) number = number.Insert(_index, ".");
+            else if(_index < 0)
+            {
+                _index = -_index;
+                for (int i = 0; i < _index; i++) number = '0' + number;
+                number = "0." + number;
+            }
+            return CalculateUtilities.StandardizedDisplay(number);
+        }
+
         public static string PercentNumber(string number)
         {
             return BinaryOperatorService.DivisionDecimal(number, "100", 20);
@@ -24,7 +61,7 @@ namespace Calculator.CalculateService
         public static string ExponentialDecimal(string number, int exponent)
         {
             if (exponent == 1) return number;
-            else if(exponent % 2 == 0)
+            else if (exponent % 2 == 0)
             {
                 string result = ExponentialDecimal(number, exponent / 2);
                 return BinaryOperatorService.MutipilationDecimal(result, result);
@@ -37,28 +74,37 @@ namespace Calculator.CalculateService
             }
         }
 
-        public static BigInteger Sqrt(this BigInteger n)
+        private static bool IsSqrtInteger(BigInteger number, BigInteger root, int baseNumber)
         {
-            if (n == 0) return 0;
-            if (n > 0)
-            {
-                int bitLength = Convert.ToInt32(Math.Ceiling(BigInteger.Log(n, 2)));
-                BigInteger root = BigInteger.One << (bitLength / 2);
-                while (!isSqrt(n, root))
-                {
-                    root += n / root;
-                    root /= 2;
-                }
-                return root;
-            }
-            throw new ArithmeticException("NaN");
+            BigInteger lowerBound = BigInteger.Pow(root, baseNumber);
+            BigInteger upperBound = BigInteger.Pow(root + 1, baseNumber);
+            return (number >= lowerBound && number < upperBound);
         }
 
-        private static Boolean isSqrt(BigInteger n, BigInteger root)
+        public static string SquareInteger(string number, int baseNumber)
         {
-            BigInteger lowerBound = root * root;
-            BigInteger upperBound = (root + 1) * (root + 1);
-            return (n >= lowerBound && n < upperBound);
+            BigInteger element = BigInteger.Parse(number);
+            if (element == 0) return "0";
+            if (element < 0) throw new ArithmeticException("NaN");
+            int bitLength = Convert.ToInt32(Math.Ceiling(BigInteger.Log(element, baseNumber)));
+            BigInteger root = BigInteger.One << (bitLength / 2);
+            while (!IsSqrtInteger(element, root, baseNumber))
+            {
+                root += element / root;
+                root /= 2;
+            }
+            return root.ToString();
+        }
+
+        public static string SquareDecimal(string _decimal, int baseNumber, int accuracy)
+        {
+            int need = CalculateUtilities.ConvertDecimal(ref _decimal);
+            int temp = need / baseNumber;
+            int more = 0;
+            if (need % baseNumber > 0) more = need * (temp + 1) - need;
+            for (int i = 0; i < more; i++) _decimal += '0';
+            string result = SquareInteger(_decimal, baseNumber);
+            return result.Insert(result.Length - temp, ".");
         }
     }
 }
