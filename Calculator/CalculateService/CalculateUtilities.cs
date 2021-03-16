@@ -11,14 +11,18 @@
             else if (index == 0) element = '0' + element;
             else if(index > 0)
             {
+                int indexZero = index + 1;
                 bool check = false;
-                for(int i = index; i <= length; i++)
-                    if(element[i] != '0')
+                for(int i = index + 1; i <= length; i++)
+                {
+                    if (element[i] == '0')
                     {
+                        indexZero = i;
                         check = true;
-                        break;
                     }
-                if (check) element = element.Substring(0, index);
+                    else check = false;
+                }
+                if (check) element = element.Substring(0, indexZero);
             }
             return element;
         }

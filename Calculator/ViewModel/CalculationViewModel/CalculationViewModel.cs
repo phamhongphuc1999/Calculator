@@ -4,21 +4,17 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using static Calculator.Constance;
 
-namespace Calculator.ViewModel
+namespace Calculator.ViewModel.CalculationViewModel
 {
-    public class StandardViewModel : BaseViewModel
+    public class CalculationViewModel: BaseViewModel
     {
         public ICommand DisplayValueCommand { get; set; }
         public ICommand TransformSignCommand { get; set; }
-        public ICommand DeleteCommand { get; set; }
-        public ICommand BinaryCalculationCommand { get; set; }
         public ICommand UnaryCalculationCommand { get; set; }
-        public ICommand ResultCommand { get; set; }
+        public ICommand BinaryCalculationCommand { get; set; }
         public ICommand DecimalCommand { get; set; }
-        public ICommand CECommand { get; set; }
-        public ICommand CCommand { get; set; }
 
-        public string element1;
+        protected string element1;
         public string Element1
         {
             get { return element1; }
@@ -29,10 +25,10 @@ namespace Calculator.ViewModel
             }
         }
 
-        private string Element2;
-        private string CurrentFunction;
+        protected string Element2;
+        protected string CurrentFunction;
 
-        private string displayText;
+        protected string displayText;
         public string DisplayText
         {
             get { return displayText; }
@@ -43,12 +39,12 @@ namespace Calculator.ViewModel
             }
         }
 
-        private ButtonStyle previousStyle;
-        private bool isResult, isClear;
-        private NumberManager numberManager;
-        private DisplayManager displayManager;
+        protected ButtonStyle previousStyle;
+        protected bool isResult, isClear;
+        protected NumberManager numberManager;
+        protected DisplayManager displayManager;
 
-        public StandardViewModel()
+        public CalculationViewModel()
         {
             Element1 = "0";
             DisplayText = "";
@@ -60,16 +56,12 @@ namespace Calculator.ViewModel
 
             InitializeDisplayValueCommand();
             InitializeTransformSignCommand();
-            InitializeDeleteCommand();
-            InitializeBinaryCalculationCommand();
             InitializeUnaryCalculationCommand();
-            InitializeResultCommand();
+            InitializeBinaryCalculationCommand();
             InitializeDecimalCommand();
-            InitializeCECommand();
-            InitializeCCommand();
         }
 
-        private void InitializeDisplayValueCommand()
+        protected virtual void InitializeDisplayValueCommand()
         {
             DisplayValueCommand = new RelayCommand<Button>(
                 sender => { return true; }, sender =>
@@ -83,7 +75,7 @@ namespace Calculator.ViewModel
                         Element1 = number;
                         isClear = false;
                     }
-                    else if (!isResult)
+                    else if (!isResult || Element1 == "0")
                     {
                         if (Element1.Length > 0) Element2 = Element1;
                         Element1 = number;
@@ -93,7 +85,7 @@ namespace Calculator.ViewModel
                 });
         }
 
-        private void InitializeTransformSignCommand()
+        protected virtual void InitializeTransformSignCommand()
         {
             TransformSignCommand = new RelayCommand<Button>(
                 sender => { return true; }, sender =>
@@ -105,16 +97,22 @@ namespace Calculator.ViewModel
                 });
         }
 
-        private void InitializeDeleteCommand()
+        protected virtual void InitializeUnaryCalculationCommand()
         {
-            DeleteCommand = new RelayCommand<Button>(
+            UnaryCalculationCommand = new RelayCommand<Button>(
                 sender => { return true; }, sender =>
                 {
-
+                    string function = sender.Tag.ToString();
+                    previousStyle = ButtonStyle.UNARY;
+                    string result = numberManager.UnaryHandler(Element1, function);
+                    Element2 = Element1;
+                    Element1 = result;
+                    CurrentFunction = function;
+                    isResult = false;
                 });
         }
 
-        private void InitializeBinaryCalculationCommand()
+        protected virtual void InitializeBinaryCalculationCommand()
         {
             BinaryCalculationCommand = new RelayCommand<Button>(
                 sender => { return true; }, sender =>
@@ -140,58 +138,12 @@ namespace Calculator.ViewModel
                 });
         }
 
-        private void InitializeUnaryCalculationCommand()
-        {
-            UnaryCalculationCommand = new RelayCommand<Button>(
-                sender => { return true; }, sender =>
-                {
-                    string function = sender.Tag.ToString();
-                    previousStyle = ButtonStyle.UNARY;
-                    string result = numberManager.UnaryHandler(Element1, function);
-                    Element2 = Element1;
-                    Element1 = result;
-                    CurrentFunction = function;
-                    isResult = false;
-                });
-        }
-
-        private void InitializeResultCommand()
-        {
-            ResultCommand = new RelayCommand<Button>(
-                sender => { return true; }, sender =>
-                {
-                    DisplayText = displayManager.CalculationDisplay(Element1, Element2, CurrentFunction);
-                    string result = numberManager.BinaryHandler(Element1, Element2, CurrentFunction);
-                    Element2 = Element1;
-                    Element1 = result;
-                    isClear = true;
-                });
-        }
-
-        private void InitializeDecimalCommand()
+        protected virtual void InitializeDecimalCommand()
         {
             DecimalCommand = new RelayCommand<Button>(
                 sender => { return true; }, sender =>
                 {
                     if (Element1.IndexOf('.') < 0) Element1 += '.';
-                });
-        }
-
-        private void InitializeCECommand()
-        {
-            CECommand = new RelayCommand<Button>(
-                sender => { return true; }, sender =>
-                {
-
-                });
-        }
-
-        private void InitializeCCommand()
-        {
-            CCommand = new RelayCommand<Button>(
-                sender => { return true; }, sender =>
-                {
-
                 });
         }
     }

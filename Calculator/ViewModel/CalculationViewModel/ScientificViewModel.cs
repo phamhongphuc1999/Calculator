@@ -2,7 +2,7 @@
 using System.Windows.Controls;
 using System.Windows.Input;
 
-namespace Calculator.ViewModel
+namespace Calculator.ViewModel.CalculationViewModel
 {
     public class ScientificViewModel: BaseViewModel
     {

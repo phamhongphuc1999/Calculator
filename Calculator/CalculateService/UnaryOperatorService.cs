@@ -33,18 +33,13 @@ namespace Calculator.CalculateService
             else number = number.Remove(index, 1);
             int _index = index - n;
             if (_index > 0) number = number.Insert(_index, ".");
-            else if(_index < 0)
+            else if (_index <= 0)
             {
                 _index = -_index;
                 for (int i = 0; i < _index; i++) number = '0' + number;
                 number = "0." + number;
             }
             return CalculateUtilities.StandardizedDisplay(number);
-        }
-
-        public static string PercentNumber(string number)
-        {
-            return BinaryOperatorService.DivisionDecimal(number, "100", 20);
         }
 
         public static string InverseNumber(string number)
@@ -85,7 +80,7 @@ namespace Calculator.CalculateService
         {
             BigInteger element = BigInteger.Parse(number);
             if (element == 0) return "0";
-            if (element < 0) throw new ArithmeticException("NaN");
+            if (element < 0 && baseNumber % 2 == 0) throw new ArithmeticException("NaN");
             int bitLength = Convert.ToInt32(Math.Ceiling(BigInteger.Log(element, baseNumber)));
             BigInteger root = BigInteger.One << (bitLength / 2);
             while (!IsSqrtInteger(element, root, baseNumber))
@@ -93,6 +88,26 @@ namespace Calculator.CalculateService
                 root += element / root;
                 root /= 2;
             }
+            return root.ToString();
+        }
+
+        public static string SquareInteger(string number, int baseNumber, out string remainder)
+        {
+            BigInteger element = BigInteger.Parse(number);
+            if (element == 0)
+            {
+                remainder = "0";
+                return "0";
+            }
+            if (element < 0 && baseNumber % 2 == 0) throw new ArithmeticException("NaN");
+            int bitLength = Convert.ToInt32(Math.Ceiling(BigInteger.Log(element, baseNumber)));
+            BigInteger root = BigInteger.One << (bitLength / 2);
+            while (!IsSqrtInteger(element, root, baseNumber))
+            {
+                root += element / root;
+                root /= 2;
+            }
+            remainder = (element - root * root).ToString();
             return root.ToString();
         }
 
@@ -104,7 +119,7 @@ namespace Calculator.CalculateService
             if (need % baseNumber > 0) more = need * (temp + 1) - need;
             for (int i = 0; i < more; i++) _decimal += '0';
             string result = SquareInteger(_decimal, baseNumber);
-            return result.Insert(result.Length - temp, ".");
+            return Devision10(result, temp);
         }
     }
 }

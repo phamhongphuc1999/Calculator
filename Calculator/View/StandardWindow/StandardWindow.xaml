@@ -68,11 +68,11 @@
                                     Command="{Binding CCommand}" CommandParameter="{Binding ElementName=cButton}"/>
                             <Button x:Name="inverseButton" Tag="inverse" Content="1/x" Grid.Row="2" Grid.Column="0" Style="{StaticResource calculatorGrayButton}"
                                     Command="{Binding UnaryCalculationCommand}" CommandParameter="{Binding ElementName=inverseButton}"/>
-                            <Button x:Name="exponentialButton" Tag="exponential" Grid.Row="2" Grid.Column="2" Style="{StaticResource calculatorGrayButton}"
+                            <Button x:Name="exponentialButton" Tag="exponential2" Grid.Row="2" Grid.Column="2" Style="{StaticResource calculatorGrayButton}"
                                     Command="{Binding UnaryCalculationCommand}" CommandParameter="{Binding ElementName=exponentialButton}">
                                 <materialDesign:PackIcon Kind="FormatSuperscript" Width="30" Height="30" />
                             </Button>
-                            <Button x:Name="squareButton" Tag="square" Grid.Row="2" Grid.Column="4" Style="{StaticResource calculatorGrayButton}"
+                            <Button x:Name="squareButton" Tag="square2" Grid.Row="2" Grid.Column="4" Style="{StaticResource calculatorGrayButton}"
                                     Command="{Binding UnaryCalculationCommand}" CommandParameter="{Binding ElementName=squareButton}">
                                 <materialDesign:PackIcon Kind="SquareRoot" Width="30" Height="30" />
                             </Button>

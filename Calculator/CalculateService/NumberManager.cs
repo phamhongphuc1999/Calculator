@@ -26,19 +26,15 @@ namespace Calculator.CalculateService
         public string UnaryHandler(string element, string function)
         {
             element = CalculateUtilities.StandardizedDisplay(element);
-            switch (function)
-            {
-                case "percent":
-                    return UnaryOperatorService.PercentNumber(element);
-                case "inverse":
-                    return UnaryOperatorService.InverseNumber(element);
-                case "exponential":
-                    return UnaryOperatorService.ExponentialDecimal(element, 2);
-                case "square":
-                    return UnaryOperatorService.SquareDecimal(element, 2, 0);
-                default:
-                    throw new Exception();
-            }
+            if (function.Contains("precent"))
+                return UnaryOperatorService.Devision10(element, 2);
+            else if (function.Contains("inverse"))
+                return UnaryOperatorService.InverseNumber(element);
+            else if (function.Contains("exponential"))
+                return UnaryOperatorService.ExponentialDecimal(element, function[function.Length - 1] - '0');
+            else if (function.Contains("square"))
+                return UnaryOperatorService.SquareDecimal(element, function[function.Length - 1] - '0', 10);
+            else throw new Exception();
         }
     }
 }
