@@ -1,4 +1,6 @@
-﻿using Calculator.View;
+﻿using Calculator.CustomControl;
+using Calculator.Model;
+using Calculator.View;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -130,11 +132,16 @@ namespace Calculator.ViewModel
 
         private void InitializeLoadedWindowCommand()
         {
-            LoadedWindowCommand = new RelayCommand<Frame>(
+            LoadedWindowCommand = new RelayCommand<MainLoadedParameters>(
                 sender => { return true; }, sender =>
                 {
-                    mainContentFrame = sender;
-                    mainContentFrame.Content = router.Routing(1);
+                    if(sender != null)
+                    {
+                        mainContentFrame = sender.frame;
+                        mainContentFrame.Content = router.Routing(1);
+                        MainLeftSidebar leftSide = sender.leftSidebar;
+                        leftSide.mainLeftSidebar.SelectedIndex = 1;
+                    }
                 });
         }
 

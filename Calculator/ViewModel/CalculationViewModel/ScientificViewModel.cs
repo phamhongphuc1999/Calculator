@@ -4,7 +4,7 @@ using System.Windows.Input;
 
 namespace Calculator.ViewModel.CalculationViewModel
 {
-    public class ScientificViewModel: BaseViewModel
+    public class ScientificViewModel: CalculationViewModel
     {
         public ICommand MouseDownWindowCommand { get; set; }
         public ICommand TrigonometryButtonCommand { get; set; }
@@ -32,7 +32,7 @@ namespace Calculator.ViewModel.CalculationViewModel
             }
         }
 
-        public ScientificViewModel()
+        public ScientificViewModel(): base()
         {
             TrigonometryVisibility = Visibility.Hidden;
             FunctionVisibility = Visibility.Hidden;

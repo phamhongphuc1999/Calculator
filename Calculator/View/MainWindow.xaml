@@ -21,8 +21,14 @@
                 <i:InvokeCommandAction Command="{Binding MouseDownWindowCommand}" />
             </i:EventTrigger>
             <i:EventTrigger EventName="Loaded">
-                <i:InvokeCommandAction Command="{Binding LoadedWindowCommand}"
-                                       CommandParameter="{Binding ElementName=mainContentFrame}"/>
+                <i:InvokeCommandAction Command="{Binding LoadedWindowCommand}">
+                    <i:InvokeCommandAction.CommandParameter>
+                        <MultiBinding Converter="{StaticResource mainLoadedConverter}">
+                            <Binding ElementName="mainContentFrame" />
+                            <Binding ElementName="mainContentLeftSidebar" />
+                        </MultiBinding>
+                    </i:InvokeCommandAction.CommandParameter>
+                </i:InvokeCommandAction>
             </i:EventTrigger>
         </i:Interaction.Triggers>
         <Grid.Resources>
@@ -127,7 +133,7 @@
                     <RowDefinition />
                     <RowDefinition Height="auto" />
                 </Grid.RowDefinitions>
-                <customcontrol:MainLeftSidebar Grid.Row="0"
+                <customcontrol:MainLeftSidebar Grid.Row="0" x:Name="mainContentLeftSidebar"
                     PreviewMouseLeftButtonDownCommand="{Binding PreviewMouseLeftButtonDownCommand}" 
                     SelectionChangedCommand="{Binding SelectionChangedCommand}"/>
                 <StackPanel Orientation="Vertical" Grid.Row="1">

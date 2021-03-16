@@ -1,7 +1,10 @@
 ﻿namespace Calculator.ViewModel.ConvertViewModel
 {
-    class CurrencyViewModel: ConverterViewModel
+    public class CurrencyViewModel: ConverterViewModel
     {
+        public CurrencyViewModel(): base()
+        {
 
+        }
     }
 }
