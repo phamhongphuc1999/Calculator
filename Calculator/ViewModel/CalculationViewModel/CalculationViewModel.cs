@@ -13,6 +13,13 @@ namespace Calculator.ViewModel.CalculationViewModel
         public ICommand UnaryCalculationCommand { get; set; }
         public ICommand BinaryCalculationCommand { get; set; }
         public ICommand DecimalCommand { get; set; }
+        public ICommand DeleteCommand { get; set; }
+        public ICommand ResultCommand { get; set; }
+        public ICommand MCCommand { get; set; }
+        public ICommand MRCommand { get; set; }
+        public ICommand MPlusCommand { get; set; }
+        public ICommand MSubtractCommand { get; set; }
+        public ICommand MSCommand { get; set; }
 
         protected string element1;
         public string Element1
@@ -59,6 +66,13 @@ namespace Calculator.ViewModel.CalculationViewModel
             InitializeUnaryCalculationCommand();
             InitializeBinaryCalculationCommand();
             InitializeDecimalCommand();
+            InitializeDeleteCommand();
+            InitializeResultCommand();
+            InitializeMCCommand();
+            InitializeMRCommand();
+            InitializeMPlusCommand();
+            InitializeMSubtractCommand();
+            InitializeMSCommand();
         }
 
         protected virtual void InitializeDisplayValueCommand()
@@ -68,13 +82,14 @@ namespace Calculator.ViewModel.CalculationViewModel
                 {
                     string number = sender.Content.ToString();
                     previousStyle = ButtonStyle.NUMBER;
-                    if (isClear)
+                    if (isClear && CurrentFunction == "")
                     {
                         DisplayText = "";
                         if (Element1.Length > 0) Element2 = Element1;
                         Element1 = number;
                         isClear = false;
                     }
+                    else if (isClear) isClear = false;
                     else if (!isResult || Element1 == "0")
                     {
                         if (Element1.Length > 0) Element2 = Element1;
@@ -144,6 +159,75 @@ namespace Calculator.ViewModel.CalculationViewModel
                 sender => { return true; }, sender =>
                 {
                     if (Element1.IndexOf('.') < 0) Element1 += '.';
+                });
+        }
+
+        protected virtual void InitializeDeleteCommand()
+        {
+            DeleteCommand = new RelayCommand<Button>(
+                sender => { return true; }, sender =>
+                {
+
+                });
+        }
+
+        protected virtual void InitializeResultCommand()
+        {
+            ResultCommand = new RelayCommand<Button>(
+                sender => { return true; }, sender =>
+                {
+                    previousStyle = ButtonStyle.CALCULATION;
+                    DisplayText = displayManager.CalculationDisplay(Element1, Element2, CurrentFunction);
+                    string result = numberManager.BinaryHandler(Element1, Element2, CurrentFunction);
+                    CurrentFunction = "";
+                    Element2 = Element1;
+                    Element1 = result;
+                    isClear = true;
+                });
+        }
+
+        protected virtual void InitializeMCCommand()
+        {
+            MCCommand = new RelayCommand<Button>(
+                sender => { return true; }, sender =>
+                {
+
+                });
+        }
+
+        protected virtual void InitializeMRCommand()
+        {
+            MRCommand = new RelayCommand<Button>(
+                sender => { return true; }, sender =>
+                {
+
+                });
+        }
+
+        protected virtual void InitializeMPlusCommand()
+        {
+            MPlusCommand = new RelayCommand<Button>(
+                sender => { return true; }, sender =>
+                {
+
+                });
+        }
+
+        protected virtual void InitializeMSubtractCommand()
+        {
+            MSubtractCommand = new RelayCommand<Button>(
+                sender => { return true; }, sender =>
+                {
+
+                });
+        }
+
+        protected virtual void InitializeMSCommand()
+        {
+            MSCommand = new RelayCommand<Button>(
+                sender => { return true; }, sender =>
+                {
+
                 });
         }
     }

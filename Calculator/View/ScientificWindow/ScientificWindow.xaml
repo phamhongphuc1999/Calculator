@@ -52,7 +52,9 @@
                     <Button Style="{StaticResource transparentStandardButton}" Grid.Column="0" Content="DEG" />
                     <Button Style="{StaticResource transparentStandardButton}" Grid.Column="1" Content="F-E"></Button>
                 </Grid>
-                <CustomControl:MCalculator Grid.Row="1" />
+                <CustomControl:MCalculator Grid.Row="1" MCCommand="{Binding MCCommand}" MRCommand="{Binding MRCommand}"
+                                           MPlusCommand="{Binding MPlusCommand}" MSubtractCommand="{Binding MSubtractCommand}"
+                                           MSCommand="{Binding MSCommand}"/>
                 <Grid Grid.Row="2">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="auto"/>
@@ -61,8 +63,7 @@
                     <!--function-->
                     <WrapPanel Grid.Row="0">
                         <Button x:Name="trigonometryButton" Style="{StaticResource transparentStandardButton}" Margin="0 0 20 0"
-                                    Command="{Binding TrigonometryButtonCommand}"
-                                    CommandParameter="{Binding ElementName=trigonometryButton}">
+                                    Command="{Binding TrigonometryButtonCommand}" CommandParameter="{Binding ElementName=trigonometryButton}">
                             <StackPanel Orientation="Horizontal">
                                 <materialDesign:PackIcon Kind="AngleRight" />
                                 <TextBlock Text="{StaticResource Trigonometry}" />
@@ -70,8 +71,7 @@
                             </StackPanel>
                         </Button>
                         <Button x:Name="functionButton" Style="{StaticResource transparentStandardButton}" Margin="0 0 20 0"
-                                    Command="{Binding FunctionButtonCommand}"
-                                    CommandParameter="{Binding ElementName=functionButton}">
+                                    Command="{Binding FunctionButtonCommand}" CommandParameter="{Binding ElementName=functionButton}">
                             <StackPanel Orientation="Horizontal">
                                 <materialDesign:PackIcon Kind="Function" />
                                 <TextBlock Text="{StaticResource Function}" />
@@ -137,32 +137,23 @@
                                     <GridSplitter Grid.Column="5" Style="{StaticResource calculationColumnSplitter}" />
                                     <GridSplitter Grid.Row="1" Style="{StaticResource calculationRowSplitter}" />
                                     <GridSplitter Grid.Row="3" Style="{StaticResource calculationRowSplitter}" />
-                                    <Button Content="2^nd" Grid.Row="0" Grid.Column="0"
-                                    Style="{StaticResource calculatorGrayButton}"></Button>
-                                    <Button Content="П" Grid.Row="0" Grid.Column="2"
-                                    Style="{StaticResource calculatorGrayButton}"></Button>
-                                    <Button Content="e" Grid.Row="0" Grid.Column="4"
-                                    Style="{StaticResource calculatorGrayButton}"></Button>
-                                    <Button Content="CE" Grid.Row="0" Grid.Column="6"
-                                    Style="{StaticResource calculatorGrayButton}"></Button>
+                                    <Button Content="2^nd" Grid.Row="0" Grid.Column="0" Style="{StaticResource calculatorGrayButton}" />
+                                    <Button Content="П" Grid.Row="0" Grid.Column="2" Style="{StaticResource calculatorGrayButton}" />
+                                    <Button Content="e" Grid.Row="0" Grid.Column="4" Style="{StaticResource calculatorGrayButton}" />
+                                    <Button Content="C" Grid.Row="0" Grid.Column="6" Style="{StaticResource calculatorGrayButton}"
+                                            x:Name="cButton" Command="{Binding CCommand}" CommandParameter="{Binding ElementName=cButton}"/>
                                     <Button Grid.Row="2" Grid.Column="0" Style="{StaticResource calculatorGrayButton}">
                                         <materialDesign:PackIcon Kind="FormatSuperscript" Width="30" Height="30" />
                                     </Button>
-                                    <Button Content="1/x" Grid.Row="2" Grid.Column="2"
-                                    Style="{StaticResource calculatorGrayButton}"></Button>
-                                    <Button Content="|x|" Grid.Row="2" Grid.Column="4"
-                                    Style="{StaticResource calculatorGrayButton}"></Button>
-                                    <Button Content="exp" Grid.Row="2" Grid.Column="6"
-                                    Style="{StaticResource calculatorGrayButton}"></Button>
+                                    <Button Content="1/x" Grid.Row="2" Grid.Column="2" Style="{StaticResource calculatorGrayButton}" />
+                                    <Button Content="|x|" Grid.Row="2" Grid.Column="4" Style="{StaticResource calculatorGrayButton}" />
+                                    <Button Content="exp" Grid.Row="2" Grid.Column="6" Style="{StaticResource calculatorGrayButton}" />
                                     <Button Grid.Row="4" Grid.Column="0" Style="{StaticResource calculatorGrayButton}">
                                         <materialDesign:PackIcon Kind="SquareRoot" Width="30" Height="30" />
                                     </Button>
-                                    <Button Content="(" Grid.Row="4" Grid.Column="2"
-                                    Style="{StaticResource calculatorGrayButton}"></Button>
-                                    <Button Content=")" Grid.Row="4" Grid.Column="4"
-                                    Style="{StaticResource calculatorGrayButton}"></Button>
-                                    <Button Content="n!" Grid.Row="4" Grid.Column="6"
-                                    Style="{StaticResource calculatorGrayButton}"></Button>
+                                    <Button Content="(" Grid.Row="4" Grid.Column="2" Style="{StaticResource calculatorGrayButton}" />
+                                    <Button Content=")" Grid.Row="4" Grid.Column="4" Style="{StaticResource calculatorGrayButton}" />
+                                    <Button Content="n!" Grid.Row="4" Grid.Column="6" Style="{StaticResource calculatorGrayButton}" />
                                 </Grid>
                                 <Grid Grid.Row="2">
                                     <Grid.ColumnDefinitions>
@@ -187,9 +178,9 @@
                                         <Button Grid.Row="0" Style="{StaticResource calculatorGrayButton}">
                                             <materialDesign:PackIcon Kind="Exponent" />
                                         </Button>
-                                        <Button Content="10^x" Grid.Row="2" Style="{StaticResource calculatorGrayButton}"></Button>
-                                        <Button Content="log" Grid.Row="4" Style="{StaticResource calculatorGrayButton}"></Button>
-                                        <Button Content="ln" Grid.Row="6" Style="{StaticResource calculatorGrayButton}"></Button>
+                                        <Button Content="10^x" Grid.Row="2" Style="{StaticResource calculatorGrayButton}" />
+                                        <Button Content="log" Grid.Row="4" Style="{StaticResource calculatorGrayButton}" />
+                                        <Button Content="ln" Grid.Row="6" Style="{StaticResource calculatorGrayButton}" />
                                     </Grid>
                                     <CustomControl:CoreCalculator Grid.Column="3" />
                                 </Grid>
@@ -217,8 +208,8 @@
                                 <GridSplitter Grid.Row="9" Style="{StaticResource calculationRowSplitter}" />
                                 <GridSplitter Grid.Row="11" Style="{StaticResource calculationRowSplitter}" />
                                 <Button Grid.Row="0" Style="{StaticResource calculatorGrayButton}"
-                                Name="deleteButton" Command="{Binding DeleteCommand}"
-                                CommandParameter="{Binding ElementName=deleteButton}">
+                                    Name="deleteButton" Command="{Binding DeleteCommand}"
+                                    CommandParameter="{Binding ElementName=deleteButton}">
                                     <materialDesign:PackIcon Kind="ArrowLeftThick" />
                                 </Button>
                                 <Button Content="mod" Grid.Row="2" Style="{StaticResource calculatorGrayButton}"

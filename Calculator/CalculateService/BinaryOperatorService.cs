@@ -35,7 +35,6 @@ namespace Calculator.CalculateService
 
         public static string MutipilationInteger(string number1, string number2)
         {
-            if (number2 == "0") throw new DivideByZeroException();
             try
             {
                 BigInteger element1 = BigInteger.Parse(number1);
@@ -50,6 +49,7 @@ namespace Calculator.CalculateService
 
         public static string DivisionInteger(string number1, string number2)
         {
+            if (number2 == "0") throw new DivideByZeroException();
             try
             {
                 BigInteger element1 = BigInteger.Parse(number1);
@@ -125,6 +125,7 @@ namespace Calculator.CalculateService
 
         public static string MutipilationDecimal(string decimal1, string decimal2)
         {
+            if (decimal2 == "0") throw new DivideByZeroException();
             int need1 = CalculateUtilities.ConvertDecimal(ref decimal1);
             int need2 = CalculateUtilities.ConvertDecimal(ref decimal2);
             int need = need1 + need2;

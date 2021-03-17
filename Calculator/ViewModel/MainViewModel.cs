@@ -78,7 +78,6 @@ namespace Calculator.ViewModel
         public MainViewModel()
         {
             IsCheck = false;
-            SelectionWindow = "Standard";
             HistoryVisibility = Visibility.Visible;
             HistoryBorderThickness = new Thickness(0, 0, 0, 5);
             MemoryBorderThickness = new Thickness(0);
@@ -120,6 +119,7 @@ namespace Calculator.ViewModel
                     if (selected == null) return;
                     int index = sender.SelectedIndex;
                     SelectionWindow = (string)selected.Tag;
+                    Config.SECTION = index;
                     if (mainContentFrame != null) mainContentFrame.Content = router.Routing(index);
                 });
         }
@@ -138,9 +138,12 @@ namespace Calculator.ViewModel
                     if(sender != null)
                     {
                         mainContentFrame = sender.frame;
-                        mainContentFrame.Content = router.Routing(1);
+                        int section = Config.SECTION;
+                        mainContentFrame.Content = router.Routing(section);
                         MainLeftSidebar leftSide = sender.leftSidebar;
-                        leftSide.mainLeftSidebar.SelectedIndex = 1;
+                        leftSide.mainLeftSidebar.SelectedIndex = section;
+                        ListViewItem selected = leftSide.mainLeftSidebar.SelectedItem as ListViewItem;
+                        SelectionWindow = (string)selected.Tag;
                     }
                 });
         }

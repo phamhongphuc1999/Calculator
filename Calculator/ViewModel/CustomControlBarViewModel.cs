@@ -50,7 +50,11 @@ namespace Calculator.ViewModel
                 {
                     FrameworkElement parent = GetRootParent(sender);
                     Window rootWindow = parent as Window;
-                    if (rootWindow != null) rootWindow.Close();
+                    if (rootWindow != null)
+                    {
+                        App.storageManager.SaveConfiguration();
+                        rootWindow.Close();
+                    }
                 });
         }
 

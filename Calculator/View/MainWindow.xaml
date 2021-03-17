@@ -115,12 +115,10 @@
                     <StackPanel Orientation="Horizontal" Grid.Column="1">
                         <Button x:Name="historyButton" Content="{StaticResource History}" Visibility="{Binding HistoryVisibility}"
                                 BorderThickness="{Binding HistoryBorderThickness}" Style="{StaticResource transparentBorderBut}"
-                                Command="{Binding HistoryCommand}"
-                                CommandParameter="{Binding ElementName=historyButton}"/>
+                                Command="{Binding HistoryCommand}" CommandParameter="{Binding ElementName=historyButton}"/>
                         <Button x:Name="memoryButton" Content="{StaticResource Memory}" Visibility="{Binding HistoryVisibility}"
                                 BorderThickness="{Binding MemoryBorderThickness}" Style="{StaticResource transparentBorderBut}"
-                                Command="{Binding HistoryCommand}"
-                                CommandParameter="{Binding ElementName=memoryButton}"/>
+                                Command="{Binding HistoryCommand}" CommandParameter="{Binding ElementName=memoryButton}"/>
                         <TextBlock />
                     </StackPanel>
                 </Grid>
@@ -139,16 +137,14 @@
                 <StackPanel Orientation="Vertical" Grid.Row="1">
                     <GridSplitter Style="{StaticResource calculationRowSplitter}" Width="165" Background="White" />
                     <Button x:Name="settingButton" Style="{StaticResource transparentStandardButton}"
-                    Command="{Binding SettingCommand}"
-                    CommandParameter="{Binding ElementName=settingButton}">
+                    Command="{Binding SettingCommand}" CommandParameter="{Binding ElementName=settingButton}">
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Width="165">
                             <materialDesign:PackIcon Margin="15 0 15 0" Kind="CogOutline" />
                             <TextBlock Text="{StaticResource Setting}" />
                         </StackPanel>
                     </Button>
                     <Button x:Name="aboutButton" Style="{StaticResource transparentStandardButton}"
-                    Command="{Binding AboutCommand}"
-                    CommandParameter="{Binding ElementName=aboutButton}">
+                    Command="{Binding AboutCommand}" CommandParameter="{Binding ElementName=aboutButton}">
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Width="165">
                             <materialDesign:PackIcon Margin="15 0 15 0" Kind="InformationOutline" />
                             <TextBlock Text="{StaticResource About}" />

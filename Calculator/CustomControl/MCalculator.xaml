@@ -15,10 +15,15 @@
             <ColumnDefinition />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <Button IsEnabled="False" Style="{StaticResource transparentStandardButton}" Grid.Column="0" Content="MC" />
-        <Button IsEnabled="False" Style="{StaticResource transparentStandardButton}" Grid.Column="1" Content="MR" />
-        <Button Grid.Column="2" Style="{StaticResource transparentStandardButton}" Content="M+" />
-        <Button Grid.Column="3" Style="{StaticResource transparentStandardButton}" Content="M-" />
-        <Button Style="{StaticResource transparentStandardButton}" Grid.Column="4" Content="MS" />
+        <Button IsEnabled="False" Style="{StaticResource transparentStandardButton}" Grid.Column="0" Content="MC"
+                x:Name="MCButton" Command="{Binding MCCommand}" CommandParameter="{Binding ElementName=MCButton}"/>
+        <Button IsEnabled="False" Style="{StaticResource transparentStandardButton}" Grid.Column="1" Content="MR"
+                x:Name="MRButton" Command="{Binding MRCommand}" CommandParameter="{Binding ElementName=MRButton}"/>
+        <Button Grid.Column="2" Style="{StaticResource transparentStandardButton}" Content="M+"
+                x:Name="MPlusButton" Command="{Binding MPlusCommand}" CommandParameter="{Binding ElementName=MPlusButton}"/>
+        <Button Grid.Column="3" Style="{StaticResource transparentStandardButton}" Content="M-"
+                x:Name="MSubtractButton" Command="{Binding MSubtractCommand}" CommandParameter="{Binding ElementName=MSubtractButton}"/>
+        <Button Style="{StaticResource transparentStandardButton}" Grid.Column="4" Content="MS"
+                x:Name="MSButton" Command="{Binding MSCommand}" CommandParameter="{Binding ElementName=MSButton}"/>
     </Grid>
 </UserControl>

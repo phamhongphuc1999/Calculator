@@ -21,8 +21,7 @@
             </Grid.RowDefinitions>
             <TextBlock x:Name="SaveTextBlock" Grid.Row="0" Style="{StaticResource calculatorTextBlock}"
                        Text="{Binding CalculationText}" />
-            <TextBox x:Name="textBox" Grid.Row="1" Text="{Binding ElementText}"
-                      Style="{StaticResource calculatorTextBox}"/>
+            <TextBox x:Name="textBox" Grid.Row="1" Text="{Binding ElementText}" Style="{StaticResource calculatorTextBox}"/>
             <Grid Grid.Row="2">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto" />
@@ -51,8 +50,7 @@
                     </Grid.RowDefinitions>
                     <WrapPanel Grid.Row="0">
                         <Button x:Name="trigonometryButton" Style="{StaticResource transparentStandardButton}" Margin="0 0 20 0"
-                                    Command="{Binding TrigonometryButtonCommand}"
-                                    CommandParameter="{Binding ElementName=trigonometryButton}">
+                                    Command="{Binding TrigonometryButtonCommand}" CommandParameter="{Binding ElementName=trigonometryButton}">
                             <StackPanel Orientation="Horizontal">
                                 <materialDesign:PackIcon Kind="AngleRight" />
                                 <TextBlock Text="{StaticResource Trigonometry}" />
@@ -60,8 +58,7 @@
                             </StackPanel>
                         </Button>
                         <Button x:Name="functionButton" Style="{StaticResource transparentStandardButton}" Margin="0 0 20 0"
-                                    Command="{Binding FunctionButtonCommand}"
-                                    CommandParameter="{Binding ElementName=functionButton}">
+                                    Command="{Binding FunctionButtonCommand}" CommandParameter="{Binding ElementName=functionButton}">
                             <StackPanel Orientation="Horizontal">
                                 <materialDesign:PackIcon Kind="Function" />
                                 <TextBlock Text="{StaticResource Function}" />
@@ -130,7 +127,8 @@
                                 <GridSplitter Grid.Column="3" Style="{StaticResource calculationColumnSplitter}" />
                                 <Button Content="«" Grid.Row="0" Grid.Column="0" Style="{StaticResource calculatorGrayButton}"></Button>
                                 <Button Content="»" Grid.Row="0" Grid.Column="2" Style="{StaticResource calculatorGrayButton}"></Button>
-                                <Button Content="C" Grid.Row="0" Grid.Column="4" Style="{StaticResource calculatorGrayButton}"></Button>
+                                <Button Content="C" Grid.Row="0" Grid.Column="4" Style="{StaticResource calculatorGrayButton}" 
+                                        x:Name="cButton" Command="{Binding CCommand}" CommandParameter="{Binding ElementName=cButton}"/>
                                 <Button Content="(" Grid.Row="2" Grid.Column="0" Style="{StaticResource calculatorGrayButton}"></Button>
                                 <Button Content=")" Grid.Row="2" Grid.Column="2" Style="{StaticResource calculatorGrayButton}"></Button>
                                 <Button Content="%" Grid.Row="2" Grid.Column="4" Style="{StaticResource calculatorGrayButton}"></Button>

@@ -29,7 +29,9 @@
                     <RowDefinition Height="auto" />
                     <RowDefinition />
                 </Grid.RowDefinitions>
-                <CustomControl:MCalculator Grid.Row="0" />
+                <CustomControl:MCalculator Grid.Row="0" MCCommand="{Binding MCCommand}" MRCommand="{Binding MRCommand}"
+                                           MPlusCommand="{Binding MPlusCommand}" MSubtractCommand="{Binding MSubtractCommand}"
+                                           MSCommand="{Binding MSCommand}"/>
                 <Grid Grid.Row="1">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="3*" />

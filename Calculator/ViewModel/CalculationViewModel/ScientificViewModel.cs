@@ -9,6 +9,7 @@ namespace Calculator.ViewModel.CalculationViewModel
         public ICommand MouseDownWindowCommand { get; set; }
         public ICommand TrigonometryButtonCommand { get; set; }
         public ICommand FunctionButtonCommand { get; set; }
+        public ICommand CCommand { get; set; }
 
         private Visibility trigonometryVisibility;
         public Visibility TrigonometryVisibility
@@ -40,6 +41,7 @@ namespace Calculator.ViewModel.CalculationViewModel
             InitializeMouseDownWindowCommand();
             InitializeTrigonometryButtonCommand();
             InitializeFunctionButtonCommand();
+            InitializeCCommand();
         }
 
         private void InitializeMouseDownWindowCommand()
@@ -69,6 +71,15 @@ namespace Calculator.ViewModel.CalculationViewModel
                 {
                     if (FunctionVisibility == Visibility.Visible) FunctionVisibility = Visibility.Hidden;
                     else FunctionVisibility = Visibility.Visible;
+                });
+        }
+
+        private void InitializeCCommand()
+        {
+            CCommand = new RelayCommand<Button>(
+                sender => { return true; }, sender =>
+                {
+
                 });
         }
     }

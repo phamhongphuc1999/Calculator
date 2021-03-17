@@ -48,9 +48,11 @@ namespace Calculator
             UNARY,
             BINARY,
             NUMBER,
+            CALCULATION,
             NONE
         }
 
         public const string GITHUB_LINK = "https://github.com/phamhongphuc1999/Calculator";
+        public const string CONFIG_URL = "../../../Calculator/Resources/Config.json";
     }
 }
