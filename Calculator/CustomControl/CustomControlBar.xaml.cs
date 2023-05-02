@@ -3,18 +3,18 @@ using System.Windows.Controls;
 
 namespace Calculator.CustomControl
 {
-    /// <summary>
-    /// Interaction logic for CustomControlBar.xaml
-    /// </summary>
-    public partial class CustomControlBar : UserControl
-    {
-        private CustomControlBarViewModel customControlBarViewModel;
+  /// <summary>
+  /// Interaction logic for CustomControlBar.xaml
+  /// </summary>
+  public partial class CustomControlBar : UserControl
+  {
+    private CustomControlBarViewModel customControlBarViewModel;
 
-        public CustomControlBar()
-        {
-            InitializeComponent();
-            customControlBarViewModel = new CustomControlBarViewModel();
-            this.DataContext = customControlBarViewModel;
-        }
+    public CustomControlBar()
+    {
+      InitializeComponent();
+      customControlBarViewModel = new CustomControlBarViewModel();
+      this.DataContext = customControlBarViewModel;
     }
+  }
 }

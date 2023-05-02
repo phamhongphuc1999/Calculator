@@ -2,14 +2,14 @@
 
 namespace Calculator.View.ProgrammerWindow
 {
-    /// <summary>
-    /// Interaction logic for ProgrammerWindow.xaml
-    /// </summary>
-    public partial class ProgrammerWindow : UserControl
+  /// <summary>
+  /// Interaction logic for ProgrammerWindow.xaml
+  /// </summary>
+  public partial class ProgrammerWindow : UserControl
+  {
+    public ProgrammerWindow()
     {
-        public ProgrammerWindow()
-        {
-            InitializeComponent();
-        }
+      InitializeComponent();
     }
+  }
 }

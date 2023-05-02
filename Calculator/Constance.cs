@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace Calculator
 {
-    public static class Constance
-    {
-        public static readonly List<LeftSideBarItem> LEFT_ITEM = new List<LeftSideBarItem>
+  public static class Constance
+  {
+    public static readonly List<LeftSideBarItem> LEFT_ITEM = new List<LeftSideBarItem>
         {
             new LeftSideBarItem{ItemIcon = "", ItemTitle = "Calculator", Visibility = false},
             new LeftSideBarItem{ItemIcon = "Calculator", ItemTitle = "Standard", Visibility = true},
@@ -29,7 +29,7 @@ namespace Calculator
             new LeftSideBarItem{ItemIcon = "AngleAcute", ItemTitle = "Angle", Visibility = true}
         };
 
-        public static readonly Dictionary<string, char> BASIC_FUNCTIONS = new Dictionary<string, char>
+    public static readonly Dictionary<string, char> BASIC_FUNCTIONS = new Dictionary<string, char>
         {
             { "devision", '÷' },
             {"mutipilation", 'x' },
@@ -38,21 +38,21 @@ namespace Calculator
             {"calculation", '=' }
         };
 
-        public static readonly string[] LENGTH = new string[]
-        {
+    public static readonly string[] LENGTH = new string[]
+    {
             "Nanometers", "Microns", "Milimeters", "Centimeters", "Meters", "Kilometers", "Inches", "Feet", "Yards", "Miles", "Nautical Miles"
-        };
+    };
 
-        public enum ButtonStyle
-        {
-            UNARY,
-            BINARY,
-            NUMBER,
-            CALCULATION,
-            NONE
-        }
-
-        public const string GITHUB_LINK = "https://github.com/phamhongphuc1999/Calculator";
-        public const string CONFIG_URL = "../../../Calculator/Resources/Config.json";
+    public enum ButtonStyle
+    {
+      UNARY,
+      BINARY,
+      NUMBER,
+      CALCULATION,
+      NONE
     }
+
+    public const string GITHUB_LINK = "https://github.com/phamhongphuc1999/Calculator";
+    public const string CONFIG_URL = "../../../Calculator/Resources/Config.json";
+  }
 }

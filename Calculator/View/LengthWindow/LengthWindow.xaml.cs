@@ -15,14 +15,14 @@ using System.Windows.Shapes;
 
 namespace Calculator.View.LengthWindow
 {
-    /// <summary>
-    /// Interaction logic for LengthWindow.xaml
-    /// </summary>
-    public partial class LengthWindow : UserControl
+  /// <summary>
+  /// Interaction logic for LengthWindow.xaml
+  /// </summary>
+  public partial class LengthWindow : UserControl
+  {
+    public LengthWindow()
     {
-        public LengthWindow()
-        {
-            InitializeComponent();
-        }
+      InitializeComponent();
     }
+  }
 }

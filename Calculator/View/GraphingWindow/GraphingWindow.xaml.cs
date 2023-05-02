@@ -2,14 +2,14 @@
 
 namespace Calculator.View.GraphingWindow
 {
-    /// <summary>
-    /// Interaction logic for GraphingWindow.xaml
-    /// </summary>
-    public partial class GraphingWindow : UserControl
+  /// <summary>
+  /// Interaction logic for GraphingWindow.xaml
+  /// </summary>
+  public partial class GraphingWindow : UserControl
+  {
+    public GraphingWindow()
     {
-        public GraphingWindow()
-        {
-            InitializeComponent();
-        }
+      InitializeComponent();
     }
+  }
 }

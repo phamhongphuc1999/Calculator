@@ -2,14 +2,14 @@
 
 namespace Calculator.View.CurrencyWindow
 {
-    /// <summary>
-    /// Interaction logic for CurrencyWindow.xaml
-    /// </summary>
-    public partial class CurrencyWindow : UserControl
+  /// <summary>
+  /// Interaction logic for CurrencyWindow.xaml
+  /// </summary>
+  public partial class CurrencyWindow : UserControl
+  {
+    public CurrencyWindow()
     {
-        public CurrencyWindow()
-        {
-            InitializeComponent();
-        }
+      InitializeComponent();
     }
+  }
 }

@@ -2,14 +2,14 @@
 
 namespace Calculator.View.ScientificWindow
 {
-    /// <summary>
-    /// Interaction logic for ScientificWindow.xaml
-    /// </summary>
-    public partial class ScientificWindow : UserControl
+  /// <summary>
+  /// Interaction logic for ScientificWindow.xaml
+  /// </summary>
+  public partial class ScientificWindow : UserControl
+  {
+    public ScientificWindow()
     {
-        public ScientificWindow()
-        {
-            InitializeComponent();
-        }
+      InitializeComponent();
     }
+  }
 }

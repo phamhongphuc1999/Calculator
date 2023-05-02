@@ -4,83 +4,83 @@ using System.Windows.Input;
 
 namespace Calculator.ViewModel.CalculationViewModel
 {
-    public class ScientificViewModel: CalculationViewModel
+  public class ScientificViewModel : CalculationViewModel
+  {
+    public ICommand MouseDownWindowCommand { get; set; }
+    public ICommand TrigonometryButtonCommand { get; set; }
+    public ICommand FunctionButtonCommand { get; set; }
+    public ICommand CCommand { get; set; }
+
+    private Visibility trigonometryVisibility;
+    public Visibility TrigonometryVisibility
     {
-        public ICommand MouseDownWindowCommand { get; set; }
-        public ICommand TrigonometryButtonCommand { get; set; }
-        public ICommand FunctionButtonCommand { get; set; }
-        public ICommand CCommand { get; set; }
+      get { return trigonometryVisibility; }
+      set
+      {
+        trigonometryVisibility = value;
+        OnPropertyChanged();
+      }
+    }
 
-        private Visibility trigonometryVisibility;
-        public Visibility TrigonometryVisibility
-        {
-            get { return trigonometryVisibility; }
-            set
-            {
-                trigonometryVisibility = value;
-                OnPropertyChanged();
-            }
-        }
+    private Visibility functionVisibility;
+    public Visibility FunctionVisibility
+    {
+      get { return functionVisibility; }
+      set
+      {
+        functionVisibility = value;
+        OnPropertyChanged();
+      }
+    }
 
-        private Visibility functionVisibility;
-        public Visibility FunctionVisibility
-        {
-            get { return functionVisibility; }
-            set
-            {
-                functionVisibility = value;
-                OnPropertyChanged();
-            }
-        }
+    public ScientificViewModel() : base()
+    {
+      TrigonometryVisibility = Visibility.Hidden;
+      FunctionVisibility = Visibility.Hidden;
 
-        public ScientificViewModel(): base()
-        {
+      InitializeMouseDownWindowCommand();
+      InitializeTrigonometryButtonCommand();
+      InitializeFunctionButtonCommand();
+      InitializeCCommand();
+    }
+
+    private void InitializeMouseDownWindowCommand()
+    {
+      MouseDownWindowCommand = new RelayCommand<object>(
+          sender => { return true; }, sender =>
+          {
             TrigonometryVisibility = Visibility.Hidden;
             FunctionVisibility = Visibility.Hidden;
-
-            InitializeMouseDownWindowCommand();
-            InitializeTrigonometryButtonCommand();
-            InitializeFunctionButtonCommand();
-            InitializeCCommand();
-        }
-
-        private void InitializeMouseDownWindowCommand()
-        {
-            MouseDownWindowCommand = new RelayCommand<object>(
-                sender => { return true; }, sender =>
-                {
-                    TrigonometryVisibility = Visibility.Hidden;
-                    FunctionVisibility = Visibility.Hidden;
-                });
-        }
-
-        private void InitializeTrigonometryButtonCommand()
-        {
-            TrigonometryButtonCommand = new RelayCommand<Button>(
-                sender => { return true; }, sender =>
-                {
-                    if (TrigonometryVisibility == Visibility.Visible) TrigonometryVisibility = Visibility.Hidden;
-                    else TrigonometryVisibility = Visibility.Visible;
-                });
-        }
-
-        private void InitializeFunctionButtonCommand()
-        {
-            FunctionButtonCommand = new RelayCommand<Button>(
-                sender => { return true; }, sender =>
-                {
-                    if (FunctionVisibility == Visibility.Visible) FunctionVisibility = Visibility.Hidden;
-                    else FunctionVisibility = Visibility.Visible;
-                });
-        }
-
-        private void InitializeCCommand()
-        {
-            CCommand = new RelayCommand<Button>(
-                sender => { return true; }, sender =>
-                {
-
-                });
-        }
+          });
     }
+
+    private void InitializeTrigonometryButtonCommand()
+    {
+      TrigonometryButtonCommand = new RelayCommand<Button>(
+          sender => { return true; }, sender =>
+          {
+            if (TrigonometryVisibility == Visibility.Visible) TrigonometryVisibility = Visibility.Hidden;
+            else TrigonometryVisibility = Visibility.Visible;
+          });
+    }
+
+    private void InitializeFunctionButtonCommand()
+    {
+      FunctionButtonCommand = new RelayCommand<Button>(
+          sender => { return true; }, sender =>
+          {
+            if (FunctionVisibility == Visibility.Visible) FunctionVisibility = Visibility.Hidden;
+            else FunctionVisibility = Visibility.Visible;
+          });
+    }
+
+    private void InitializeCCommand()
+    {
+      CCommand = new RelayCommand<Button>(
+          sender => { return true; }, sender =>
+          {
+
+          });
+    }
+  }
 }

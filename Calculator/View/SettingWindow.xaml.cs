@@ -14,14 +14,14 @@ using System.Windows.Shapes;
 
 namespace Calculator.View
 {
-    /// <summary>
-    /// Interaction logic for SettingWindow.xaml
-    /// </summary>
-    public partial class SettingWindow : Window
+  /// <summary>
+  /// Interaction logic for SettingWindow.xaml
+  /// </summary>
+  public partial class SettingWindow : Window
+  {
+    public SettingWindow()
     {
-        public SettingWindow()
-        {
-            InitializeComponent();
-        }
+      InitializeComponent();
     }
+  }
 }

@@ -1,7 +1,7 @@
 ﻿namespace Calculator.ViewModel
 {
-    public class GraphingViewModel: BaseViewModel
-    {
+  public class GraphingViewModel : BaseViewModel
+  {
 
-    }
+  }
 }
